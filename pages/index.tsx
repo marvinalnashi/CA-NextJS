@@ -43,6 +43,7 @@ export default function Index({ cmsData }: IndexProps) {
   return (
     <>
 
+    <div className={"wip-body"}>
       <div className="wrapper">
         <h1>Coming soon<span className="dot">.</span></h1>
         <p>This website is under construction...</p>
@@ -52,6 +53,7 @@ export default function Index({ cmsData }: IndexProps) {
           <a href=""><i className="fa fa-paper-plane"></i></a>
         </div>
       </div>
+    </div>
       {/*<SEO {...{ settings, seoImage }} />*/}
       {/*<StickyNavContainer*/}
       {/*  throttle={300}*/}
