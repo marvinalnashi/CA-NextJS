@@ -6,8 +6,6 @@ import { PostView } from '@components/PostView'
 import { HeaderIndex } from '@components/HeaderIndex'
 import { StickyNavContainer } from '@effects/StickyNavContainer'
 import { SEO } from '@meta/seo'
-import React from 'react';
-import Script from 'next/script'
 
 import { processEnv } from '@lib/processEnv'
 import { getAllPosts, getAllSettings, GhostPostOrPage, GhostPostsOrPages, GhostSettings } from '@lib/ghost'
@@ -44,94 +42,16 @@ export default function Index({ cmsData }: IndexProps) {
 
   return (
     <>
-
-      <div>
-        {/* PRELOADER */}
-        <div className="preloader">
-          {/* SPINNER */}
-          <div className="spinner">
-            <div className="bounce-1"></div>
-            <div className="bounce-2"></div>
-            <div className="bounce-3"></div>
-          </div>
-          {/* /SPINNER */}
-        </div>
-        {/* /PRELOADER */}
-
-        {/* HERO */}
-        <div className="hero">
-          {/* FRONT CONTENT */}
-          <div className="front-content">
-            {/* CONTAINER MID */}
-            <div className="container-mid">
-              {/* ANIMATION CONTAINER */}
-              <div className="animation-container animation-fade-down" data-animation-delay="0">
-                <img className="img-responsive logo" src="public/ghost-icon.png" alt="image" />
-              </div>
-              {/* /ANIMATION CONTAINER */}
-              {/* ANIMATION CONTAINER */}
-              <div className="animation-container animation-fade-right" data-animation-delay="300">
-                <h1>Coming Soon</h1>
-              </div>
-              {/* /ANIMATION CONTAINER */}
-              {/* ANIMATION CONTAINER */}
-              <div className="animation-container animation-fade-left" data-animation-delay="600">
-                <p className="subline">This website is under construction...</p>
-              </div>
-              {/* /ANIMATION CONTAINER */}
-              {/* ANIMATION CONTAINER */}
-              <div className="animation-container animation-fade-up" data-animation-delay="900">
-                <div className="open-popup">Notify Me</div>
-              </div>
-              {/* /ANIMATION CONTAINER */}
-            </div>
-            {/* /CONTAINER MID */}
-            {/* FOOTER */}
-            <div className="footer">
-              {/* ANIMATION CONTAINER */}
-              <div className="animation-container animation-fade-up" data-animation-delay="1200">
-                <p>© 2017 Your Brand | Design by <a href="https://templatefoundation.com">Template Foundation</a></p>
-              </div>
-              {/* /ANIMATION CONTAINER */}
-            </div>
-            {/* /FOOTER */}
-          </div>
-          {/* /FRONT CONTENT */}
-          {/* BACKGROUND CONTENT */}
-          <div className="background-content parallax-on">
-            <div className="background-overlay"></div>
-            <div className="background-img layer" data-depth="0.05"></div>
-          </div>
-          {/* /BACKGROUND CONTENT */}
-        </div>
-        {/* /HERO */}
-        {/* POPUP ( SUBSCRIBE ) */}
-        <div className="popup">
-          {/* CARD */}
-          <div className="card">
-            {/* CARD CLOSE BUTTON */}
-            <div className="close-popup close-button"></div>
-            <i className="fa fa-envelope-o" aria-hidden="true"></i>
-            <h3>Sign Up</h3>
-            <p className="subline">Signing up to our newsletter gives you exclusive access to our Website Launch!</p>
-          </div>
-          {/* /CARD */}
-        </div>
-        {/* /POPUP ( SUBSCRIBE ) */}
-        <Script src="wip-main.js"></Script>
-        <Script src="wip-plugins.js"></Script>
-      </div>
-
-      {/*<SEO {...{ settings, seoImage }} />*/}
-      {/*<StickyNavContainer*/}
-      {/*  throttle={300}*/}
-      {/*  activeClass="fixed-nav-active"*/}
-      {/*  render={(sticky) => (*/}
-      {/*    <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HeaderIndex {...{ settings }} />}>*/}
-      {/*      <PostView {...{ settings, posts, isHome: true }} />*/}
-      {/*    </Layout>*/}
-      {/*  )}*/}
-      {/*/>*/}
+      <SEO {...{ settings, seoImage }} />
+      <StickyNavContainer
+        throttle={300}
+        activeClass="fixed-nav-active"
+        render={(sticky) => (
+          <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HeaderIndex {...{ settings }} />}>
+            {/*<PostView {...{ settings, posts, isHome: true }} />*/}
+          </Layout>
+        )}
+      />
     </>
   )
 }
