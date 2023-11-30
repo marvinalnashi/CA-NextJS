@@ -12,6 +12,8 @@ import '@styles/screen-fixings.css'
 import '@styles/dark-mode.css'
 import '@styles/prism.css'
 import '@styles/toc.css'
+import '@styles/wip-main.css'
+import '@styles/wip-plugins.css'
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
