@@ -42,26 +42,16 @@ export default function Index({ cmsData }: IndexProps) {
 
   return (
     <>
-
-      <div className="wrapper">
-        <h1>Coming soon<span className="dot">.</span></h1>
-        <p>This website is under construction...</p>
-        <div className="icons">
-          <a href=""><i className="fa fa-twitter"></i></a>
-          <a href=""><i className="fa fa-youtube-play"></i></a>
-          <a href=""><i className="fa fa-paper-plane"></i></a>
-        </div>
-      </div>
-      {/*<SEO {...{ settings, seoImage }} />*/}
-      {/*<StickyNavContainer*/}
-      {/*  throttle={300}*/}
-      {/*  activeClass="fixed-nav-active"*/}
-      {/*  render={(sticky) => (*/}
-      {/*    <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HeaderIndex {...{ settings }} />}>*/}
-      {/*      <PostView {...{ settings, posts, isHome: true }} />*/}
-      {/*    </Layout>*/}
-      {/*  )}*/}
-      {/*/>*/}
+      <SEO {...{ settings, seoImage }} />
+      <StickyNavContainer
+        throttle={300}
+        activeClass="fixed-nav-active"
+        render={(sticky) => (
+          <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HeaderIndex {...{ settings }} />}>
+            {/*<PostView {...{ settings, posts, isHome: true }} />*/}
+          </Layout>
+        )}
+      />
     </>
   )
 }
