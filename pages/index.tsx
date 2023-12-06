@@ -42,16 +42,16 @@ export default function Index({ cmsData }: IndexProps) {
 
   return (
     <>
-      {/*<SEO {...{ settings, seoImage }} />*/}
-      {/*<StickyNavContainer*/}
-      {/*  throttle={300}*/}
-      {/*  activeClass="fixed-nav-active"*/}
-      {/*  render={(sticky) => (*/}
-      {/*    <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HeaderIndex {...{ settings }} />}>*/}
-      {/*      <PostView {...{ settings, posts, isHome: true }} />*/}
-      {/*    </Layout>*/}
-      {/*  )}*/}
-      {/*/>*/}
+      <SEO {...{ settings, seoImage }} />
+      <StickyNavContainer
+        throttle={300}
+        activeClass="fixed-nav-active"
+        render={(sticky) => (
+          <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HeaderIndex {...{ settings }} />}>
+            <PostView {...{ settings, posts, isHome: true }} />
+          </Layout>
+        )}
+      />
     </>
   )
 }
