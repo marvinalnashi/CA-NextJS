@@ -13,7 +13,6 @@ import '@styles/dark-mode.css'
 import '@styles/prism.css'
 import '@styles/toc.css'
 import '@styles/portfolio.css'
-import '@styles/wip.css'
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
