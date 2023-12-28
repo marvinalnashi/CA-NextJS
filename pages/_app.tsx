@@ -7,17 +7,24 @@ import { ThemeProvider } from '@components/contexts/themeProvider'
 import { processEnv } from '@lib/processEnv'
 import * as gtag from '../lib/gtag'
 
+import Aos from 'aos';
+import dynamic from 'next/dynamic'
+import ContextProvider from '../Context/ContextProvider';
+
 import '@styles/screen.css'
 import '@styles/screen-fixings.css'
 import '@styles/dark-mode.css'
 import '@styles/prism.css'
 import '@styles/toc.css'
-import '@styles/portfolio.css'
+import '@styles/index.scss'
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   useEffect(() => {
+    Aos.init({
+      duration: 1200,
+    })
     const handleRouteChange = (url: string) => {
       gtag.pageview(url)
     }

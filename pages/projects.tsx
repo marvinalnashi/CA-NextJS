@@ -1,15 +1,12 @@
-// pages/projects.tsx
-import React from 'react';
-import Portfolio from '@components/Portfolio';
+import React from "react";
+import Wrapper from "../layout/wrapper";
+import Preview from "./preview";
 
 const ProjectsPage = () => {
   return (
-    <>
-      <div>
-        <h1>Projects</h1>
-        <Portfolio />
-      </div>
-    </>
+    <Wrapper>
+      <Preview />
+    </Wrapper>
   );
 };
 
