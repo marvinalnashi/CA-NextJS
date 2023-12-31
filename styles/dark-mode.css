@@ -22,7 +22,7 @@ html.casper body.dark .post-feed {
 
 html.casper body.dark .post-card,
 html.casper body.dark .post-card:hover {
-  border-bottom-color: color-mod(var(--darkmode) l(+8%));
+  border-bottom-color: rgb(45, 49, 57);
 }
 
 html.casper body.dark .author-profile-image {
@@ -46,12 +46,12 @@ html.casper body.dark .post-card-title {
 }
 
 html.casper body.dark .post-card-excerpt {
-  color: color-mod(var(--midgrey) l(+10%));
+  color: rgb(146, 163, 171);
 }
 
 html.casper body.dark .author-avatar,
 html.casper body.dark .static-avatar {
-  border-color: color-mod(var(--darkgrey) l(+2%));
+  border-color: rgb(31, 34, 40);
 }
 
 html.casper body.dark .site-main,
@@ -69,15 +69,15 @@ html.casper body.dark .post-full-title {
 }
 
 html.casper body.dark .post-full-custom-excerpt {
-  color: color-mod(var(--midgrey) l(+10%));
+  color: rgb(146, 163, 171);
 }
 
 html.casper body.dark .post-full-image {
-  background-color: color-mod(var(--darkmode) l(+8%));
+  background-color: rgb(45, 49, 57);
 }
 
 html.casper body.dark .post-full-byline {
-  border-top-color: color-mod(var(--darkmode) l(+15%));
+  border-top-color: rgb(61, 66, 76);
 }
 
 html.casper body.dark .post-full-byline-meta h4 a {
@@ -89,12 +89,12 @@ html.casper body.dark .post-full-byline-meta h4 a:hover {
 }
 
 html.casper body.dark .author-list-item .author-card {
-  background: color-mod(var(--darkmode) l(+4%));
+  background: rgb(36, 39, 45);
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4);
 }
 
 html.casper body.dark .author-list-item .author-card:before {
-  border-top-color: color-mod(var(--darkmode) l(+4%));
+  border-top-color: rgb(36, 39, 45);
 }
 
 html.casper body.dark .no-image .author-social-link a {
@@ -128,11 +128,11 @@ html.casper body.dark .post-full-content code {
 }
 
 html.casper body.dark hr {
-  border-top-color: color-mod(var(--darkmode) l(+8%));
+  border-top-color: rgb(45, 49, 57);
 }
 
 html.casper .post-full-content hr:after {
-  background: color-mod(var(--darkmode) l(+8%));
+  background: rgb(45, 49, 57);
   box-shadow: var(--darkmode) 0 0 0 5px;
 }
 
@@ -141,21 +141,21 @@ html.casper body.dark .post-full-content figcaption {
 }
 
 html.casper body.dark .post-full-content table td:first-child {
-  background-image: linear-gradient(to right, var(--darkmode) 50%, color-mod(var(--darkmode) a(0%)) 100%);
+  background-image: linear-gradient(to right, var(--darkmode) 50%, rgba(27, 29, 34, 0) 100%);
 }
 
 html.casper body.dark .post-full-content table td:last-child {
-  background-image: linear-gradient(to left, var(--darkmode) 50%, color-mod(var(--darkmode) a(0%)) 100%);
+  background-image: linear-gradient(to left, var(--darkmode) 50%, rgba(27, 29, 34, 0) 100%);
 }
 
 html.casper body.dark .post-full-content table th {
   color: rgba(255, 255, 255, 0.85);
-  background-color: color-mod(var(--darkmode) l(+8%));
+  background-color: rgb(45, 49, 57);
 }
 
 html.casper body.dark .post-full-content table th,
 html.casper body.dark .post-full-content table td {
-  border: color-mod(var(--darkmode) l(+8%)) 1px solid;
+  border: rgb(45, 49, 57) 1px solid;
 }
 
 html.casper body.dark .post-full-content .kg-bookmark-container,
@@ -165,7 +165,7 @@ html.casper body.dark .post-full-content .kg-bookmark-container:hover {
 }
 
 html.casper .post-full-content input {
-  color: color-mod(var(--midgrey) l(-30%));
+  color: rgb(49, 59, 63);
 }
 
 html.casper body.dark .kg-bookmark-title {
@@ -186,7 +186,7 @@ html.casper body.dark .site-archive-header .no-image {
 }
 
 html.casper body.dark .site-archive-header .no-image .site-header-content {
-  border-bottom-color: color-mod(var(--darkmode) l(+15%));
+  border-bottom-color: rgb(61, 66, 76);
 }
 
 html.casper body.dark .site-header-content .author-profile-image {
@@ -195,7 +195,7 @@ html.casper body.dark .site-header-content .author-profile-image {
 
 html.casper body.dark .subscribe-form {
   border: none;
-  background: linear-gradient(color-mod(var(--darkmode) l(-6%)), color-mod(var(--darkmode) l(-3%)));
+  background: linear-gradient(rgb(14, 15, 17), rgb(20, 22, 25));
 }
 
 html.casper body.dark .subscribe-form-title {
@@ -207,13 +207,13 @@ html.casper body.dark .subscribe-form p {
 }
 
 html.casper body.dark .subscribe-email {
-  border-color: color-mod(var(--darkmode) l(+6%));
+  border-color: rgb(41, 44, 51);
   color: rgba(255, 255, 255, 0.9);
-  background: color-mod(var(--darkmode) l(+3%));
+  background: rgb(34, 36, 42);
 }
 
 html.casper body.dark .subscribe-email:focus {
-  border-color: color-mod(var(--darkmode) l(+25%));
+  border-color: rgb(61, 66, 76);
 }
 
 html.casper body.dark .subscribe-form button {
@@ -222,9 +222,9 @@ html.casper body.dark .subscribe-form button {
 
 html.casper body.dark .subscribe-form .invalid .message-error,
 html.casper body.dark .subscribe-form .error .message-error {
-  color: color-mod(var(--red) l(+5%) s(-5%));
+  color: rgb(236, 105, 75);
 }
 
 html.casper body.dark .subscribe-form .success .message-success {
-  color: color-mod(var(--green) l(+5%) s(-5%));
+  color: rgb(172, 208, 83);
 }
