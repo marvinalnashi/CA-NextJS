@@ -1,4 +1,3 @@
-// components/ImagePopup.tsx
 import React from 'react';
 
 interface Item {

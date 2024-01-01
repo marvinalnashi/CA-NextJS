@@ -26,14 +26,14 @@ const ProjectsPage = () => {
           <div className="g3"></div>
           <div className="g4"></div>
           <div className="g5"></div>
-          <div className="interactive"></div> {/* This is the target element for GradientBg */}
+          <div className="interactive"></div>
         </div>
       </div>
-      {/* Uncomment and use if needed */}
-      {/* <div>
+
+      <div>
         <h1>Projects</h1>
         <Portfolio />
-      </div> */}
+      </div>
     </>
   );
 };
