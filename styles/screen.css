@@ -71,6 +71,10 @@ html.casper .outer {
   padding: 0 5vw;
 }
 
+.projects-page .outer {
+  padding: 0 !important;
+}
+
 /* Centered content container blocks */
 html.casper .inner {
   margin: 0 auto;
