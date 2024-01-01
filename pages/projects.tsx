@@ -31,7 +31,6 @@ const ProjectsPage = () => {
       </div>
 
       <div>
-        <h1>Projects</h1>
         <Portfolio />
       </div>
     </>

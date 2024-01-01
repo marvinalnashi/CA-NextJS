@@ -81,10 +81,11 @@ const Portfolio: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="portfolio-container">
+      <h1 className="text-align">Projects</h1>
       {categories.map((category) => (
         <div key={category}>
-          <h2>{category}</h2>
+          <h2 className="text-align">{category}</h2>
           <div className="items-container">
             {items[category].map((item) => (
               <div key={item.id} className="project-card-container">
