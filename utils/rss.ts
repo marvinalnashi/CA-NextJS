@@ -16,7 +16,7 @@ export const generateRSSFeed = ({ posts, settings }: FeedProps) => {
   const feedOptions = {
     title: siteTitleMeta,
     description: siteDescriptionMeta,
-    generator: `CodeArise`,
+    generator: `Jamify Blog Starter 2.0`,
     feed_url: resolve(siteUrl, 'rss/'),
     site_url: resolve(siteUrl, ''),
     image_url: resolve(siteUrl, siteIcon),

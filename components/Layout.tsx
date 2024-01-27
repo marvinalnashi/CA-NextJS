@@ -82,6 +82,9 @@ export const Layout = ({ settings, header, children, isHome, sticky, previewPost
                   Twitter
                 </a>
               )}
+              <a href="https://www.jamify.org" target="_blank" rel="noopener noreferrer">
+                Jamify
+              </a>
             </nav>
           </div>
         </footer>
