@@ -195,9 +195,9 @@ sub {
 img {
   border: 0;
 }
-svg {
-  display: none;
-}
+/*svg {*/
+/*  display: none;*/
+/*}*/
 svg:not(:root) {
   overflow: hidden;
 }
