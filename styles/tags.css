@@ -110,13 +110,20 @@
 }
 
 .tag-button {
-  background-color: #f0f0f0; /* Example background color */
+  background-color: #f0f0f0;
   border: none;
   cursor: pointer;
-  padding: 10px 15px; /* Adjust padding as needed */
+  padding: 10px 15px;
   margin: 5px;
-  height: 40px; /* Fixed height */
-  /* Add more styles as needed */
+  height: 40px;
+}
+
+.pt {
+  padding-top: 10vh;
+}
+
+.px {
+  padding-left: 2vw;
 }
 
 /* Responsive adjustments */
