@@ -17,7 +17,7 @@ import { resolve } from 'url'
  *
  * The Layout component wraps around each page and template.
  * It also provides the header, footer as well as the main
- * styles, and meta data for each page.
+ * styles, and metadata for each page.
  *
  */
 

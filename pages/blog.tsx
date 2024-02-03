@@ -14,7 +14,7 @@ import { seoImage, ISeoImage } from '@meta/seoImage'
 import { BodyClass } from '@helpers/BodyClass'
 
 /**
- * Main index page (home page)
+ * Blog page
  *
  * Loads all posts from CMS
  *

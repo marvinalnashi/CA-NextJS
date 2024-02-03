@@ -2,8 +2,7 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 
 import { Layout } from '@components/Layout'
-import { PostView } from '@components/PostView'
-import { HeaderIndex } from '@components/HeaderIndex'
+import { HomeHeaderIndex } from '@components/HomeHeaderIndex'
 import { StickyNavContainer } from '@effects/StickyNavContainer'
 import { SEO } from '@meta/seo'
 
@@ -15,18 +14,12 @@ import { BodyClass } from '@helpers/BodyClass'
 
 /**
  * Main index page (home page)
- *
- * Loads all posts from CMS
- *
  */
 
 interface CmsData {
   posts: GhostPostsOrPages
   settings: GhostSettings
   seoImage: ISeoImage
-  previewPosts?: GhostPostsOrPages
-  prevPost?: GhostPostOrPage
-  nextPost?: GhostPostOrPage
   bodyClass: string
 }
 
@@ -47,8 +40,7 @@ export default function Index({ cmsData }: IndexProps) {
         throttle={300}
         activeClass="fixed-nav-active"
         render={(sticky) => (
-          <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HeaderIndex {...{ settings }} />}>
-            <PostView {...{ settings, posts, isHome: true }} />
+          <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HomeHeaderIndex {...{ settings }} />}>
           </Layout>
         )}
       />
@@ -82,6 +74,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       cmsData,
     },
-    ...(processEnv.isr.enable && { revalidate: processEnv.isr.revalidate }), // re-generate at most once every revalidate second
+    ...(processEnv.isr.enable && { revalidate: processEnv.isr.revalidate }),
   }
 }
