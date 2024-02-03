@@ -6,7 +6,7 @@
   margin-right: -15px;
 }
 
-.portfolio-item {
+.tags-item {
   margin: 10px;
   cursor: pointer;
 }
@@ -41,7 +41,7 @@
   font-size: 20px;
 }
 
-.project-card-container {
+.tags-card-container {
   flex-basis: calc(33.333% - 60px);
   max-width: calc(33.333% - 60px);
   margin: 15px;
@@ -49,10 +49,10 @@
   padding-right: 15px;
 }
 
-.project-card-container .project-card {
+.tags-card-container .tags-card {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 280px;
+  height: 400px;
   margin: 30px;
   box-shadow: 2px 2px 30px rgba(0,0,0,.2);
   border-radius: 15px;
@@ -61,14 +61,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
 }
-.project-card-container .project-content {
+.tags-card-container .tags-content {
   padding: 20px;
   text-align: center;
   transition: 0.5s;
 }
-.project-card-container .project-content h2 {
+.tags-card-container .tags-content h2 {
   position: absolute;
   top: -30px;
   right: 30px;
@@ -76,17 +78,17 @@
   color: rgba(255, 255, 255, 0.5);
   pointer-events: none;
 }
-.project-card-container .project-content h3 {
+.tags-card-container .tags-content h3 {
   font-size: 1.8em;
   color: #fff;
   z-index: 1;
 }
-.project-card-container .project-content p {
+.tags-card-container .tags-content p {
   font-size: 1em;
   color: #fff;
   font-weight: 400;
 }
-.project-card-container .project-content a {
+.tags-card-container .tags-content a {
   position: relative;
   display: inline-block;
   padding: 8px 20px;
@@ -100,7 +102,7 @@
 }
 
 /* Add a container for the entire portfolio section */
-.portfolio-container {
+.tags-container {
   max-width: 1200px; /* Adjust as needed */
   margin: 0 auto; /* Center the container */
   padding: 0 15px; /* Add some padding */
@@ -112,14 +114,14 @@
 
 /* Responsive adjustments */
 @media (max-width: 1000px) {
-  .project-card-container {
+  .tags-card-container {
     flex-basis: calc(50% - 30px); /* 2 items per row on smaller screens */
     max-width: calc(50% - 30px); /* 2 items per row on smaller screens */
   }
 }
 
 @media (max-width: 700px) {
-  .project-card-container {
+  .tags-card-container {
     flex-basis: 100%; /* 1 item per row on very small screens */
     max-width: 100%; /* 1 item per row on very small screens */
   }

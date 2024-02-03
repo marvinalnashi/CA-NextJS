@@ -51,7 +51,8 @@ export const maxDepth: number = 2
 import { NavItem } from '@lib/ghost'
 export const customNavigation: NavItem[] = [
   { label: 'Contact', url: '/contact' },
-  { label: 'Projects', url: '/projects' }
+  { label: 'Projects', url: '/projects' },
+  { label: 'All categories', url: '/categories' }
 ]
 
 // Incremental Static Regenerations (ISR)
