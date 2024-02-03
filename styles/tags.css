@@ -41,11 +41,8 @@
 }
 
 .tags-card-container {
-  flex-basis: calc(33.333% - 60px);
-  max-width: calc(33.333% - 60px);
-  margin: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
+  flex-basis: calc(20% - 50px);
+  max-width: calc(20% - 50px);
 }
 
 .tags-card-container .tags-card {
@@ -102,11 +99,10 @@ html.casper body.dark .tags-card-container .tags-content a {
   color: #ffffff;
 }
 
-/* Add a container for the entire portfolio section */
 .tags-container {
-  max-width: 1200px; /* Adjust as needed */
-  margin: 0 auto; /* Center the container */
-  padding: 0 15px; /* Add some padding */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 .text-align {
@@ -122,6 +118,10 @@ html.casper body.dark .tags-card-container .tags-content a {
   height: 40px;
 }
 
+.tag-font {
+  font-size: 15px;
+}
+
 .pt {
   padding-top: 10vh;
 }
@@ -130,17 +130,16 @@ html.casper body.dark .tags-card-container .tags-content a {
   padding-left: 2vw;
 }
 
-/* Responsive adjustments */
 @media (max-width: 1000px) {
   .tags-card-container {
-    flex-basis: calc(50% - 30px); /* 2 items per row on smaller screens */
-    max-width: calc(50% - 30px); /* 2 items per row on smaller screens */
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
 }
 
 @media (max-width: 700px) {
   .tags-card-container {
-    flex-basis: 100%; /* 1 item per row on very small screens */
-    max-width: 100%; /* 1 item per row on very small screens */
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }

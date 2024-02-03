@@ -3,8 +3,6 @@ import Link from "next/link";
 import React, {useEffect, useState} from "react";
 import VanillaTilt from "vanilla-tilt";
 
-const categories: string[] = ['Category 1', 'Category 2', 'Category 3', 'Category 4'];
-
 const Tags: React.FC = () => {
 
   useEffect(() => {
@@ -28,18 +26,18 @@ const Tags: React.FC = () => {
 
   return (
     <div className="tags-container">
-      <h1 className="text-align">Projects</h1>
-      {categories.map((category) => (
-        <div key={category}>
-          <h2 className="text-align">{category}</h2>
+      <h1 className="text-align">All categories</h1>
+      {categoriesData.map((category) => (
+        <div key={category.name}>
+          <h2 className="text-align">{category.name}</h2>
           <div className="items-container">
-            {categoriesData.map((category, index) => (
-              <div key={category.name} className="tags-card-container">
-                  <div className="tags-content">
-                    <Link key={index} href={category.url}>
-                      <a id="tag">{category.name}</a>
-                    </Link>
-                  </div>
+            {category.subcategories.map((subcategory, index) => (
+              <div key={subcategory.name} className="tags-card-container">
+                <div className="tags-content">
+                  <Link key={index} href={subcategory.url}>
+                    <a id="tag" className="tag-font">{subcategory.name}</a>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
