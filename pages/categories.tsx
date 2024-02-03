@@ -6,8 +6,6 @@ import { BodyClass } from '@helpers/BodyClass'
 import {GetStaticProps} from "next";
 import {Layout} from "@components/Layout";
 import Tags from "@components/Tags";
-import GradientBg from "@utils/gradientbg";
-import Portfolio from "@components/Portfolio";
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllPosts({ limit: 3 })
