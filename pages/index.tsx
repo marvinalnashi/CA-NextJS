@@ -39,7 +39,11 @@ export default function Index({ cmsData }: IndexProps) {
       <StickyNavContainer
         throttle={300}
         activeClass="fixed-nav-active"
-        render={(sticky) => <Layout {...{ bodyClass, sticky, settings, isHome: true }} children header={<HomeHeaderIndex {...{ settings }} />}></Layout>}
+        render={(sticky) => (
+          <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HomeHeaderIndex {...{ settings }} />}>
+            <div></div>
+          </Layout>
+        )}
       />
     </>
   )
