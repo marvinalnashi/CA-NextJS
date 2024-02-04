@@ -35,11 +35,11 @@ export const HeaderAuthor = ({ settings, author }: HeaderAuthorProps) => {
           <div className="site-header-content author-header">
             {profileImg && nextImages.feature ? (
               <div className="author-profile-image">
-                <Image className="author-profile-image" src={profileImg.url} alt={author.name} layout="responsive" quality={nextImages.quality} {...profileImg.dimensions} />
+                <Image className="author-profile-image" src={profileImg.url} alt={''} layout="responsive" quality={nextImages.quality} {...profileImg.dimensions} />
               </div>
             ) : author.profile_image ? (
               /* eslint-disable @next/next/no-img-element */
-              <img className="author-profile-image" src={author.profile_image} alt={author.name} />
+              <img className="author-profile-image" src={author.profile_image} alt={''} />
             ) : (
               <div className="author-profile-image">
                 <AvatarIcon />

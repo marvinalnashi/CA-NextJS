@@ -69,7 +69,7 @@ export function Contact({ cmsData }: PageProps) {
                 <figure className="post-full-image" style={{ display: 'inherit' }}>
                   <Image
                     src={featImg.url}
-                    alt={page.title}
+                    alt={''}
                     quality={nextImages.quality}
                     layout="responsive"
                     sizes={`
@@ -86,7 +86,7 @@ export function Contact({ cmsData }: PageProps) {
                 page.feature_image && (
                   <figure className="post-full-image">
                     {/* eslint-disable @next/next/no-img-element */}
-                    <img src={page.feature_image} alt={page.title} />
+                    <img src={page.feature_image} alt={''} />
                   </figure>
                 )
               ))}

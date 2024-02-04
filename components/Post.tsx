@@ -136,7 +136,7 @@ export const Post = ({ cmsData }: PostProps) => {
                   ) : (
                     post.feature_image && (
                       <figure className="post-full-image">
-                        <img src={post.feature_image} alt={title} />
+                        <img src={post.feature_image} alt={''} />
                       </figure>
                     )
                   ))}

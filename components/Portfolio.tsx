@@ -41,7 +41,7 @@ const Portfolio: React.FC = () => {
                   <div className="project-content">
                     <PortfolioItem key={item.id} id={`item-${item.id}`} onClick={() => handleClick(item)}>
                       <p>{item.name}</p>
-                      <Image src={item.imageSrc} width={100} height={100} alt={`Item ${item.id}`} />
+                      <Image src={item.imageSrc} width={100} height={100} alt={''} />
                     </PortfolioItem>
                   </div>
                 </div>

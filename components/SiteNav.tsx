@@ -72,12 +72,12 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
                     width: `${calcSiteLogoWidth(siteLogo, targetHeight)}px`,
                   }}
                 >
-                  <Image className="site-nav-logo" src={siteLogo.url} alt={title} layout="responsive" quality={nextImages.quality} {...siteLogo.dimensions} />
+                  <Image className="site-nav-logo" src={siteLogo.url} alt={''} layout="responsive" quality={nextImages.quality} {...siteLogo.dimensions} />
                 </div>
               </a>
             ) : site.logo ? (
               <a className="site-nav-logo">
-                <img src={site.logo} alt={title} />
+                <img src={site.logo} alt={''} />
               </a>
             ) : (
               <a className="site-nav-logo">{title}</a>

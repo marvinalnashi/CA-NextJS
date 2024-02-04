@@ -41,7 +41,7 @@ export const PostCard = ({ settings, post, num, isHome }: PostCardProps) => {
                 <Image src={featImg.url} alt={''} sizes="(max-width: 640px) 320px, (max-width: 1000px) 500px, 680px" layout="fill" objectFit="cover" quality={nextImages.quality} />
               </div>
             ) : (
-              post.feature_image && <img className="post-card-image" src={post.feature_image} alt={post.title} />
+              post.feature_image && <img className="post-card-image" src={post.feature_image} alt={''} />
             )}
           </a>
         </Link>

@@ -31,7 +31,7 @@ const ImagePopup: React.FC<ImagePopupProps> = ({ item, onClose }) => {
         <span className="close-button" onClick={onClose}>
           &times;
         </span>
-        <Image src={item.imageSrc} width={25} height={25} alt={`Item ${item.id}`} />
+        <Image src={item.imageSrc} width={25} height={25} alt={''} />
         <p className="popup-text-pf">{item.description}</p>
       </div>
     </div>

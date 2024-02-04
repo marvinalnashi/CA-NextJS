@@ -45,13 +45,13 @@ export const HeaderIndex = ({ settings }: HeaderIndexProps) => {
                       width: `${calcSiteLogoWidth(siteLogo, targetHeight)}px`,
                     }}
                   >
-                    <Image src={siteLogo.url} alt={title} layout="responsive" quality={imageQuality} {...siteLogo.dimensions} />
+                    <Image src={siteLogo.url} alt={''} layout="responsive" quality={imageQuality} {...siteLogo.dimensions} />
                   </div>
                 </Link>
               ) : site.logo ? (
                 <Link href="/">
                   {/* eslint-disable @next/next/no-img-element */}
-                  <img className="site-logo" src={site.logo} alt={title} />
+                  <img className="site-logo" src={site.logo} alt={''} />
                 </Link>
               ) : (
                 title

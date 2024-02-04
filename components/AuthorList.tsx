@@ -39,7 +39,7 @@ export const AuthorList = ({ settings, authors, isPost }: AuthorListProps) => {
                       {profileImg && nextImages.feature ? (
                         <Image className="author-profile-image" src={profileImg.url} alt={''} layout="responsive" quality={nextImages.quality} {...profileImg.dimensions} />
                       ) : (
-                        author.profile_image && <img src={author.profile_image} alt={author.name} />
+                        author.profile_image && <img src={author.profile_image} alt={''} />
                       )}
                     </div>
                     <div className="author-info">
@@ -69,7 +69,7 @@ export const AuthorList = ({ settings, authors, isPost }: AuthorListProps) => {
                     </a>
                   ) : author.profile_image ? (
                     <a className={`${(isPost && `author`) || `static`}-avatar`} aria-label={author.name}>
-                      <img src={author.profile_image} alt={author.name} />
+                      <Image src={author.profile_image} alt={''} />
                     </a>
                   ) : (
                     <a className={`${(isPost && `author`) || `static`}-avatar author-profile-image`} aria-label={author.name}>
