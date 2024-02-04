@@ -79,9 +79,7 @@ export const Post = ({ cmsData }: PostProps) => {
                 <header className="post-full-header">
                   {post.primary_tag && (
                     <section className="post-full-tags">
-                      <Link href={resolveUrl({ cmsUrl, slug: post.primary_tag.slug, url: post.primary_tag.url })}>
-                        <a>{post.primary_tag.name}</a>
-                      </Link>
+                      <Link href={resolveUrl({ cmsUrl, slug: post.primary_tag.slug, url: post.primary_tag.url })}>{post.primary_tag.name}</Link>
                     </section>
                   )}
 
@@ -100,9 +98,7 @@ export const Post = ({ cmsData }: PostProps) => {
                           {post.authors?.map((author, i) => (
                             <div key={i}>
                               {i > 0 ? `, ` : ``}
-                              <Link href={resolveUrl({ cmsUrl, slug: author.slug, url: author.url || undefined })}>
-                                <a>{author.name}</a>
-                              </Link>
+                              <Link href={resolveUrl({ cmsUrl, slug: author.slug, url: author.url || undefined })}>{author.name}</Link>
                             </div>
                           ))}
                         </h4>
@@ -124,7 +120,7 @@ export const Post = ({ cmsData }: PostProps) => {
                     <figure className="post-full-image" style={{ display: 'inherit' }}>
                       <Image
                         src={featImg.url}
-                        alt={title}
+                        alt={''}
                         quality={nextImages.quality}
                         layout="responsive"
                         sizes={`

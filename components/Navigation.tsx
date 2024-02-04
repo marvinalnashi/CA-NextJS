@@ -28,17 +28,15 @@ export const Navigation = ({ data, navClass }: NavigationProps) => {
           <a className={navClass} href={navItem.url} target="_blank" rel="noopener noreferrer">
             {navItem.label}
           </a>
-        </li>
+        </li>,
       )
     } else {
       items.push(
         <li key={i} className={`nav-${navItem.label.toLowerCase()}`} role="menuitem">
           <div className={navClass}>
-            <Link href={navItem.url} >
-              <a>{navItem.label}</a>
-            </Link>
+            <Link href={navItem.url}>{navItem.label}</Link>
           </div>
-        </li>
+        </li>,
       )
     }
   })

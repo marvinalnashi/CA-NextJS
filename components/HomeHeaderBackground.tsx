@@ -1,4 +1,4 @@
-import { ReactFragment } from "react"
+import { ReactFragment } from 'react'
 
 interface HomeHeaderBackgroundProps {
   children: ReactFragment
@@ -7,9 +7,7 @@ interface HomeHeaderBackgroundProps {
 export const HomeHeaderBackground = ({ children }: HomeHeaderBackgroundProps) => {
   return (
     <>
-      <div className="outer no-image">
-        {children}
-      </div>
+      <div className="outer no-image">{children}</div>
     </>
   )
 }

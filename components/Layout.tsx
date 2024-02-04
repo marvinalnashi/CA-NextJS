@@ -69,9 +69,7 @@ export const Layout = ({ settings, header, children, isHome, sticky, previewPost
             </section>
 
             <nav className="site-footer-nav">
-              <Link href="/">
-                <a>{text(`LATEST_POSTS`)}</a>
-              </Link>
+              <Link href="/">{text(`LATEST_POSTS`)}</Link>
               {site.facebook && (
                 <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
                   Facebook

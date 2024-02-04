@@ -37,25 +37,21 @@ export const HeaderIndex = ({ settings }: HeaderIndexProps) => {
             <h1 className="site-title">
               {siteLogo && nextFeatureImages ? (
                 <Link href="/">
-                  <a>
-                    <div
-                      className="site-logo"
-                      style={{
-                        marginTop: '8px',
-                        height: `${targetHeight}px`,
-                        width: `${calcSiteLogoWidth(siteLogo, targetHeight)}px`,
-                      }}
-                    >
-                      <Image src={siteLogo.url} alt={title} layout="responsive" quality={imageQuality} {...siteLogo.dimensions} />
-                    </div>
-                  </a>
+                  <div
+                    className="site-logo"
+                    style={{
+                      marginTop: '8px',
+                      height: `${targetHeight}px`,
+                      width: `${calcSiteLogoWidth(siteLogo, targetHeight)}px`,
+                    }}
+                  >
+                    <Image src={siteLogo.url} alt={title} layout="responsive" quality={imageQuality} {...siteLogo.dimensions} />
+                  </div>
                 </Link>
               ) : site.logo ? (
                 <Link href="/">
-                  <a>
-                    {/* eslint-disable @next/next/no-img-element */}
-                    <img className="site-logo" src={site.logo} alt={title} />
-                  </a>
+                  {/* eslint-disable @next/next/no-img-element */}
+                  <img className="site-logo" src={site.logo} alt={title} />
                 </Link>
               ) : (
                 title

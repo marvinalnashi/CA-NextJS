@@ -53,7 +53,7 @@ export const customNavigation: NavItem[] = [
   { label: 'Blog', url: '/blog' },
   { label: 'Contact', url: '/contact' },
   { label: 'Projects', url: '/projects' },
-  { label: 'All categories', url: '/categories' }
+  { label: 'All categories', url: '/categories' },
 ]
 
 // Incremental Static Regenerations (ISR)

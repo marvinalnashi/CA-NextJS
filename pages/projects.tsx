@@ -1,15 +1,15 @@
-import React from 'react';
-import GradientBg from '../utils/gradientbg';
-import Portfolio from '@components/Portfolio';
+import React from 'react'
+import GradientBg from '../utils/gradientbg'
+import Portfolio from '@components/Portfolio'
 import { HeaderPage } from '@components/HeaderPage'
 
 import { getAllPosts, getAllSettings, GhostSettings, GhostPostsOrPages } from '@lib/ghost'
 import { getLang, get } from '@utils/use-lang'
 import { BodyClass } from '@helpers/BodyClass'
-import {GetStaticProps} from "next";
-import {Layout} from "@components/Layout";
-import Link from "next/link";
-import {PostCard} from "@components/PostCard";
+import { GetStaticProps } from 'next'
+import { Layout } from '@components/Layout'
+import Link from 'next/link'
+import { PostCard } from '@components/PostCard'
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllPosts({ limit: 3 })
@@ -31,15 +31,13 @@ interface ProjectsPageProps {
 }
 
 export default function ProjectsPage({ posts, settings, bodyClass }: ProjectsPageProps) {
-  const projectsPageClass = 'projects-page';
+  const projectsPageClass = 'projects-page'
 
   return (
     <>
       <Layout {...{ settings, bodyClass: `${bodyClass} ${projectsPageClass}` }} header={<HeaderPage {...{ settings }} />}>
         <GradientBg />
-        <div className="text-container">
-          Bubbles
-        </div>
+        <div className="text-container">Bubbles</div>
         <div className="gradient-bg">
           <svg xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -65,5 +63,5 @@ export default function ProjectsPage({ posts, settings, bodyClass }: ProjectsPag
         </div>
       </Layout>
     </>
-  );
-};
+  )
+}

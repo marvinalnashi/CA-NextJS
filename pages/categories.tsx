@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 import { HeaderPage } from '@components/HeaderPage'
 
 import { getAllPosts, getAllSettings, GhostSettings, GhostPostsOrPages } from '@lib/ghost'
 import { BodyClass } from '@helpers/BodyClass'
-import {GetStaticProps} from "next";
-import {Layout} from "@components/Layout";
-import Tags from "@components/Tags";
+import { GetStaticProps } from 'next'
+import { Layout } from '@components/Layout'
+import Tags from '@components/Tags'
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllPosts({ limit: 3 })
@@ -27,7 +27,7 @@ interface CategoriesPageProps {
 }
 
 export default function ProjectsPage({ posts, settings, bodyClass }: CategoriesPageProps) {
-  const categoriesPageClass = 'categories-page';
+  const categoriesPageClass = 'categories-page'
 
   return (
     <>
@@ -37,5 +37,5 @@ export default function ProjectsPage({ posts, settings, bodyClass }: CategoriesP
         </div>
       </Layout>
     </>
-  );
-};
+  )
+}

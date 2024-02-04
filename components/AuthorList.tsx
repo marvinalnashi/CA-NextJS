@@ -37,14 +37,7 @@ export const AuthorList = ({ settings, authors, isPost }: AuthorListProps) => {
                   <div className={`author-card ${hover.state.currentClass}`}>
                     <div className="author-profile-image">
                       {profileImg && nextImages.feature ? (
-                        <Image
-                          className="author-profile-image"
-                          src={profileImg.url}
-                          alt={author.name}
-                          layout="responsive"
-                          quality={nextImages.quality}
-                          {...profileImg.dimensions}
-                        />
+                        <Image className="author-profile-image" src={profileImg.url} alt={''} layout="responsive" quality={nextImages.quality} {...profileImg.dimensions} />
                       ) : (
                         author.profile_image && <img src={author.profile_image} alt={author.name} />
                       )}
@@ -55,31 +48,24 @@ export const AuthorList = ({ settings, authors, isPost }: AuthorListProps) => {
                           <h2>{author.name}</h2>
                           <p>{author.bio}</p>
                           <p>
-                            <Link href={url}>
-                              <a>{text(`MORE_POSTS`)}</a>
-                            </Link>{' '}
-                            {text(`BY`)} {author.name}.
+                            <Link href={url}>{text(`MORE_POSTS`)}</Link> {text(`BY`)} {author.name}.
                           </p>
                         </div>
                       ) : (
                         <>
                           <h2>{author.name}</h2>
                           <p>
-                            {text(`READ`)}{' '}
-                            <Link href={url}>
-                              <a>{text(`MORE_POSTS_SM`)}</a>
-                            </Link>{' '}
-                            {text(`BY_THIS_AUTHOR`)}.
+                            {text(`READ`)} <Link href={url}>{text(`MORE_POSTS_SM`)}</Link> {text(`BY_THIS_AUTHOR`)}.
                           </p>
                         </>
                       )}
                     </div>
                   </div>
                 )}
-                <Link href={url}>
+                <Link legacyBehavior href={url}>
                   {profileImg && nextImages.feature ? (
                     <a className={`${(isPost && `author`) || `static`}-avatar`} aria-label={author.name}>
-                      <Image src={profileImg.url} alt={author.name} layout="responsive" quality={nextImages.quality} {...profileImg.dimensions} />
+                      <Image alt={''} src={profileImg.url} layout="responsive" quality={nextImages.quality} {...profileImg.dimensions} />
                     </a>
                   ) : author.profile_image ? (
                     <a className={`${(isPost && `author`) || `static`}-avatar`} aria-label={author.name}>

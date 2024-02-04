@@ -75,7 +75,7 @@ export const authorSameAs = (author: Author) => {
   const { website, twitter, facebook } = author
 
   const authorProfiles = [website, twitter && `https://twitter.com/${twitter.replace(/^@/, ``)}/`, facebook && `https://www.facebook.com/${facebook.replace(/^\//, ``)}/`].filter(
-    (element) => !!element
+    (element) => !!element,
   )
 
   return (authorProfiles.length > 0 && `["${authorProfiles.join(`", "`)}"]`) || undefined

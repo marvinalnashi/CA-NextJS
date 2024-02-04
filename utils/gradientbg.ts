@@ -1,37 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 
 const GradientBg = () => {
   useEffect(() => {
-    const interBubble = document.querySelector<HTMLDivElement>('.interactive')!;
-    let curX = 0;
-    let curY = 0;
-    let tgX = 0;
-    let tgY = 0;
+    const interBubble = document.querySelector<HTMLDivElement>('.interactive')!
+    let curX = 0
+    let curY = 0
+    let tgX = 0
+    let tgY = 0
 
     function move() {
-      curX += (tgX - curX) / 20;
-      curY += (tgY - curY) / 20;
+      curX += (tgX - curX) / 20
+      curY += (tgY - curY) / 20
       if (interBubble) {
-        interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+        interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`
       }
-      requestAnimationFrame(move);
+      requestAnimationFrame(move)
     }
 
     const handleMouseMove = (event: MouseEvent) => {
-      tgX = event.clientX;
-      tgY = event.clientY;
-    };
+      tgX = event.clientX
+      tgY = event.clientY
+    }
 
-    window.addEventListener('mousemove', handleMouseMove);
-    move();
+    window.addEventListener('mousemove', handleMouseMove)
+    move()
 
     // Cleanup function
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [])
 
-  return null;
-};
+  return null
+}
 
-export default GradientBg;
+export default GradientBg

@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 
-.popup {
+.popup-pf {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,13 +23,20 @@
   z-index: 1000;
 }
 
-.popup-content {
+.popup-content-pf {
   background: white;
-  padding: 20px;
-  max-width: 600px;
-  max-height: 80vh;
+  padding: 50px;
   overflow-y: auto;
   position: relative;
+}
+
+.popup-text-pf {
+  max-width: 400px;
+}
+
+html.casper body.dark .popup-content-pf {
+  background: #131313;
+  color: #ffffff;
 }
 
 .close-button {
@@ -97,28 +104,30 @@
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Add a container for the entire portfolio section */
 .portfolio-container {
-  max-width: 1200px; /* Adjust as needed */
-  margin: 0 auto; /* Center the container */
-  padding: 0 15px; /* Add some padding */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 .text-align {
   margin-left: 45px;
 }
 
-/* Responsive adjustments */
+html.casper body.dark .tags-card-container .tags-content a {
+  color: #ffffff;
+}
+
 @media (max-width: 1000px) {
   .project-card-container {
-    flex-basis: calc(50% - 30px); /* 2 items per row on smaller screens */
-    max-width: calc(50% - 30px); /* 2 items per row on smaller screens */
+    flex-basis: calc(50% - 30px);
+    max-width: calc(50% - 30px);
   }
 }
 
 @media (max-width: 700px) {
   .project-card-container {
-    flex-basis: 100%; /* 1 item per row on very small screens */
-    max-width: 100%; /* 1 item per row on very small screens */
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }

@@ -1,43 +1,41 @@
-import React, { useEffect } from 'react';
+import Image from 'next/image';
+import React, {useEffect} from "react";
 
 interface Item {
-  id: number;
-  imageSrc: string;
-  description: string;
+  id: number
+  imageSrc: string
+  description: string
 }
 
 interface ImagePopupProps {
-  item: Item;
-  onClose: () => void;
+  item: Item
+  onClose: () => void
 }
 
 const ImagePopup: React.FC<ImagePopupProps> = ({ item, onClose }) => {
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (target.classList.contains('popup')) {
-        onClose();
+      const target = event.target as HTMLElement
+      if (target.classList.contains('popup-pf')) {
+        onClose()
       }
-    };
-
-    window.addEventListener('click', handleOutsideClick);
-
+    }
+    window.addEventListener('click', handleOutsideClick)
     return () => {
-      window.removeEventListener('click', handleOutsideClick);
-    };
-  }, [onClose]);
-
+      window.removeEventListener('click', handleOutsideClick)
+    }
+  }, [onClose])
   return (
-    <div className="popup">
-      <div className="popup-content">
+    <div className="popup-pf">
+      <div className="popup-content-pf">
         <span className="close-button" onClick={onClose}>
           &times;
         </span>
-        <img src={item.imageSrc} alt={`Item ${item.id}`} />
-        <p>{item.description}</p>
+        <Image src={item.imageSrc} width={25} height={25} alt={`Item ${item.id}`} />
+        <p className="popup-text-pf">{item.description}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ImagePopup;
+export default ImagePopup

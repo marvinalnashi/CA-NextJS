@@ -34,18 +34,11 @@ export const PostCard = ({ settings, post, num, isHome }: PostCardProps) => {
   return (
     <article className={`post-card ${postClass} ${large}`}>
       {featImg && (
-        <Link href={url}>
+        <Link legacyBehavior href={url}>
           <a className="post-card-image-link" aria-label={post.title}>
             {nextImages.feature ? (
               <div className="post-card-image">
-                <Image
-                  src={featImg.url}
-                  alt={post.title}
-                  sizes="(max-width: 640px) 320px, (max-width: 1000px) 500px, 680px"
-                  layout="fill"
-                  objectFit="cover"
-                  quality={nextImages.quality}
-                />
+                <Image src={featImg.url} alt={''} sizes="(max-width: 640px) 320px, (max-width: 1000px) 500px, 680px" layout="fill" objectFit="cover" quality={nextImages.quality} />
               </div>
             ) : (
               post.feature_image && <img className="post-card-image" src={post.feature_image} alt={post.title} />
@@ -55,7 +48,7 @@ export const PostCard = ({ settings, post, num, isHome }: PostCardProps) => {
       )}
 
       <div className="post-card-content">
-        <Link href={url}>
+        <Link legacyBehavior href={url}>
           <a className="post-card-content-link">
             <header className="post-card-header">
               {post.primary_tag && <div className="post-card-primary-tag">{post.primary_tag.name}</div>}
@@ -77,9 +70,7 @@ export const PostCard = ({ settings, post, num, isHome }: PostCardProps) => {
                 {authors?.map((author, i) => (
                   <div key={i}>
                     {i > 0 ? `, ` : ``}
-                    <Link href={resolveUrl({ cmsUrl, slug: author.slug, url: author.url || undefined })}>
-                      <a>{author.name}</a>
-                    </Link>
+                    <Link href={resolveUrl({ cmsUrl, slug: author.slug, url: author.url || undefined })}>{author.name}</Link>
                   </div>
                 ))}
               </span>

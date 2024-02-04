@@ -34,7 +34,7 @@ const Tags: React.FC = () => {
             {category.subcategories.map((subcategory, index) => (
               <div key={subcategory.name} className="tags-card-container">
                 <div className="tags-content">
-                  <Link key={index} href={subcategory.url}>
+                  <Link legacyBehavior key={index} href={subcategory.url}>
                     <a id="tag" className="tag-font">{subcategory.name}</a>
                   </Link>
                 </div>

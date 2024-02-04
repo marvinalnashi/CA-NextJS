@@ -102,11 +102,7 @@ export function Contact({ cmsData }: PageProps) {
             </section>
           </article>
 
-          <div className="post-feed">
-            {previewPosts?.map((post, i) => (
-              <PostCard key={post.id} {...{ settings, post, num: i }} />
-            ))}
-          </div>
+          <div className="post-feed">{previewPosts?.map((post, i) => <PostCard key={post.id} {...{ settings, post, num: i }} />)}</div>
         </div>
       </Layout>
     </>
