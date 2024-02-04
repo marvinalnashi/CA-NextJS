@@ -26,6 +26,7 @@ export async function verifySlug(postSlug: string): Promise<string | null> {
 
 const Preview = async (req: NextApiRequest, res: NextApiResponse): Promise<NextApiResponse | void> => {
   const slug = Array.isArray(req.query.slug) ? req.query.slug[0] : req.query.slug
+  // @ts-ignore
   const url = await verifySlug(slug)
   console.log(url)
 

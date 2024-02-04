@@ -1,28 +1,27 @@
-import {categoriesData} from "@lib/categoriesData";
-import Link from "next/link";
-import React, {useEffect, useState} from "react";
-import VanillaTilt from "vanilla-tilt";
+import { categoriesData } from '@lib/categoriesData'
+import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
+import VanillaTilt from 'vanilla-tilt'
 
 const Tags: React.FC = () => {
-
   useEffect(() => {
-    const tiltNodes = Array.from(document.querySelectorAll("#tag")) as HTMLElement[];
+    const tiltNodes = Array.from(document.querySelectorAll('#tag')) as HTMLElement[]
 
     VanillaTilt.init(tiltNodes, {
       max: 25,
       speed: 400,
       glare: true,
-      "max-glare": 1,
-    });
+      'max-glare': 1,
+    })
 
     // Clean up on component unmount
     return () => {
       tiltNodes.forEach((element) => {
         // @ts-ignore
-        element.vanillaTilt.destroy();
-      });
-    };
-  }, []);
+        element.vanillaTilt.destroy()
+      })
+    }
+  }, [])
 
   return (
     <div className="tags-container">
@@ -35,7 +34,9 @@ const Tags: React.FC = () => {
               <div key={subcategory.name} className="tags-card-container">
                 <div className="tags-content">
                   <Link legacyBehavior key={index} href={subcategory.url}>
-                    <a id="tag" className="tag-font">{subcategory.name}</a>
+                    <a id="tag" className="tag-font">
+                      {subcategory.name}
+                    </a>
                   </Link>
                 </div>
               </div>
@@ -44,7 +45,7 @@ const Tags: React.FC = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Tags;
+export default Tags

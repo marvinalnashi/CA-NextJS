@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import VanillaTilt from 'vanilla-tilt'
 import ImagePopup from './ImagePopup'
 import Image from 'next/image'
-import {categories, Item, items, PortfolioItem} from "@lib/portfolioData";
+import { categories, Item, items, PortfolioItem } from '@lib/portfolioData'
 
 const Portfolio: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null)

@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import React, {useEffect} from "react";
+import Image from 'next/image'
+import React, { useEffect } from 'react'
 
 interface Item {
   id: number

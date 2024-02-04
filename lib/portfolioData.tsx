@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export interface Item {
   id: number
@@ -39,7 +39,13 @@ export const items: Record<string, Item[]> = {
   ],
   'Category 3': [
     { id: 13, name: 'Item 13', imageSrc: '/portfolio/item13.png', description: 'Item 13 Description' },
-    { id: 14, name: 'Item 14', imageSrc: '/portfolio/item14.png', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales tellus a ex efficitur, quis ornare eros venenatis. Nam quis dapibus magna. Aenean eu orci sit amet magna euismod ornare quis et magna. Proin ipsum orci, congue aliquam tincidunt at, semper eget lacus. Donec imperdiet, felis pretium placerat lacinia, ante mi finibus neque, id semper neque eros at nibh. Nullam tristique feugiat urna, eu malesuada eros euismod nec. Sed posuere vitae leo sed consequat. Praesent pellentesque at quam ac fringilla. Cras nibh nibh, interdum non enim eu, dignissim dictum dolor. Cras faucibus erat neque, feugiat euismod arcu lacinia faucibus. Phasellus a lorem libero. Suspendisse enim justo, finibus ac sem at, lobortis bibendum tortor. Fusce et finibus nulla. Nulla sed malesuada diam.' },
+    {
+      id: 14,
+      name: 'Item 14',
+      imageSrc: '/portfolio/item14.png',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales tellus a ex efficitur, quis ornare eros venenatis. Nam quis dapibus magna. Aenean eu orci sit amet magna euismod ornare quis et magna. Proin ipsum orci, congue aliquam tincidunt at, semper eget lacus. Donec imperdiet, felis pretium placerat lacinia, ante mi finibus neque, id semper neque eros at nibh. Nullam tristique feugiat urna, eu malesuada eros euismod nec. Sed posuere vitae leo sed consequat. Praesent pellentesque at quam ac fringilla. Cras nibh nibh, interdum non enim eu, dignissim dictum dolor. Cras faucibus erat neque, feugiat euismod arcu lacinia faucibus. Phasellus a lorem libero. Suspendisse enim justo, finibus ac sem at, lobortis bibendum tortor. Fusce et finibus nulla. Nulla sed malesuada diam.',
+    },
   ],
   'Category 4': [
     { id: 15, name: 'Item 15', imageSrc: '/portfolio/item15.png', description: 'Item 15 Description' },
