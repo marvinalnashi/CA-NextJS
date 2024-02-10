@@ -41,8 +41,6 @@
 }
 
 .tags-card-container {
-  flex-basis: calc(20% - 50px);
-  max-width: calc(20% - 50px);
 }
 
 .tags-card-container .tags-card {
@@ -60,7 +58,7 @@
   backdrop-filter: blur(5px);
 }
 .tags-card-container .tags-content {
-  padding: 20px;
+  padding: 5px;
   text-align: center;
   transition: 0.5s;
 }
@@ -105,6 +103,31 @@ html.casper body.dark .tags-card-container .tags-content a {
   padding: 0 15px;
 }
 
+.category-container {
+  display: flex;
+  margin-bottom: 5px; /* Adjust spacing as needed */
+}
+
+.category-name {
+  margin-right: 20px; /* Adjust spacing as needed */
+  flex-shrink: 0; /* Prevent the category name from shrinking */
+}
+
+.subcategories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px; /* Adjust padding as needed */
+  background-color: #f0f0f0; /* Example background color */
+  border-radius: 5px; /* Example border radius */
+  text-decoration: none;
+}
+
 .text-align {
   margin-left: 45px;
 }
@@ -128,18 +151,4 @@ html.casper body.dark .tags-card-container .tags-content a {
 
 .px {
   padding-left: 2vw;
-}
-
-@media (max-width: 1000px) {
-  .tags-card-container {
-    flex-basis: calc(50% - 20px);
-    max-width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 700px) {
-  .tags-card-container {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
 }

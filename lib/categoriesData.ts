@@ -7,14 +7,14 @@ export const categoriesData = [
     ],
   },
   {
-    name: 'Category 2',
+    name: 'Category 223643543',
     subcategories: [
       { name: 'Subcategory 3', url: '/subcategory3' },
       { name: 'Subcategory 4', url: '/subcategory4' },
     ],
   },
   {
-    name: 'Category 3',
+    name: 'Category 3325',
     subcategories: [
       { name: 'Subcategory 5', url: '/subcategory3' },
       { name: 'Subcategory 6', url: '/subcategory4' },
