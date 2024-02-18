@@ -32,7 +32,7 @@ export default function ProjectsPage({ posts, settings, bodyClass }: CategoriesP
   return (
     <>
       <Layout {...{ settings, bodyClass: `${bodyClass} ${categoriesPageClass}` }} header={<HeaderPage {...{ settings }} />}>
-        <div className="pt px">
+        <div className="pt">
           <Tags />
         </div>
       </Layout>

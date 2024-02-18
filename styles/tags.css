@@ -40,10 +40,13 @@
   font-size: 20px;
 }
 
-.tags-card-container {
+.subcategories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.tags-card-container .tags-card {
+.subcategories-container .tags-card {
   position: relative;
   width: 280px;
   height: 400px;
@@ -57,12 +60,12 @@
   align-items: center;
   backdrop-filter: blur(5px);
 }
-.tags-card-container .tags-content {
+.subcategories-container .tags-content {
   padding: 5px;
   text-align: center;
   transition: 0.5s;
 }
-.tags-card-container .tags-content h2 {
+.subcategories-container .tags-content h2 {
   position: absolute;
   top: -30px;
   right: 30px;
@@ -70,61 +73,79 @@
   color: rgba(255, 255, 255, 0.5);
   pointer-events: none;
 }
-.tags-card-container .tags-content h3 {
+.subcategories-container .tags-content h3 {
   font-size: 1.8em;
   color: #fff;
   z-index: 1;
 }
-.tags-card-container .tags-content p {
+.subcategories-container .tags-content p {
   font-size: 1em;
   color: #fff;
   font-weight: 400;
 }
-.tags-card-container .tags-content a {
+.subcategories-container .tags-content a {
   position: relative;
   display: inline-block;
   padding: 8px 20px;
   margin-top: 15px;
   background: rgba(255, 255, 255, 0);
   color: #000000;
-  border-radius: 20px;
+  /*border-radius: 20px;*/
   text-decoration: none;
   font-weight: 500;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-html.casper body.dark .tags-card-container .tags-content a {
+html.casper body.dark .subcategories-container .tags-content a {
   color: #ffffff;
 }
 
 .tags-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+  max-width: calc(75% - 40px); /* Adjust total horizontal padding */
+  margin: 0 auto; /* Center the container with equal margins on both sides */
+  padding: 15px 20px; /* Equal padding on left and right sides */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .category-container {
   display: flex;
-  margin-bottom: 5px; /* Adjust spacing as needed */
+  margin-bottom: 5px;
+}
+
+.category-box {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+html.casper body.dark .category-box {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .category-name {
-  margin-right: 20px; /* Adjust spacing as needed */
-  flex-shrink: 0; /* Prevent the category name from shrinking */
+  margin: 0;
+  padding-bottom: 10px;
 }
 
-.subcategories-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.subcategory-button {
+  display: inline-block;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
 }
 
 .tag {
   display: inline-block;
   margin: 5px;
-  padding: 5px 10px; /* Adjust padding as needed */
-  background-color: #f0f0f0; /* Example background color */
-  border-radius: 5px; /* Example border radius */
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border-radius: 15px;
   text-decoration: none;
 }
 
@@ -149,6 +170,6 @@ html.casper body.dark .tags-card-container .tags-content a {
   padding-top: 10vh;
 }
 
-.px {
-  padding-left: 2vw;
-}
+/*.px {*/
+/*  padding-left: 2vw;*/
+/*}*/
