@@ -14,6 +14,7 @@ import '@styles/prism.css'
 import '@styles/toc.css'
 import '@styles/portfolio.css'
 import '@styles/tags.css'
+import '@styles/home.css'
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
