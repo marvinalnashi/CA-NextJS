@@ -29,10 +29,12 @@ const Tags: React.FC = () => {
           <h2 className="category-name">{category.name}</h2>
           <div className="subcategories-container">
             {category.subcategories.map((subcategory, index) => (
+              <div key={subcategory.name}>
               <div className="tags-content">
                 <Link legacyBehavior key={index} href={subcategory.url}>
                   <a className="tag subcategory-button">{subcategory.name}</a>
                 </Link>
+              </div>
               </div>
             ))}
           </div>
