@@ -110,6 +110,38 @@ export default function Index({ cmsData }: IndexProps) {
             </div>
 
             <div className="home-items-container">
+              <div id="particle-container">
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+              </div>
               <div className="home-project-card-container">
                 <div className="home-project-card">
                   <div className="home-project-content">
@@ -208,6 +240,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       cmsData,
     },
-    ...(processEnv.isr.enable && { revalidate: processEnv.isr.revalidate }),
+    ...(processEnv.isr.enable && {revalidate: processEnv.isr.revalidate}),
   };
 };
