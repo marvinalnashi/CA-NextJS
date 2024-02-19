@@ -2,6 +2,7 @@
   position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+  overflow: hidden;
 }
 
 .embla__viewport {
