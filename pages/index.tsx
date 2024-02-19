@@ -41,7 +41,7 @@ export default function Index({ cmsData }: IndexProps) {
   const router = useRouter();
 
   useEffect(() => {
-    const tiltNodes = Array.from(document.querySelectorAll('.project-card')) as HTMLElement[];
+    const tiltNodes = Array.from(document.querySelectorAll('.home-project-card')) as HTMLElement[];
     VanillaTilt.init(tiltNodes, {
       max: 25,
       speed: 400,
@@ -109,66 +109,66 @@ export default function Index({ cmsData }: IndexProps) {
               </div>
             </div>
 
-            <div className="items-container">
-              <div className="project-card-container">
-                <div className="project-card">
-                  <div className="project-content">
+            <div className="home-items-container">
+              <div className="home-project-card-container">
+                <div className="home-project-card">
+                  <div className="home-project-content">
                     <p>Test 1</p>
                   </div>
                 </div>
               </div>
-              <div className="project-card-container">
-                <div className="project-card">
-                  <div className="project-content">
+              <div className="home-project-card-container">
+                <div className="home-project-card">
+                  <div className="home-project-content">
                     <p>Test 1</p>
                   </div>
                 </div>
               </div>
-              <div className="project-card-container">
-                <div className="project-card">
-                  <div className="project-content">
+              <div className="home-project-card-container">
+                <div className="home-project-card">
+                  <div className="home-project-content">
                     <p>Test 1</p>
                   </div>
                 </div>
               </div>
-              <div className="project-card-container">
-                <div className="project-card">
-                  <div className="project-content">
+              <div className="home-project-card-container">
+                <div className="home-project-card">
+                  <div className="home-project-content">
                     <p>Test 1</p>
                   </div>
                 </div>
               </div>
-              <div className="project-card-container">
-                <div className="project-card">
-                  <div className="project-content">
+              <div className="home-project-card-container">
+                <div className="home-project-card">
+                  <div className="home-project-content">
                     <p>Test 1</p>
                   </div>
                 </div>
               </div>
-              <div className="project-card-container">
-                <div className="project-card">
-                  <div className="project-content">
+              <div className="home-project-card-container">
+                <div className="home-project-card">
+                  <div className="home-project-content">
                     <p>Test 1</p>
                   </div>
                 </div>
               </div>
-              <div className="project-card-container">
-                <div className="project-card">
-                  <div className="project-content">
+              <div className="home-project-card-container">
+                <div className="home-project-card">
+                  <div className="home-project-content">
                     <p>Test 1</p>
                   </div>
                 </div>
               </div>
-              <div className="project-card-container">
-                <div className="project-card">
-                  <div className="project-content">
+              <div className="home-project-card-container">
+                <div className="home-project-card">
+                  <div className="home-project-content">
                     <p>Test 1</p>
                   </div>
                 </div>
               </div>
-              <div className="project-card-container">
-                <div className="project-card">
-                  <div className="project-content">
+              <div className="home-project-card-container">
+                <div className="home-project-card">
+                  <div className="home-project-content">
                     <p>Test 1</p>
                   </div>
                 </div>
