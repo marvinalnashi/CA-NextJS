@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { Layout } from '@components/Layout';
 import { HomeHeaderIndex } from '@components/HomeHeaderIndex';
@@ -14,6 +14,9 @@ import { getAllPosts, getAllSettings, GhostPostsOrPages, GhostSettings } from '@
 import { seoImage, ISeoImage } from '@meta/seoImage';
 
 import { BodyClass } from '@helpers/BodyClass';
+import {Item, items} from "@lib/portfolioData";
+import Image from "next/image";
+import VanillaTilt from "vanilla-tilt";
 
 interface CmsData {
   posts: GhostPostsOrPages;
@@ -38,17 +41,30 @@ export default function Index({ cmsData }: IndexProps) {
   const router = useRouter();
 
   useEffect(() => {
+    const tiltNodes = Array.from(document.querySelectorAll('.project-card')) as HTMLElement[];
+    VanillaTilt.init(tiltNodes, {
+      max: 25,
+      speed: 400,
+      glare: true,
+      'max-glare': 1,
+    });
+
     if (!embla) return;
     const onSelect = () => {
       setDots(embla.scrollSnapList().map((_, index) => embla.selectedScrollSnap() === index));
     };
     onSelect();
     embla.on('select', onSelect);
-  }, [embla]);
+
+    return () => {
+      tiltNodes.forEach((element) => {
+        element.vanillaTilt?.destroy();
+      });
+    };
+    }, [embla]);
 
   if (router.isFallback) return <div>Loading...</div>;
 
-  // Background images from Unsplash
   const slideBackgrounds = [
     "url('https://images.unsplash.com/photo-1626021985704-5409b06084a4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
     "url('https://images.unsplash.com/photo-1592290435338-682c400cb6f8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
@@ -69,14 +85,14 @@ export default function Index({ cmsData }: IndexProps) {
         throttle={300}
         activeClass="fixed-nav-active"
         render={(sticky) => (
-          <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HomeHeaderIndex {...{ settings }} />}>
+          <Layout {...{bodyClass, sticky, settings, isHome: true}} header={<HomeHeaderIndex {...{settings}} />}>
             <div className="embla" ref={viewportRef}>
               <div className="embla__container">
                 {slideBackgrounds.map((background, index) => (
                   <div
                     key={index}
                     className="embla__slide"
-                    style={{ backgroundImage: background, backgroundSize: 'cover' }}
+                    style={{backgroundImage: background, backgroundSize: 'cover'}}
                   >
                     <h2>{customSlideTexts[index]}</h2>
                   </div>
@@ -92,8 +108,73 @@ export default function Index({ cmsData }: IndexProps) {
                 ))}
               </div>
             </div>
-            <button onClick={scrollPrev}>Prev</button>
-            <button onClick={scrollNext}>Next</button>
+
+            <div className="items-container">
+              <div className="project-card-container">
+                <div className="project-card">
+                  <div className="project-content">
+                    <p>Test 1</p>
+                  </div>
+                </div>
+              </div>
+              <div className="project-card-container">
+                <div className="project-card">
+                  <div className="project-content">
+                    <p>Test 1</p>
+                  </div>
+                </div>
+              </div>
+              <div className="project-card-container">
+                <div className="project-card">
+                  <div className="project-content">
+                    <p>Test 1</p>
+                  </div>
+                </div>
+              </div>
+              <div className="project-card-container">
+                <div className="project-card">
+                  <div className="project-content">
+                    <p>Test 1</p>
+                  </div>
+                </div>
+              </div>
+              <div className="project-card-container">
+                <div className="project-card">
+                  <div className="project-content">
+                    <p>Test 1</p>
+                  </div>
+                </div>
+              </div>
+              <div className="project-card-container">
+                <div className="project-card">
+                  <div className="project-content">
+                    <p>Test 1</p>
+                  </div>
+                </div>
+              </div>
+              <div className="project-card-container">
+                <div className="project-card">
+                  <div className="project-content">
+                    <p>Test 1</p>
+                  </div>
+                </div>
+              </div>
+              <div className="project-card-container">
+                <div className="project-card">
+                  <div className="project-content">
+                    <p>Test 1</p>
+                  </div>
+                </div>
+              </div>
+              <div className="project-card-container">
+                <div className="project-card">
+                  <div className="project-content">
+                    <p>Test 1</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </Layout>
         )}
       />
@@ -117,8 +198,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const cmsData = {
     settings,
     posts,
-    seoImage: await seoImage({ siteUrl: settings.processEnv.siteUrl }),
-    bodyClass: BodyClass({ isHome: true }),
+    seoImage: await seoImage({siteUrl: settings.processEnv.siteUrl}),
+    bodyClass: BodyClass({isHome: true}),
   };
 
   console.timeEnd('Index - getStaticProps');
