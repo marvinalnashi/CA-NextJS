@@ -31,7 +31,7 @@ interface IndexProps {
 
 export default function Index({ cmsData }: IndexProps) {
   const { settings, posts, seoImage, bodyClass } = cmsData
-  const [viewportRef, embla] = useEmblaCarousel({ loop: true, align: 'center', containScroll: "trimSnaps" }, [Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: false })]);
+  const [viewportRef, embla] = useEmblaCarousel({ loop: true, align: 'center', containScroll: "trimSnaps" }, [Autoplay({ delay: 40000, stopOnInteraction: false, stopOnMouseEnter: false })]);
   const [dots, setDots] = useState<boolean[]>([]);
 
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
