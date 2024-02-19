@@ -27,8 +27,6 @@ interface IndexProps {
 }
 
 export default function Index({ cmsData }: IndexProps) {
-  const router = useRouter();
-  if (router.isFallback) return <div>Loading...</div>;
   const { settings, posts, seoImage, bodyClass } = cmsData
   const [viewportRef, embla] = useEmblaCarousel({ loop: true, align: 'center' }, [Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: false })]);
   const [dots, setDots] = useState<boolean[]>([]);
@@ -36,6 +34,9 @@ export default function Index({ cmsData }: IndexProps) {
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollTo = useCallback((index) => embla && embla.scrollTo(index), [embla]);
+
+  const router = useRouter();
+  if (router.isFallback) return <div>Loading...</div>;
 
   useEffect(() => {
     if (!embla) return;
