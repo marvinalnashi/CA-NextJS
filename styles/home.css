@@ -1,5 +1,12 @@
 .embla {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.embla__viewport {
   overflow: hidden;
+  width: 100%;
 }
 
 .embla__container {
@@ -9,10 +16,22 @@
 .embla__slide {
   position: relative;
   flex: 0 0 100%;
-  height: 500px; /* Adjust based on your needs */
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+
+.embla__dots {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
 }
 
 .embla__dot {
@@ -28,5 +47,3 @@
 .embla__dot.is-active {
   background-color: #333;
 }
-
-/* Add styles for Prev/Next buttons as needed */

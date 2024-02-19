@@ -30,7 +30,7 @@ export default function Index({ cmsData }: IndexProps) {
   const router = useRouter();
   if (router.isFallback) return <div>Loading...</div>;
   const { settings, posts, seoImage, bodyClass } = cmsData
-  const [viewportRef, embla] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 3000 })]);
+  const [viewportRef, embla] = useEmblaCarousel({ loop: true, align: 'center' }, [Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: false })]);
   const [dots, setDots] = useState<boolean[]>([]);
 
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
@@ -73,15 +73,15 @@ export default function Index({ cmsData }: IndexProps) {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="embla__dots">
-              {dots.map((isActive, index) => (
-                <button
-                  key={index}
-                  className={`embla__dot ${isActive ? 'is-active' : ''}`}
-                  onClick={() => scrollTo(index)}
-                />
-              ))}
+              <div className="embla__dots">
+                {dots.map((isActive, index) => (
+                  <button
+                    key={index}
+                    className={`embla__dot ${isActive ? 'is-active' : ''}`}
+                    onClick={() => scrollTo(index)}
+                  />
+                ))}
+              </div>
             </div>
             <button onClick={scrollPrev}>Prev</button>
             <button onClick={scrollNext}>Next</button>
