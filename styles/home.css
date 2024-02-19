@@ -1,0 +1,32 @@
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 500px; /* Adjust based on your needs */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.embla__dot {
+  display: inline-block;
+  width: 30px;
+  height: 5px;
+  background-color: #ccc;
+  border-radius: 15px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.embla__dot.is-active {
+  background-color: #333;
+}
+
+/* Add styles for Prev/Next buttons as needed */

@@ -1,37 +1,57 @@
-import { GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
+import { GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
+import { useCallback, useEffect, useState } from 'react';
 
-import { Layout } from '@components/Layout'
-import { HomeHeaderIndex } from '@components/HomeHeaderIndex'
-import { StickyNavContainer } from '@effects/StickyNavContainer'
-import { SEO } from '@meta/seo'
+import { Layout } from '@components/Layout';
+import { HomeHeaderIndex } from '@components/HomeHeaderIndex';
+import { StickyNavContainer } from '@effects/StickyNavContainer';
+import { SEO } from '@meta/seo';
 
-import { processEnv } from '@lib/processEnv'
-import { getAllPosts, getAllSettings, GhostPostOrPage, GhostPostsOrPages, GhostSettings } from '@lib/ghost'
-import { seoImage, ISeoImage } from '@meta/seoImage'
+import { processEnv } from '@lib/processEnv';
+import { getAllPosts, getAllSettings, GhostPostsOrPages, GhostSettings } from '@lib/ghost';
+import { seoImage, ISeoImage } from '@meta/seoImage';
 
-import { BodyClass } from '@helpers/BodyClass'
-
-/**
- * Main index page (home page)
- */
+import { BodyClass } from '@helpers/BodyClass';
 
 interface CmsData {
-  posts: GhostPostsOrPages
-  settings: GhostSettings
-  seoImage: ISeoImage
-  bodyClass: string
+  posts: GhostPostsOrPages;
+  settings: GhostSettings;
+  seoImage: ISeoImage;
+  bodyClass: string;
 }
 
 interface IndexProps {
-  cmsData: CmsData
+  cmsData: CmsData;
 }
 
 export default function Index({ cmsData }: IndexProps) {
-  const router = useRouter()
-  if (router.isFallback) return <div>Loading...</div>
-
+  const router = useRouter();
+  if (router.isFallback) return <div>Loading...</div>;
   const { settings, posts, seoImage, bodyClass } = cmsData
+  const [viewportRef, embla] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 3000 })]);
+  const [dots, setDots] = useState<boolean[]>([]);
+
+  const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
+  const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
+  const scrollTo = useCallback((index) => embla && embla.scrollTo(index), [embla]);
+
+  useEffect(() => {
+    if (!embla) return;
+    const onSelect = () => {
+      setDots(embla.scrollSnapList().map((_, index) => embla.selectedScrollSnap() === index));
+    };
+    onSelect();
+    embla.on('select', onSelect);
+  }, [embla]);
+
+  // Background images from Unsplash
+  const slideBackgrounds = [
+    "url('https://images.unsplash.com/photo-1626021985704-5409b06084a4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+    "url('https://images.unsplash.com/photo-1592290435338-682c400cb6f8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+    "url('https://images.unsplash.com/photo-1422466654108-5e533f591881?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+  ];
 
   return (
     <>
@@ -41,27 +61,48 @@ export default function Index({ cmsData }: IndexProps) {
         activeClass="fixed-nav-active"
         render={(sticky) => (
           <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HomeHeaderIndex {...{ settings }} />}>
-            <div>
-
+            <div className="embla" ref={viewportRef}>
+              <div className="embla__container">
+                {slideBackgrounds.map((background, index) => (
+                  <div
+                    key={index}
+                    className="embla__slide"
+                    style={{ backgroundImage: background, backgroundSize: 'cover' }}
+                  >
+                    Slide {index + 1}
+                  </div>
+                ))}
+              </div>
             </div>
+            <div className="embla__dots">
+              {dots.map((isActive, index) => (
+                <button
+                  key={index}
+                  className={`embla__dot ${isActive ? 'is-active' : ''}`}
+                  onClick={() => scrollTo(index)}
+                />
+              ))}
+            </div>
+            <button onClick={scrollPrev}>Prev</button>
+            <button onClick={scrollNext}>Next</button>
           </Layout>
         )}
       />
     </>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  let settings
-  let posts: GhostPostsOrPages | []
+  let settings;
+  let posts: GhostPostsOrPages | [];
 
-  console.time('Index - getStaticProps')
+  console.time('Index - getStaticProps');
 
   try {
-    settings = await getAllSettings()
-    posts = await getAllPosts()
+    settings = await getAllSettings();
+    posts = await getAllPosts();
   } catch (error) {
-    throw new Error('Index creation failed.')
+    throw new Error('Index creation failed.');
   }
 
   const cmsData = {
@@ -69,14 +110,14 @@ export const getStaticProps: GetStaticProps = async () => {
     posts,
     seoImage: await seoImage({ siteUrl: settings.processEnv.siteUrl }),
     bodyClass: BodyClass({ isHome: true }),
-  }
+  };
 
-  console.timeEnd('Index - getStaticProps')
+  console.timeEnd('Index - getStaticProps');
 
   return {
     props: {
       cmsData,
     },
     ...(processEnv.isr.enable && { revalidate: processEnv.isr.revalidate }),
-  }
-}
+  };
+};
