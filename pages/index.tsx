@@ -36,7 +36,6 @@ export default function Index({ cmsData }: IndexProps) {
   const scrollTo = useCallback((index) => embla && embla.scrollTo(index), [embla]);
 
   const router = useRouter();
-  if (router.isFallback) return <div>Loading...</div>;
 
   useEffect(() => {
     if (!embla) return;
@@ -46,6 +45,8 @@ export default function Index({ cmsData }: IndexProps) {
     onSelect();
     embla.on('select', onSelect);
   }, [embla]);
+
+  if (router.isFallback) return <div>Loading...</div>;
 
   // Background images from Unsplash
   const slideBackgrounds = [
