@@ -53,6 +53,13 @@ export default function Index({ cmsData }: IndexProps) {
     "url('https://images.unsplash.com/photo-1422466654108-5e533f591881?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
   ];
 
+  const customSlideTexts = [
+    "Your Custom Text for Slide 1",
+    "Your Custom Text for Slide 2",
+    "Your Custom Text for Slide 3",
+  ];
+
+
   return (
     <>
       <SEO {...{ settings, seoImage }} />
@@ -69,7 +76,7 @@ export default function Index({ cmsData }: IndexProps) {
                     className="embla__slide"
                     style={{ backgroundImage: background, backgroundSize: 'cover' }}
                   >
-                    Slide {index + 1}
+                    <h2>{customSlideTexts[index]}</h2>
                   </div>
                 ))}
               </div>
