@@ -17,6 +17,8 @@ import { BodyClass } from '@helpers/BodyClass';
 import {Item, items} from "@lib/portfolioData";
 import Image from "next/image";
 import VanillaTilt from "vanilla-tilt";
+import {ParallaxProvider} from "react-scroll-parallax";
+import {AdvancedBannerTop} from "@components/AdvancedBanner";
 
 interface CmsData {
   posts: GhostPostsOrPages;
@@ -216,6 +218,13 @@ export default function Index({ cmsData }: IndexProps) {
                 </div>
               </div>
             </div>
+
+            <ParallaxProvider>
+              <AdvancedBannerTop />
+              <div className="center full">
+                <h1 className="headline gray">Goodnight.</h1>
+              </div>
+            </ParallaxProvider>
 
           </Layout>
         )}
