@@ -141,6 +141,16 @@ export default function Index({ cmsData }: IndexProps) {
                 <div className="particle"></div>
                 <div className="particle"></div>
                 <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
+                <div className="particle"></div>
               </div>
               <div className="home-project-card-container">
                 <div className="home-project-card">

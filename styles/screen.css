@@ -68,7 +68,7 @@ html.casper .site-main {
 /* Full width page blocks */
 html.casper .outer {
   position: relative;
-  padding: 0 5vw;
+  /*padding: 0 5vw;*/
 }
 
 .projects-page .outer {
