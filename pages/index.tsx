@@ -217,6 +217,41 @@ export default function Index({ cmsData }: IndexProps) {
               </div>
             </div>
 
+            <div className="parallax-container">
+              <section className="parallax-section section-image"
+                       style={{backgroundImage: "url('https://images.unsplash.com/photo-1504357121897-47698286288d?ixlib=rb-0.3.5&s=29c6dcd6a6f6c6a76c101e4336ae7c2d&auto=format&fit=crop&w=2851&q=80')"}}></section>
+              <section className="parallax-section section-heading">
+                <h1>So green!</h1>
+              </section>
+              <section className="parallax-section section-text" data-bg="#c8c8bc">
+                <h1>Armenian highlands</h1>
+              </section>
+              <section className="parallax-section section-image"
+                       style={{backgroundImage: "url('https://images.unsplash.com/photo-1538964173425-93884d739596?ixlib=rb-0.3.5&s=e2f0390d79969aaf31e155bd1f7138b0&auto=format&fit=crop&w=1275&q=80')"}}></section>
+              <section className="parallax-section section-heading">
+                <h1>Hot! hot! hot!</h1>
+              </section>
+              <section className="parallax-section section-text" data-bg="#638a87">
+                <h1>Paradise on earth</h1>
+              </section>
+              <section className="parallax-section section-image"
+                       style={{backgroundImage: "url('https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?ixlib=rb-0.3.5&s=2950e56dc2bba8a65b82f130aa4e47ea&auto=format&fit=crop&w=900&q=60')"}}></section>
+              <section className="parallax-section section-heading">
+                <h1>In a galaxy...</h1>
+              </section>
+              <section className="parallax-section section-text" data-bg="#384558">
+                <h1>Far, far away...</h1>
+              </section>
+              <section className="parallax-section section-image"
+                       style={{backgroundImage: "url('https://images.unsplash.com/photo-1538982198821-0714ff3d74ba?ixlib=rb-0.3.5&s=0550cf3351896481de327a10971739f1&auto=format&fit=crop&w=1251&q=80')"}}></section>
+              <section className="parallax-section section-heading">
+                <h1>Suits..</h1>
+              </section>
+              <section className="parallax-section section-text" data-bg="#9dbdc4">
+                <h1>Up into the sky</h1>
+              </section>
+            </div>
+
           </Layout>
         )}
       />
