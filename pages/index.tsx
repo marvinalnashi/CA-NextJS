@@ -14,11 +14,7 @@ import { getAllPosts, getAllSettings, GhostPostsOrPages, GhostSettings } from '@
 import { seoImage, ISeoImage } from '@meta/seoImage';
 
 import { BodyClass } from '@helpers/BodyClass';
-import {Item, items} from "@lib/portfolioData";
-import Image from "next/image";
 import VanillaTilt from "vanilla-tilt";
-import {ParallaxProvider} from "react-scroll-parallax";
-import {AdvancedBannerBottom, AdvancedBannerTop} from "@components/AdvancedBanner";
 
 interface CmsData {
   posts: GhostPostsOrPages;
@@ -219,13 +215,18 @@ export default function Index({ cmsData }: IndexProps) {
               </div>
             </div>
 
-            <ParallaxProvider>
-              <AdvancedBannerTop />
-              <div className="center full">
-                <h1 className="headline gray">Goodnight.</h1>
+            <div className="parallax-container">
+              <div className="parallax-section no-parallax">
+                <h1>Fun fact:</h1>
               </div>
-              <AdvancedBannerBottom />
-            </ParallaxProvider>
+              <div className="parallax-section parallax bg">
+                <h1>The sound that occurs when you snap your fingers is made by your middle finger hitting your
+                  palm!</h1>
+              </div>
+              <div className="parallax-section no-parallax">
+                <h1>Have a nice day!</h1>
+              </div>
+            </div>
 
           </Layout>
         )}
