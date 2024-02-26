@@ -182,72 +182,9 @@ export default function Index({ cmsData }: IndexProps) {
                 </div>
               </div>
             </div>
-
-            {/*<div className="home-items-container">*/}
-            {/*  <div className="home-project-card-container">*/}
-            {/*    <div className="home-project-card">*/}
-            {/*      <div className="home-project-content">*/}
-            {/*        <p>Test 1</p>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*  <div className="home-project-card-container">*/}
-            {/*    <div className="home-project-card">*/}
-            {/*      <div className="home-project-content">*/}
-            {/*        <p>Test 1</p>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*  <div className="home-project-card-container">*/}
-            {/*    <div className="home-project-card">*/}
-            {/*      <div className="home-project-content">*/}
-            {/*        <p>Test 1</p>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*  <div className="home-project-card-container">*/}
-            {/*    <div className="home-project-card">*/}
-            {/*      <div className="home-project-content">*/}
-            {/*        <p>Test 1</p>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*  <div className="home-project-card-container">*/}
-            {/*    <div className="home-project-card">*/}
-            {/*      <div className="home-project-content">*/}
-            {/*        <p>Test 1</p>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*  <div className="home-project-card-container">*/}
-            {/*    <div className="home-project-card">*/}
-            {/*      <div className="home-project-content">*/}
-            {/*        <p>Test 1</p>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*  <div className="home-project-card-container">*/}
-            {/*    <div className="home-project-card">*/}
-            {/*      <div className="home-project-content">*/}
-            {/*        <p>Test 1</p>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*  <div className="home-project-card-container">*/}
-            {/*    <div className="home-project-card">*/}
-            {/*      <div className="home-project-content">*/}
-            {/*        <p>Test 1</p>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*  <div className="home-project-card-container">*/}
-            {/*    <div className="home-project-card">*/}
-            {/*      <div className="home-project-content">*/}
-            {/*        <p>Test 1</p>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*</div>*/}
+            <div>
+              <h1>Test</h1>
+            </div>
 
             <div className="parallax-container">
               <div className="parallax-section no-parallax">
