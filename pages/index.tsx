@@ -15,6 +15,7 @@ import { seoImage, ISeoImage } from '@meta/seoImage';
 
 import { BodyClass } from '@helpers/BodyClass';
 import VanillaTilt from "vanilla-tilt";
+import GradientBg from "@utils/gradientbg";
 
 interface CmsData {
   posts: GhostPostsOrPages;
@@ -107,49 +108,28 @@ export default function Index({ cmsData }: IndexProps) {
               </div>
             </div>
 
-            <div className="home-items-container">
-              <div id="particle-container">
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
+            <GradientBg />
+            <div className="text-container">Bubbles</div>
+            <div className="gradient-bg">
+              <svg xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                  </filter>
+                </defs>
+              </svg>
+              <div className="gradients-container">
+                <div className="g1"></div>
+                <div className="g2"></div>
+                <div className="g3"></div>
+                <div className="g4"></div>
+                <div className="g5"></div>
+                <div className="interactive"></div>
               </div>
+            </div>
+            <div className="home-items-container">
               <div className="home-project-card-container">
                 <div className="home-project-card">
                   <div className="home-project-content">
