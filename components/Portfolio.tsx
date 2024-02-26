@@ -1,41 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import VanillaTilt from 'vanilla-tilt';
-import ImagePopup from './ImagePopup';
-import Image from 'next/image';
-import { categories, Item, items, PortfolioItem } from "@lib/portfolioData";
+import React, { useState, useEffect } from 'react'
+import VanillaTilt from 'vanilla-tilt'
+import ImagePopup from './ImagePopup'
+import Image from 'next/image'
+import { categories, Item, items, PortfolioItem } from '@lib/portfolioData'
 
 declare global {
   interface HTMLElement {
-    vanillaTilt?: VanillaTilt;
+    vanillaTilt?: VanillaTilt
   }
 }
 
 const Portfolio: React.FC = () => {
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null)
 
   useEffect(() => {
-    const tiltNodes = Array.from(document.querySelectorAll('.project-card')) as HTMLElement[];
+    const tiltNodes = Array.from(document.querySelectorAll('.project-card')) as HTMLElement[]
     VanillaTilt.init(tiltNodes, {
       max: 25,
       speed: 400,
       glare: true,
       'max-glare': 1,
-    });
+    })
 
     return () => {
       tiltNodes.forEach((element) => {
-        element.vanillaTilt?.destroy();
-      });
-    };
-  }, []);
+        element.vanillaTilt?.destroy()
+      })
+    }
+  }, [])
 
   const handleClick = (item: Item) => {
-    setSelectedItem(item);
-  };
+    setSelectedItem(item)
+  }
 
   const handleClose = () => {
-    setSelectedItem(null);
-  };
+    setSelectedItem(null)
+  }
 
   return (
     <div className="portfolio-container">
@@ -60,7 +60,7 @@ const Portfolio: React.FC = () => {
       ))}
       {selectedItem && <ImagePopup item={selectedItem} onClose={handleClose} />}
     </div>
-  );
-};
+  )
+}
 
-export default Portfolio;
+export default Portfolio

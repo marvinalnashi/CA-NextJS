@@ -20,7 +20,7 @@ const defaultOptions = withBundleAnalyzer({
       'github.githubassets.com',
       ...(process.env.IMAGE_DOMAINS || '').split(','),
     ],
-      unoptimized: true,
+    unoptimized: true,
   },
   reactStrictMode: true,
 })
