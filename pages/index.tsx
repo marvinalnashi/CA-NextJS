@@ -182,18 +182,40 @@ export default function Index({ cmsData }: IndexProps) {
                 </div>
               </div>
             </div>
-            <div>
-              <h1>Test</h1>
-            </div>
 
             <div className="parallax-container">
-              <div className="parallax-section no-parallax">
-                <h1>Fun fact:</h1>
+              <div className="parallax-section">
+                <section className="section-hero">
+                  <div className="hero">
+                    <div className="hero-text-box">
+                      <h1 className="heading-primary">
+                        A healthy meal delivered to your door, every single day
+                      </h1>
+                      <p className="hero-description">
+                        The smart 365-days-per-year food subscription that will make you eat
+                        healthy again. Tailored to your personal tastes and nutritional
+                        needs.
+                      </p>
+                      <a href="#" className="hero-btn hero-btn--fill margin-right-btn"
+                      >Learn more &darr;
+                      </a>
+                    </div>
+                    <div className="big-box">
+                      <div className="small-box" style={{backgroundColor: 'rgba(0, 0, 255, 0.4)'}}>Blue</div>
+                      <div className="small-box" style={{backgroundColor: 'rgba(0, 255, 0, 0.4)'}}>Green</div>
+                      <div className="small-box" style={{backgroundColor: 'rgba(255, 0, 0, 0.4)'}}>Red</div>
+                      <div className="small-box" style={{backgroundColor: 'rgba(255, 255, 0, 0.4)'}}>Yellow</div>
+                      <div className="small-box" style={{backgroundColor: 'rgba(128, 0, 128, 0.4)'}}>Purple</div>
+                      <div className="small-box" style={{backgroundColor: 'rgba(255, 165, 0, 0.4)'}}>Orange</div>
+                    </div>
+                  </div>
+                </section>
               </div>
               <div className="parallax-section parallax bg">
-                <h1>The sound that occurs when you snap your fingers is made by your middle finger hitting your palm!</h1>
+                <h1>The sound that occurs when you snap your fingers is made by your middle finger hitting your
+                  palm!</h1>
               </div>
-              <div className="parallax-section no-parallax">
+              <div className="parallax-section">
                 <h1>Have a nice day!</h1>
               </div>
             </div>
@@ -220,8 +242,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const cmsData = {
     settings,
     posts,
-    seoImage: await seoImage({ siteUrl: settings.processEnv.siteUrl }),
-    bodyClass: BodyClass({ isHome: true }),
+    seoImage: await seoImage({siteUrl: settings.processEnv.siteUrl}),
+    bodyClass: BodyClass({isHome: true}),
   }
 
   console.timeEnd('Index - getStaticProps')
@@ -230,6 +252,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       cmsData,
     },
-    ...(processEnv.isr.enable && { revalidate: processEnv.isr.revalidate }),
+    ...(processEnv.isr.enable && {revalidate: processEnv.isr.revalidate}),
   }
 }

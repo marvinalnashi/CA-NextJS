@@ -217,14 +217,117 @@
     background-image: url("https://picsum.photos/1080/720");
   }
 
-  .no-parallax {
-    background-color: #111;
-  }
-
   .parallax-section h1 {
-    text-align: center;
     font-size: 4rem;
     font-family: sans-serif;
     position: relative;
     z-index: 2;
   }
+
+.section-hero {
+  padding: 8.4rem 0 9.6rem 0;
+}
+
+.hero {
+  max-width: 113rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+  align-items: center;
+  gap: 0 9.6rem;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+  margin-bottom: 3.6rem;
+}
+
+html.casper body.dark .heading-primary {
+  color: #ffffff;
+}
+
+html.casper body.dark .hero-description {
+  color: #ffffff;
+}
+
+.hero-description {
+  color: #333;
+  font-size: 2rem;
+  line-height: 1.5;
+  margin-bottom: 4.8rem;
+}
+
+.hero-btn:link,
+.hero-btn:visited {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  border-radius: 9px;
+  /* margin-top: 4.8rem; */
+  padding: 1.6rem 3.2rem;
+  text-decoration: none;
+
+  transition: background-color 500ms;
+}
+
+.hero-btn--fill:link,
+.hero-btn--fill:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.hero-btn--outline:link,
+.hero-btn--outline:visited {
+  color: #555;
+  background-color: #fff;
+}
+
+.btn--fill:hover,
+.btn--fill:active {
+  background-color: #cf711f;
+  text-decoration: underline;
+}
+
+.hero-btn--outline:hover,
+.hero-btn--outline:active {
+  background-color: #fdf2e9;
+  box-shadow: inset 0px 0px 0px 3px #fff;
+  text-decoration: underline;
+}
+
+.margin-right-btn {
+  margin-right: 2.4rem;
+}
+
+.big-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  width: calc(100px * 3 + 150px);
+  height: calc(100px * 2 + 150px);
+}
+
+.small-box {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+}
