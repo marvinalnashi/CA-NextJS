@@ -50,27 +50,23 @@
 }
 
 .home-items-container {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: start;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 1200px;
-  width: 100%;
-  min-height: 100vh;
-  box-sizing: border-box;
   z-index: 1;
-  pointer-events: none;
+  gap: 20px; /* Adjusts the space between cards */
+  padding: 40px; /* Adjusts the padding around the cards for equal spacing */
+  margin: 0 auto;
+  max-width: 1200px;
+  box-sizing: border-box;
 }
 
 .home-project-card-container {
+  flex: 1 0 30%; /* Allows cards to grow and shrink but with a base width */
+  max-width: calc(33.333% - 40px); /* Adjusts the maximum width of the cards for three per row with spacing */
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: auto; /* Ensure cards are clickable/interactive */
   z-index: 2;
 }
 
@@ -122,18 +118,45 @@
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 1000px) {
+@media (min-width: 1024px) {
   .home-project-card-container {
-    flex: 0 1 calc(50% - 40px);
+    max-width: calc(33.333% - 60px); /* Reduces card width on desktop */
   }
 }
 
-@media (max-width: 700px) {
+/*@media (max-width: 1200px) {*/
+/*  .home-project-card-container {*/
+/*    max-width: calc(50% - 40px); !* Two cards per row on medium screens *!*/
+/*  }*/
+/*}*/
+
+@media (max-width: 768px) { /* Adjusted for tablets */
   .home-project-card-container {
-    flex: 0 1 100%;
-    margin: 20px 0;
+    flex: 0 1 calc(50% - 20px); /* Switches to 2 cards per row on screens smaller than 768px */
+    max-width: calc(50% - 20px); /* Adjusts max-width for 2 cards per row layout */
+    /*margin-bottom: 20px; !* Ensures consistent margin at the bottom *!*/
   }
 }
+
+@media (max-width: 420px) { /* Further adjustments for very small devices */
+  .home-project-card-container {
+    flex: 0 1 100%; /* Full width for very small screens */
+    max-width: 100%; /* Ensures cards use full width */
+  }
+}
+
+/*@media (max-width: 1000px) {*/
+/*  .home-project-card-container {*/
+/*    flex: 0 1 calc(50% - 40px);*/
+/*  }*/
+/*}*/
+
+/*@media (max-width: 700px) {*/
+/*  .home-project-card-container {*/
+/*    flex: 0 1 100%;*/
+/*    margin: 20px 0;*/
+/*  }*/
+/*}*/
 
   .headline {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
