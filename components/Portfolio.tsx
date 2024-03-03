@@ -39,7 +39,7 @@ const Portfolio: React.FC = () => {
 
   return (
     <div className="portfolio-container">
-      <h1 className="text-align">Projects</h1>
+      <h1 className="title-top text-align">Projects</h1>
       {categories.map((category) => (
         <div key={category}>
           <h2 className="text-align">{category}</h2>

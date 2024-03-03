@@ -114,6 +114,10 @@ html.casper body.dark .popup-content-pf {
   margin-left: 45px;
 }
 
+.title-top {
+  margin-top: 75px;
+}
+
 html.casper body.dark .tags-card-container .tags-content a {
   color: #ffffff;
 }
