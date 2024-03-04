@@ -1,12 +1,12 @@
-import React from 'react';
-import { HomePostCard } from "@components/HomePostCard";
-import { GhostPostsOrPages, GhostSettings } from '@lib/ghost';
-import Link from "next/link";
+import React from 'react'
+import { HomePostCard } from '@components/HomePostCard'
+import { GhostPostsOrPages, GhostSettings } from '@lib/ghost'
+import Link from 'next/link'
 
 export interface HomeBlogProps {
-  posts: GhostPostsOrPages;
-  settings: GhostSettings;
-  bodyClass: string;
+  posts: GhostPostsOrPages
+  settings: GhostSettings
+  bodyClass: string
 }
 
 const HomeBlog: React.FC<HomeBlogProps> = ({ posts, settings, bodyClass }) => {
@@ -14,10 +14,9 @@ const HomeBlog: React.FC<HomeBlogProps> = ({ posts, settings, bodyClass }) => {
     <div className="inner">
       <div className="post-feed grid grid-cols-1 gap-[25px]">
         {posts.map((post, i) => (
-          <HomePostCard key={post.id} settings={settings} post={post} num={i} aosDelay={`${100 * (i + 1)}`}/>
+          <HomePostCard key={post.id} settings={settings} post={post} num={i} aosDelay={`${100 * (i + 1)}`} />
         ))}
-        <div className="text-center mt-[30px] md:mt-[40px]" data-aos="fade-in" data-aos-delay="100"
-             data-aos-duration="600" data-aos-once="false">
+        <div className="text-center mt-[30px] md:mt-[40px]" data-aos="fade-in" data-aos-delay="100" data-aos-duration="600" data-aos-once="false">
           <Link
             href="/blog"
             className="py-[15px] px-[30px] inline-block rounded-[6px] bg-primary text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out hover:bg-black-color hover:text-white"
@@ -27,7 +26,7 @@ const HomeBlog: React.FC<HomeBlogProps> = ({ posts, settings, bodyClass }) => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default HomeBlog;
+export default HomeBlog

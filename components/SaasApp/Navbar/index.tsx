@@ -95,9 +95,7 @@ const Navbar: React.FC = () => {
                 <li className="py-[8px] lg:py-[15px] xl:py-[35px] 2xl:py-[38px] relative group">
                   <Link
                     href="/contact/"
-                    className={`text-[16px] md:text-[16px] lg:text-[18px] font-medium transition-all hover:text-primary ${
-                      currentRoute === '/contact/' ? 'text-primary' : ''
-                    }`}
+                    className={`text-[16px] md:text-[16px] lg:text-[18px] font-medium transition-all hover:text-primary ${currentRoute === '/contact/' ? 'text-primary' : ''}`}
                   >
                     Contact
                   </Link>

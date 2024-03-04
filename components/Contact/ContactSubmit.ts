@@ -1,4 +1,4 @@
-import { useInputProps, useSelectProps } from '@components/common/elements'
+import { useInputProps, useSelectProps } from '@common/elements'
 import { getLang, get } from '@utils/use-lang'
 import { ServiceConfig } from './ContactForm'
 

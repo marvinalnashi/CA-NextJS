@@ -6,7 +6,7 @@ import { Layout } from '@components/Layout'
 import { HomeHeaderIndex } from '@components/HomeHeaderIndex'
 import { StickyNavContainer } from '@effects/StickyNavContainer'
 import { SEO } from '@meta/seo'
-import {getAllPosts, getAllSettings, getPostsByTag, GhostPostsOrPages, GhostSettings} from '@lib/ghost'
+import { getAllPosts, getAllSettings, getPostsByTag, GhostPostsOrPages, GhostSettings } from '@lib/ghost'
 import { seoImage, ISeoImage } from '@meta/seoImage'
 import { BodyClass } from '@helpers/BodyClass'
 import Navbar from '@components/SaasApp/Navbar'
@@ -24,7 +24,7 @@ import Testimonials from '@components/SaasApp/Testimonials'
 import OurLatestBlog from '@components/SaasApp/OurLatestBlog'
 import Newsletter from '@components/SaasApp/Newsletter'
 import Footer from '@components/SaasApp/Footer'
-import HomeBlog, { HomeBlogProps } from "@components/SaasApp/OurLatestBlog";
+import HomeBlog, { HomeBlogProps } from '@components/SaasApp/OurLatestBlog'
 import { processEnv } from '@lib/processEnv'
 
 interface CmsData {

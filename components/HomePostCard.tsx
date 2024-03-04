@@ -35,17 +35,25 @@ export const HomePostCard = ({ settings, post, num, isHome, aosDelay }: HomePost
       data-aos="fade-up"
       data-aos-delay={aosDelay}
       data-aos-duration="600"
-      data-aos-once="false">
+      data-aos-once="false"
+    >
       {featImg && (
         <Link legacyBehavior href={url}>
           <a className="post-card-image-link" aria-label={post.title}>
             {nextImages.feature ? (
               <div className="home-post-card-image-border post-card-image">
-                <Image src={featImg.url} alt={''} className="home-post-card-image-border home-post-card-image-position" sizes="(max-width: 640px) 320px, (max-width: 1000px) 500px, 680px"
-                       layout="fill" objectFit="cover" quality={nextImages.quality}/>
+                <Image
+                  src={featImg.url}
+                  alt={''}
+                  className="home-post-card-image-border home-post-card-image-position"
+                  sizes="(max-width: 640px) 320px, (max-width: 1000px) 500px, 680px"
+                  layout="fill"
+                  objectFit="cover"
+                  quality={nextImages.quality}
+                />
               </div>
             ) : (
-              post.feature_image && <Image className="home-post-card-image-border home-post-card-image-position post-card-image" src={post.feature_image} alt={''}/>
+              post.feature_image && <Image className="home-post-card-image-border home-post-card-image-position post-card-image" src={post.feature_image} alt={''} />
             )}
           </a>
         </Link>
@@ -66,7 +74,7 @@ export const HomePostCard = ({ settings, post, num, isHome, aosDelay }: HomePost
         </Link>
 
         <footer className="post-card-meta">
-          <AuthorList {...{settings, authors: post.authors}} />
+          <AuthorList {...{ settings, authors: post.authors }} />
           <div className="post-card-byline-content">
             {post.authors && post.authors.length > 2 && <span>{text(`MULTIPLE_AUTHORS`)}</span>}
             {post.authors && post.authors.length < 3 && (
@@ -74,15 +82,13 @@ export const HomePostCard = ({ settings, post, num, isHome, aosDelay }: HomePost
                 {authors?.map((author, i) => (
                   <div key={i}>
                     {i > 0 ? `, ` : ``}
-                    <Link
-                      href={resolveUrl({cmsUrl, slug: author.slug, url: author.url || undefined})}>{author.name}</Link>
+                    <Link href={resolveUrl({ cmsUrl, slug: author.slug, url: author.url || undefined })}>{author.name}</Link>
                   </div>
                 ))}
               </span>
             )}
             <span className="post-card-byline-date">
-              <time
-                dateTime={post.published_at || ''}>{dayjs(post.published_at || '').format('D MMM YYYY')}&nbsp;</time>
+              <time dateTime={post.published_at || ''}>{dayjs(post.published_at || '').format('D MMM YYYY')}&nbsp;</time>
               <span className="bull">&bull; </span> {readingTime}
             </span>
           </div>

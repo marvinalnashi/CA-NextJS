@@ -1,9 +1,9 @@
-"use client";
-import React from "react";
-import { Toaster } from "react-hot-toast";
+'use client'
+import React from 'react'
+import { Toaster } from 'react-hot-toast'
 
 const TosterProvider = () => {
-	return <Toaster />;
-};
+  return <Toaster />
+}
 
-export default TosterProvider;
+export default TosterProvider
