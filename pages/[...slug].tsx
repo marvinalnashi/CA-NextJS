@@ -13,7 +13,6 @@ import { customPage } from '@appConfig'
 import { ContactPage, defaultPage } from '@lib/contactPageDefaults'
 import { imageDimensions } from '@lib/images'
 
-import { Contact } from '@components/ContactPage'
 import { ISeoImage, seoImage } from '@meta/seoImage'
 import { processEnv } from '@lib/processEnv'
 import { BodyClass } from '@helpers/BodyClass'
@@ -51,9 +50,6 @@ const PostOrPageIndex = ({ cmsData }: PostOrPageProps) => {
   const { isPost, contactPage } = cmsData
   if (isPost) {
     return <Post {...{ cmsData }} />
-  } else if (!!contactPage) {
-    const { contactPage, previewPosts, settings, seoImage, bodyClass } = cmsData
-    return <Contact cmsData={{ page: contactPage, previewPosts, settings, seoImage, bodyClass }} />
   } else {
     return <Page cmsData={cmsData} />
   }

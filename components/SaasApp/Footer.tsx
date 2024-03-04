@@ -28,11 +28,6 @@ const navLinkData = [
     text: 'Pricing',
     link: '#pricing',
   },
-  {
-    id: '5',
-    text: 'Contact',
-    link: '/contact',
-  },
 ]
 
 // Social Links
