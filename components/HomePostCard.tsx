@@ -31,7 +31,7 @@ export const HomePostCard = ({ settings, post, num, isHome, aosDelay }: HomePost
 
   return (
     <article
-      className={`post-card ${postClass} ${large} bg-neutral-100 rounded-[10px] px-[20px] xl:px-[30px] 2xl:px-[40px] py-[40px] md:py-[50px] text-center`}
+      className={`post-card ${postClass} ${large} bg-neutral-100 rounded-[20px] px-[20px] xl:px-[30px] 2xl:px-[40px] py-[40px] md:py-[50px] text-center`}
       data-aos="fade-up"
       data-aos-delay={aosDelay}
       data-aos-duration="600"
@@ -40,12 +40,12 @@ export const HomePostCard = ({ settings, post, num, isHome, aosDelay }: HomePost
         <Link legacyBehavior href={url}>
           <a className="post-card-image-link" aria-label={post.title}>
             {nextImages.feature ? (
-              <div className="post-card-image">
-                <Image src={featImg.url} alt={''} sizes="(max-width: 640px) 320px, (max-width: 1000px) 500px, 680px"
+              <div className="home-post-card-image-border post-card-image">
+                <Image src={featImg.url} alt={''} className="home-post-card-image-border home-post-card-image-position" sizes="(max-width: 640px) 320px, (max-width: 1000px) 500px, 680px"
                        layout="fill" objectFit="cover" quality={nextImages.quality}/>
               </div>
             ) : (
-              post.feature_image && <Image className="post-card-image" src={post.feature_image} alt={''}/>
+              post.feature_image && <Image className="home-post-card-image-border home-post-card-image-position post-card-image" src={post.feature_image} alt={''}/>
             )}
           </a>
         </Link>

@@ -2,7 +2,7 @@ import React from 'react';
 import { HomePostCard } from "@components/HomePostCard";
 import { GhostPostsOrPages, GhostSettings } from '@lib/ghost';
 
-interface HomeBlogProps {
+export interface HomeBlogProps {
   posts: GhostPostsOrPages;
   settings: GhostSettings;
   bodyClass: string;
