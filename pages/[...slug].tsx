@@ -10,7 +10,6 @@ import { resolveUrl } from '@utils/routing'
 import { collections } from '@lib/collections'
 
 import { customPage } from '@appConfig'
-import { ContactPage, defaultPage } from '@lib/contactPageDefaults'
 import { imageDimensions } from '@lib/images'
 
 import { ISeoImage, seoImage } from '@meta/seoImage'
@@ -26,7 +25,6 @@ import { BodyClass } from '@helpers/BodyClass'
 interface CmsDataCore {
   post: GhostPostOrPage
   page: GhostPostOrPage
-  contactPage: ContactPage
   settings: GhostSettings
   seoImage: ISeoImage
   previewPosts?: GhostPostsOrPages
@@ -47,7 +45,7 @@ const PostOrPageIndex = ({ cmsData }: PostOrPageProps) => {
   const router = useRouter()
   if (router.isFallback) return <div>Loading...</div>
 
-  const { isPost, contactPage } = cmsData
+  const { isPost } = cmsData
   if (isPost) {
     return <Post {...{ cmsData }} />
   } else {
@@ -67,7 +65,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   let post: GhostPostOrPage | null = null
   let page: GhostPostOrPage | null = null
-  let contactPage: ContactPage | null = null
 
   post = await getPostBySlug(slug)
   const isPost = !!post
@@ -78,21 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     post.primary_tag = primaryTag
   }
 
-  // Add custom contact page
-  let isContactPage = false
-  if (processEnv.contactPage) {
-    contactPage = { ...defaultPage, ...customPage }
-    isContactPage = contactPage?.slug === slug
-    if (!isContactPage) contactPage = null
-
-    const url = contactPage?.feature_image
-    if (!contactPage?.featureImage && contactPage && url) {
-      const dimensions = await imageDimensions(url)
-      if (dimensions) contactPage.featureImage = { url, dimensions }
-    }
-  }
-
-  if (!post && !page && !isContactPage) {
+  if (!post && !page) {
     return {
       notFound: true,
     }
@@ -102,9 +85,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   let prevPost: GhostPostOrPage | null = null
   let nextPost: GhostPostOrPage | null = null
 
-  if (isContactPage) {
-    previewPosts = await getAllPosts({ limit: 3 })
-  } else if (isPost && post?.id && post?.slug) {
+  if (isPost && post?.id && post?.slug) {
     const tagSlug = post?.primary_tag?.slug
     previewPosts = (tagSlug && (await getPostsByTag(tagSlug, 3, post?.id))) || []
 
@@ -118,10 +99,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const siteUrl = settings.processEnv.siteUrl
-  const imageUrl = (post || contactPage || page)?.feature_image || undefined
+  const imageUrl = (post || page)?.feature_image || undefined
   const image = await seoImage({ siteUrl, imageUrl })
 
-  const tags = (contactPage && contactPage.tags) || (page && page.tags) || undefined
+  const tags = (page && page.tags) || undefined
 
   console.timeEnd('Post - getStaticProps')
 
@@ -131,13 +112,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         settings,
         post,
         page,
-        contactPage,
         isPost,
         seoImage: image,
         previewPosts,
         prevPost,
         nextPost,
-        bodyClass: BodyClass({ isPost, page: contactPage || page || undefined, tags }),
+        bodyClass: BodyClass({ isPost, page: page || undefined, tags }),
       },
     },
     ...(processEnv.isr.enable && { revalidate: processEnv.isr.revalidate }), // re-generate at most once every revalidate second
@@ -159,16 +139,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     return resolveUrl({ cmsUrl, collectionPath, slug, url })
   })
 
-  let contactPageRoute: string | null = null
-  if (processEnv.contactPage) {
-    const contactPage = { ...defaultPage, ...customPage }
-    const { slug, url } = contactPage
-    contactPageRoute = resolveUrl({ cmsUrl, slug, url })
-  }
-
-  const customRoutes = (contactPageRoute && [contactPageRoute]) || []
   const pageRoutes = (pages as GhostPostsOrPages).map(({ slug, url }) => resolveUrl({ cmsUrl, slug, url }))
-  const paths = [...postRoutes, ...pageRoutes, ...customRoutes]
+  const paths = [...postRoutes, ...pageRoutes]
 
   return {
     paths,
