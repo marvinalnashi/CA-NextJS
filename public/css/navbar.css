@@ -33,7 +33,7 @@
   @apply visible;
 }
 .navbar-area a.active {
-  @apply text-[#0a64bc];
+  @apply text-sky-700;
 }
 .navbar-area.isSticky {
   @apply sticky;
@@ -87,7 +87,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     @apply border;
-    @apply border-[#eeeeee];
+    @apply border-zinc-100;
   }
   .navbar-area .navbar .navbar-collapse::-webkit-scrollbar {
     width: 5px;
@@ -120,7 +120,7 @@
     @apply py-[10px];
     @apply shadow-none;
     @apply opacity-100;
-    @apply bg-[#f9f9f9];
+    @apply bg-stone-50;
     @apply overflow-hidden;
   }
   .navbar-area .navbar .navbar-collapse .navbar-nav li ul li a {
@@ -132,7 +132,7 @@
     @apply visible;
   }
   .navbar-area .navbar .navbar-collapse .navbar-nav li ul li ul li ul {
-    @apply bg-[#f9f9f9];
+    @apply bg-stone-50;
   }
   .navbar-area .navbar.active .navbar-toggler .burger-menu i::before {
     content: "\eb98";
@@ -143,4 +143,6 @@
   .navbar-style-two .navbar .navbar-collapse {
     border-color: #cfc8b8;
   }
-}/*# sourceMappingURL=navbar.css.map */
+}
+
+/*# sourceMappingURL=navbar.css.map */

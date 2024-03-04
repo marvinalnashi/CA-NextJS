@@ -2889,3 +2889,22 @@ html.casper .site-footer-nav a:first-of-type:before {
     margin-left: 0;
   }
 }
+
+.general-card-border {
+  border: 2px solid #1E88E5;
+  transition: border-color 0.3s ease;
+}
+
+.general-card-border:hover {
+  border-color: #9221C9;
+}
+
+.blog-card-border {
+  border: 2px solid #EAEAEA;
+  transition: border-color 0.3s ease;
+}
+
+.blog-card-border:hover {
+  border-color: #D0D0D0;
+}
+

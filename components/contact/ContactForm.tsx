@@ -1,115 +1,100 @@
-"use client";
+import { useEffect, useState } from 'react'
+import { useInput, useSelect } from '@components/common/elements'
+import { getLang, get } from '@utils/use-lang'
 
-import React from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-import Input from "../FormHelpers/Input";
-import TextArea from "../FormHelpers/TextArea";
-import Button from "../FormHelpers/Button";
-import ContactInfo from "./ContactInfo";
+import { Validate } from './ContactValidation'
+import { handleSubmit } from './ContactSubmit'
+import styles from './ContactForm.module.css'
 
-const ContactForm: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<FieldValues>({
-    defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      number: "",
-      comment: "",
-    },
-  });
+export interface ServiceConfig {
+  url: string
+  contentType: string
+}
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    // console.log(data);
-    toast.success("Successfully submitted your feedback!");
-    reset();
-  };
+interface ContactFormProps {
+  topics: string[]
+  serviceConfig: ServiceConfig
+  lang?: string
+}
+
+export const ContactForm = ({ topics, serviceConfig, lang }: ContactFormProps) => {
+  const text = get(getLang(lang))
+  const [name, setNameError, clearName] = useInput('')
+  const [email, setEmailError, clearEmail] = useInput('')
+  const [textArea, setTextAreaError, clearTextArea] = useInput('')
+  const [robot] = useInput('')
+  const [subjects, setSubjectError, clearSubject] = useSelect(0, topics)
+  const [message, setMessage] = useState('')
+  const [success, setSuccess] = useState('')
+
+  const fields = { name, email, subject: subjects, message: textArea, formname: robot }
+  const errors = Object.entries(fields).map(([_, value]) => value.error)
+
+  const clear = [clearName, clearEmail, clearTextArea, clearSubject]
+  const clearForm = () => clear.forEach((c) => c())
+
+  const validate = new Validate({ lang })
+  const validateAll = ({ name, email, subject, message }: typeof fields) => {
+    if (!validate.name(name, setNameError)) return false
+    if (!validate.email(email, setEmailError)) return false
+    if (!validate.subjects(subject, setSubjectError)) return false
+    if (!validate.message(message, setTextAreaError)) return false
+    return true
+  }
+
+  useEffect(() => {
+    const error = errors.find((error) => error)
+    if (error) return setMessage(error)
+    setMessage('')
+  }, [errors])
 
   return (
     <>
-      <div className="py-[50px] md:py-[80px] lg:py-[100px] xl:py-[120px]">
-        <div className="container mx-auto">
-          <div className="max-w-[650px] mx-auto text-center mb-[30px] md:mb-[40px] lg:mb-[60px]">
-            <h6 className="uppercase text-[16px] md:text-[18px] font-medium mb-[5px]">
-              GET IN TOUCH
-            </h6>
-            <h2 className="text-[28px] md:text-[36px] leading-[36px] md:leading-[45px]">
-              Your Gateway to Excellence: Contact Us and Unlock a World of
-              Possibilities
-            </h2>
-          </div>
-
-          <div className="bg-[#F8F6F5] rounded-[20px]">
-            <div className="grid gap-[25px] items-center lg:gap-0 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-              {/* ContactInfo */}
-              <ContactInfo />
-
-              <div className="xl:col-span-2 px-[20px] md:px-[50px] lg:px-[50px] xl:px-[90px] py-[30px] md:py-[50px]">
-                <form
-                  className="space-y-[25px]"
-                  onSubmit={handleSubmit(onSubmit)}
-                >
-                  <div className="grid gap-[25px] grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-                    <Input
-                      id="name"
-                      placeholder="Your Name"
-                      register={register}
-                      errors={errors}
-                      required
-                    />
-
-                    <Input
-                      id="email"
-                      placeholder="Your Email"
-                      register={register}
-                      errors={errors}
-                      required
-                    />
-                  </div>
-
-                  <Input
-                    id="subject"
-                    placeholder="Your Subject"
-                    register={register}
-                    errors={errors}
-                    required
-                  />
-
-                  <Input
-                    id="number"
-                    placeholder="Your Number"
-                    register={register}
-                    errors={errors}
-                    required
-                  />
-
-                  <TextArea
-                    id="comment"
-                    placeholder="Enter Message..."
-                    register={register}
-                    errors={errors}
-                    required
-                  />
-
-                  <div className="text-center">
-                    <Button
-                      label="Send Your Message"
-                      classAtts="py-[15px] px-[30px] inline-block rounded-[6px] bg-primary-color text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out hover:bg-black-color"
-                    />
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <span className={styles.validate}>
+        <div>{message}</div>
+      </span>
+      <form
+        name="next-ghost-contact"
+        method="post"
+        action=""
+        onSubmit={(ev) => {
+          ev.preventDefault()
+          if (!validateAll(fields)) return
+          handleSubmit(serviceConfig, fields, clearForm, (msg: string) => setSuccess(msg), lang)
+        }}
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        className={styles.contact}
+      >
+        <input {...name} onBlur={() => validate.name(name, setNameError)} id="name" name="name" type="text" placeholder={text(`FULL_NAME`)} className={styles.element} />
+        <input {...email} onBlur={() => validate.email(email, setEmailError)} id="email" name="email" type="email" placeholder={text(`EMAIL_ADDRESS`)} className={styles.element} />
+        {subjects.values.length > 0 && (
+          <select {...subjects} onBlur={() => validate.subjects(subjects, setSubjectError)} id="subject" name="subject" value={subjects.index} className={styles.element}>
+            <option value={0} hidden>
+              {text(`PLEASE_SELECT`)}
+            </option>
+            {subjects.values.map((topic, i) => (
+              <option value={i + 1} key={`option-${i + 1}`}>
+                {topic}
+              </option>
+            ))}
+          </select>
+        )}
+        <textarea
+          {...textArea}
+          onBlur={() => validate.message(textArea, setTextAreaError)}
+          id="message"
+          name="message"
+          placeholder={text(`YOUR_MESSAGE`)}
+          rows={5}
+          className={styles.element}
+        />
+        <input {...robot} name="formname" className={styles.robot} />
+        <button className={styles.button} id="submit" type="submit" value="Submit">
+          {text(`SUBMIT`)}
+        </button>
+        <span className={styles.response}>{success}</span>
+      </form>
     </>
-  );
-};
-
-export default ContactForm;
+  )
+}

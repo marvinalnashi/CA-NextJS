@@ -69,7 +69,7 @@ const KeyFeatures: React.FC = () => {
             data-aos-duration="600"
             data-aos-once="false"
           >
-            <h6 className="text-primary-color uppercase text-[16px] md:text-[18px] font-medium mb-[5px]">
+            <h6 className="text-primary uppercase text-[16px] md:text-[18px] font-medium mb-[5px]">
               Key Features
             </h6>
             <h2 className="text-[28px] md:text-[36px] leading-[36px] md:leading-[45px]">
@@ -82,14 +82,14 @@ const KeyFeatures: React.FC = () => {
               {featuresData &&
                 featuresData.map((value, i) => (
                   <div
-                    className="bg-[#F5F6F7] rounded-[15px] p-[30px] md:p-[40px] group hover:bg-primary-color"
+                    className="bg-neutral-100 rounded-[15px] p-[30px] md:p-[40px] group hover:bg-primary"
                     data-aos="fade-up"
                     data-aos-delay={value.aosDelay}
                     data-aos-duration="600"
                     data-aos-once="false"
                     key={i}
                   >
-                    <div 
+                    <div
                       className="text-white w-[75px] h-[75px] leading-[75px] rounded-full text-center text-[40px] mb-[25px] group-hover:bg-white"
                       style={{
                         background: 'linear-gradient(180deg, #A673EE 0%, #7497FF 100%)'
@@ -115,7 +115,7 @@ const KeyFeatures: React.FC = () => {
           >
             <Link
               href="/features"
-              className="py-[15px] px-[30px] inline-block rounded-[6px] bg-primary-color text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out hover:bg-black-color"
+              className="py-[15px] px-[30px] inline-block rounded-[6px] bg-primary text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out hover:bg-black-color"
             >
               See All Features
             </Link>

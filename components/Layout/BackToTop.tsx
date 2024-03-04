@@ -31,7 +31,7 @@ const BackToTop = () => {
         style={{
           display: showScroll ? "block" : "none",
         }}
-        className="bg-primary-color text-white fixed right-0 rtl:right-auto rtl:left-0 bottom-[30px] cursor-pointer w-[40px] h-[35px] rounded-l-full rtl:rounded-l-[0] rtl:rounded-r-full text-center leading-[35px] text-[20px] z-50 hover:bg-[#000]"
+        className="bg-primary text-white fixed right-0 rtl:right-auto rtl:left-0 bottom-[30px] cursor-pointer w-[40px] h-[35px] rounded-l-full rtl:rounded-l-[0] rtl:rounded-r-full text-center leading-[35px] text-[20px] z-50 hover:bg-black"
       >
         <i className="ri-arrow-up-line"></i>
       </div>

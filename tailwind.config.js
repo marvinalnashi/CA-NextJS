@@ -1,28 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['pages/**/*.{js,ts,jsx,tsx,mdx}', 'components/**/*.{js,ts,jsx,tsx,mdx}', 'lib/**/*.{js,ts,jsx,tsx,mdx}', 'utils/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       backgroundColor: {
-        'primary-color': '#0A65FC', 
-        'black-color': '#061257', 
+        primary: '#0A65FC',
+        black: '#061257',
       },
       colors: {
-        'primary-color': '#0A65FC', 
-        'black-color': '#061257', 
-        'red-color': '#F2002E', 
+        primary: '#0A65FC',
+        black: '#061257',
+        red: '#F2002E',
       },
       animation: {
         'spin-slow': 'spin 30s linear infinite',
         'ping-slow': 'ping 6s cubic-bezier(0, 0, 0.2, 1) infinite',
-      }
+      },
     },
   },
   plugins: [
+    require('@tailwindcss/forms'), // Example of adding Tailwind CSS forms plugin
     function ({ addComponents }) {
       addComponents({
         '.container': {
@@ -31,7 +28,7 @@ module.exports = {
           paddingLeft: '12px',
           paddingRight: '12px',
           maxWidth: '100%',
-          
+
           '@screen sm': {
             maxWidth: '540px',
           },
@@ -48,7 +45,7 @@ module.exports = {
             maxWidth: '1320px',
           },
         },
-      });
+      })
     },
   ],
 }

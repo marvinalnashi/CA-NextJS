@@ -4,7 +4,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const defaultOptions = withBundleAnalyzer({
-  output: 'export',
   trailingSlash: true,
   images: {
     deviceSizes: [320, 500, 680, 1040, 2080, 2048, 3120],
