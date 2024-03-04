@@ -11,8 +11,9 @@ export interface HomeBlogProps {
 
 const HomeBlog: React.FC<HomeBlogProps> = ({ posts, settings, bodyClass }) => {
   return (
-    <div className="inner">
-      <div className="post-feed grid grid-cols-1 gap-[25px]">
+    <div>
+      <div className="container">
+        <div className="grid gap-[25px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post, i) => (
           <HomePostCard key={post.id} settings={settings} post={post} num={i} aosDelay={`${100 * (i + 1)}`} />
         ))}
@@ -25,6 +26,7 @@ const HomeBlog: React.FC<HomeBlogProps> = ({ posts, settings, bodyClass }) => {
           </Link>
         </div>
       </div>
+    </div>
     </div>
   )
 }

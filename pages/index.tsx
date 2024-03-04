@@ -49,7 +49,7 @@ export default function Index({ cmsData, settings, posts, bodyClass }: IndexProp
         activeClass="fixed-nav-active"
         render={(sticky) => (
           <Layout {...{ bodyClass: cmsData.bodyClass, sticky, settings: cmsData.settings, isHome: true }} header={<HomeHeaderIndex {...{ settings: cmsData.settings }} />}>
-            <Navbar />
+            {/*<Navbar />*/}
             <HeroBanner />
             <AboutApp />
             {/*<PromoVideo />*/}
