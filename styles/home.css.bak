@@ -1,0 +1,333 @@
+.embla {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.embla__dots {
+  position: absolute;
+  bottom: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.embla__dot {
+  display: inline-block;
+  width: 30px;
+  height: 5px;
+  background-color: #ccc;
+  border-radius: 15px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.embla__dot.is-active {
+  background-color: #333;
+}
+
+.home-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 1;
+  gap: 20px; /* Adjusts the space between cards */
+  padding: 40px; /* Adjusts the padding around the cards for equal spacing */
+  margin: 0 auto;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.home-project-card-container {
+  flex: 1 0 30%; /* Allows cards to grow and shrink but with a base width */
+  max-width: calc(33.333% - 40px); /* Adjusts the maximum width of the cards for three per row with spacing */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.home-project-card {
+  width: 100%; /* Make card width responsive to the grid's column size */
+  height: 200px; /* Adjust height as needed */
+  margin: 0; /* Remove margin as spacing is handled by the grid 'gap' */
+  box-shadow: 2px 2px 30px rgba(0,0,0,.2);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+.home-project-card-container .home-project-content {
+  padding: 20px;
+  text-align: center;
+  transition: 0.5s;
+}
+.home-project-card-container .home-project-content h2 {
+  position: absolute;
+  top: -30px;
+  right: 30px;
+  font-size: 8em;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+.home-project-card-container .home-project-content h3 {
+  font-size: 1.8em;
+  color: #fff;
+  z-index: 1;
+}
+.home-project-card-container .home-project-content p {
+  font-size: 1em;
+  font-weight: 400;
+}
+.home-project-card-container .home-project-content a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  margin-top: 15px;
+  background: #fff;
+  color: #000;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 1024px) {
+  .home-project-card-container {
+    max-width: calc(33.333% - 60px); /* Reduces card width on desktop */
+  }
+}
+
+/*@media (max-width: 1200px) {*/
+/*  .home-project-card-container {*/
+/*    max-width: calc(50% - 40px); !* Two cards per row on medium screens *!*/
+/*  }*/
+/*}*/
+
+@media (max-width: 768px) { /* Adjusted for tablets */
+  .home-project-card-container {
+    flex: 0 1 calc(50% - 20px); /* Switches to 2 cards per row on screens smaller than 768px */
+    max-width: calc(50% - 20px); /* Adjusts max-width for 2 cards per row layout */
+    /*margin-bottom: 20px; !* Ensures consistent margin at the bottom *!*/
+  }
+}
+
+@media (max-width: 420px) { /* Further adjustments for very small devices */
+  .home-project-card-container {
+    flex: 0 1 100%; /* Full width for very small screens */
+    max-width: 100%; /* Ensures cards use full width */
+  }
+}
+
+/*@media (max-width: 1000px) {*/
+/*  .home-project-card-container {*/
+/*    flex: 0 1 calc(50% - 40px);*/
+/*  }*/
+/*}*/
+
+/*@media (max-width: 700px) {*/
+/*  .home-project-card-container {*/
+/*    flex: 0 1 100%;*/
+/*    margin: 20px 0;*/
+/*  }*/
+/*}*/
+
+  .headline {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 10vw;
+  }
+
+  .inset {
+    position: absolute;
+    inset: 0;
+  }
+
+  .white {
+    color: white;
+  }
+
+  .gray {
+    color: #446;
+  }
+
+  .full {
+    height: 100vh;
+  }
+
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gradient {
+    background: linear-gradient(rgba(14, 62, 151, 0.5) 50%, black);
+  }
+
+
+  .parallax-container {
+    overflow-x: hidden;
+  }
+
+  .parallax-section {
+    position: relative;
+    min-height: 50vh; /* Adjust based on your content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .parallax.bg {
+    background-attachment: fixed; /* This creates the parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Specific background for the parallax section */
+  .bg {
+    background-image: url("https://picsum.photos/1080/720");
+  }
+
+  .parallax-section h1 {
+    font-size: 4rem;
+    font-family: sans-serif;
+    position: relative;
+    z-index: 2;
+  }
+
+.section-hero {
+  padding: 8.4rem 0 9.6rem 0;
+}
+
+.hero {
+  max-width: 113rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+  align-items: center;
+  gap: 0 9.6rem;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+  margin-bottom: 3.6rem;
+}
+
+html.casper body.dark .heading-primary {
+  color: #ffffff;
+}
+
+html.casper body.dark .hero-description {
+  color: #ffffff;
+}
+
+.hero-description {
+  color: #333;
+  font-size: 2rem;
+  line-height: 1.5;
+  margin-bottom: 4.8rem;
+}
+
+.hero-btn:link,
+.hero-btn:visited {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  border-radius: 9px;
+  /* margin-top: 4.8rem; */
+  padding: 1.6rem 3.2rem;
+  text-decoration: none;
+
+  transition: background-color 500ms;
+}
+
+.hero-btn--fill:link,
+.hero-btn--fill:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.hero-btn--outline:link,
+.hero-btn--outline:visited {
+  color: #555;
+  background-color: #fff;
+}
+
+.btn--fill:hover,
+.btn--fill:active {
+  background-color: #cf711f;
+  text-decoration: underline;
+}
+
+.hero-btn--outline:hover,
+.hero-btn--outline:active {
+  background-color: #fdf2e9;
+  box-shadow: inset 0px 0px 0px 3px #fff;
+  text-decoration: underline;
+}
+
+.margin-right-btn {
+  margin-right: 2.4rem;
+}
+
+.big-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  width: calc(100px * 3 + 150px);
+  height: calc(100px * 2 + 150px);
+}
+
+.small-box {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+}
