@@ -16,21 +16,6 @@ import { seoImage, ISeoImage } from '@meta/seoImage'
 import { BodyClass } from '@helpers/BodyClass'
 import VanillaTilt from 'vanilla-tilt'
 import GradientBg from '@utils/gradientbg'
-import Footer from "@components/home/Footer";
-import Navbar from "@components/home/Navbar";
-import HeroBanner from "@components/home/HeroBanner";
-import Partner from "@components/home/Partner";
-import Features from "@components/home/Features";
-import AboutApp from "@components/home/AboutApp";
-import PromoVideo from "@components/home/PromoVideo";
-import KeyFeatures from "@components/home/KeyFeatures";
-import AppScreens from "@components/home/AppScreens";
-import Integrations from "@components/home/Integrations";
-import AppDownload from "@components/home/AppDownload";
-import PricingTable from "@components/home/PricingTable";
-import Testimonials from "@components/home/Testimonials";
-import OurLatestBlog from "@components/home/OurLatestBlog";
-import Newsletter from "@components/home/Newsletter";
 
 interface CmsData {
   posts: GhostPostsOrPages
@@ -52,7 +37,7 @@ export default function Index({ cmsData }: IndexProps) {
 
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla])
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla])
-  const scrollTo = useCallback((index: number) => embla && embla.scrollTo(index), [embla])
+  const scrollTo = useCallback((index) => embla && embla.scrollTo(index), [embla])
 
   const router = useRouter()
 
@@ -112,158 +97,128 @@ export default function Index({ cmsData }: IndexProps) {
               </div>
             </div>
 
-            {/*<Navbar />*/}
+            <div className="gradient-bg">
+              <svg xmlns="http://www.w3.org/2000/svg" className="svg-filter">
+                <defs>
+                  <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                  </filter>
+                </defs>
+              </svg>
+              <div className="gradients-container">
+                <div className="g1"></div>
+                <div className="g2"></div>
+                <div className="g3"></div>
+                <div className="g4"></div>
+                <div className="g5"></div>
+                <div className="interactive"></div>
+              </div>
+              <GradientBg />
+              <div className="home-items-container">
+                <div className="home-project-card-container">
+                  <div className="home-project-card">
+                    <div className="home-project-content">
+                      <p>Test 1</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="home-project-card-container">
+                  <div className="home-project-card">
+                    <div className="home-project-content">
+                      <p>Test 1</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="home-project-card-container">
+                  <div className="home-project-card">
+                    <div className="home-project-content">
+                      <p>Test 1</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="home-project-card-container">
+                  <div className="home-project-card">
+                    <div className="home-project-content">
+                      <p>Test 1</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="home-project-card-container">
+                  <div className="home-project-card">
+                    <div className="home-project-content">
+                      <p>Test 1</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="home-project-card-container">
+                  <div className="home-project-card">
+                    <div className="home-project-content">
+                      <p>Test 1</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="home-project-card-container">
+                  <div className="home-project-card">
+                    <div className="home-project-content">
+                      <p>Test 1</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="home-project-card-container">
+                  <div className="home-project-card">
+                    <div className="home-project-content">
+                      <p>Test 1</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="home-project-card-container">
+                  <div className="home-project-card">
+                    <div className="home-project-content">
+                      <p>Test 1</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <HeroBanner />
-
-            <Partner />
-
-            <Features />
-
-            <AboutApp />
-
-            <PromoVideo />
-
-            <KeyFeatures />
-
-            <AppScreens />
-
-            <Integrations />
-
-            <AppDownload />
-
-            <PricingTable />
-
-            <Testimonials />
-
-            <OurLatestBlog />
-
-            <Newsletter />
-
-            <Footer />
-
-            {/*<div className="gradient-bg">*/}
-            {/*  <svg xmlns="http://www.w3.org/2000/svg" className="svg-filter">*/}
-            {/*    <defs>*/}
-            {/*      <filter id="goo">*/}
-            {/*        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />*/}
-            {/*        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />*/}
-            {/*        <feBlend in="SourceGraphic" in2="goo" />*/}
-            {/*      </filter>*/}
-            {/*    </defs>*/}
-            {/*  </svg>*/}
-            {/*  <div className="gradients-container">*/}
-            {/*    <div className="g1"></div>*/}
-            {/*    <div className="g2"></div>*/}
-            {/*    <div className="g3"></div>*/}
-            {/*    <div className="g4"></div>*/}
-            {/*    <div className="g5"></div>*/}
-            {/*    <div className="interactive"></div>*/}
-            {/*  </div>*/}
-            {/*  <GradientBg />*/}
-            {/*  <div className="home-items-container">*/}
-            {/*    <div className="home-project-card-container">*/}
-            {/*      <div className="home-project-card">*/}
-            {/*        <div className="home-project-content">*/}
-            {/*          <p>Test 1</p>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <div className="home-project-card-container">*/}
-            {/*      <div className="home-project-card">*/}
-            {/*        <div className="home-project-content">*/}
-            {/*          <p>Test 1</p>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <div className="home-project-card-container">*/}
-            {/*      <div className="home-project-card">*/}
-            {/*        <div className="home-project-content">*/}
-            {/*          <p>Test 1</p>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <div className="home-project-card-container">*/}
-            {/*      <div className="home-project-card">*/}
-            {/*        <div className="home-project-content">*/}
-            {/*          <p>Test 1</p>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <div className="home-project-card-container">*/}
-            {/*      <div className="home-project-card">*/}
-            {/*        <div className="home-project-content">*/}
-            {/*          <p>Test 1</p>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <div className="home-project-card-container">*/}
-            {/*      <div className="home-project-card">*/}
-            {/*        <div className="home-project-content">*/}
-            {/*          <p>Test 1</p>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <div className="home-project-card-container">*/}
-            {/*      <div className="home-project-card">*/}
-            {/*        <div className="home-project-content">*/}
-            {/*          <p>Test 1</p>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <div className="home-project-card-container">*/}
-            {/*      <div className="home-project-card">*/}
-            {/*        <div className="home-project-content">*/}
-            {/*          <p>Test 1</p>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <div className="home-project-card-container">*/}
-            {/*      <div className="home-project-card">*/}
-            {/*        <div className="home-project-content">*/}
-            {/*          <p>Test 1</p>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </div>*/}
-            {/*</div>*/}
-
-            {/*<div className="parallax-container">*/}
-            {/*  <div className="parallax-section">*/}
-            {/*    <section className="section-hero">*/}
-            {/*      <div className="hero">*/}
-            {/*        <div className="hero-text-box">*/}
-            {/*          <h1 className="heading-primary">*/}
-            {/*            A healthy meal delivered to your door, every single day*/}
-            {/*          </h1>*/}
-            {/*          <p className="hero-description">*/}
-            {/*            The smart 365-days-per-year food subscription that will make you eat*/}
-            {/*            healthy again. Tailored to your personal tastes and nutritional*/}
-            {/*            needs.*/}
-            {/*          </p>*/}
-            {/*          <a href="#" className="hero-btn hero-btn--fill margin-right-btn"*/}
-            {/*          >Learn more &darr;*/}
-            {/*          </a>*/}
-            {/*        </div>*/}
-            {/*        <div className="big-box">*/}
-            {/*          <div className="small-box" style={{backgroundColor: 'rgba(0, 0, 255, 0.4)'}}>Blue</div>*/}
-            {/*          <div className="small-box" style={{backgroundColor: 'rgba(0, 255, 0, 0.4)'}}>Green</div>*/}
-            {/*          <div className="small-box" style={{backgroundColor: 'rgba(255, 0, 0, 0.4)'}}>Red</div>*/}
-            {/*          <div className="small-box" style={{backgroundColor: 'rgba(255, 255, 0, 0.4)'}}>Yellow</div>*/}
-            {/*          <div className="small-box" style={{backgroundColor: 'rgba(128, 0, 128, 0.4)'}}>Purple</div>*/}
-            {/*          <div className="small-box" style={{backgroundColor: 'rgba(255, 165, 0, 0.4)'}}>Orange</div>*/}
-            {/*        </div>*/}
-            {/*      </div>*/}
-            {/*    </section>*/}
-            {/*  </div>*/}
-            {/*  <div className="parallax-section parallax bg">*/}
-            {/*    <h1>The sound that occurs when you snap your fingers is made by your middle finger hitting your*/}
-            {/*      palm!</h1>*/}
-            {/*  </div>*/}
-            {/*  <div className="parallax-section">*/}
-            {/*    <h1>Have a nice day!</h1>*/}
-            {/*  </div>*/}
-            {/*</div>*/}
+            <div className="parallax-container">
+              <div className="parallax-section">
+                <section className="section-hero">
+                  <div className="hero">
+                    <div className="hero-text-box">
+                      <h1 className="heading-primary">
+                        A healthy meal delivered to your door, every single day
+                      </h1>
+                      <p className="hero-description">
+                        The smart 365-days-per-year food subscription that will make you eat
+                        healthy again. Tailored to your personal tastes and nutritional
+                        needs.
+                      </p>
+                      <a href="#" className="hero-btn hero-btn--fill margin-right-btn"
+                      >Learn more &darr;
+                      </a>
+                    </div>
+                    <div className="big-box">
+                      <div className="small-box" style={{backgroundColor: 'rgba(0, 0, 255, 0.4)'}}>Blue</div>
+                      <div className="small-box" style={{backgroundColor: 'rgba(0, 255, 0, 0.4)'}}>Green</div>
+                      <div className="small-box" style={{backgroundColor: 'rgba(255, 0, 0, 0.4)'}}>Red</div>
+                      <div className="small-box" style={{backgroundColor: 'rgba(255, 255, 0, 0.4)'}}>Yellow</div>
+                      <div className="small-box" style={{backgroundColor: 'rgba(128, 0, 128, 0.4)'}}>Purple</div>
+                      <div className="small-box" style={{backgroundColor: 'rgba(255, 165, 0, 0.4)'}}>Orange</div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div className="parallax-section parallax bg">
+                <h1>The sound that occurs when you snap your fingers is made by your middle finger hitting your
+                  palm!</h1>
+              </div>
+              <div className="parallax-section">
+                <h1>Have a nice day!</h1>
+              </div>
+            </div>
           </Layout>
         )}
       />
