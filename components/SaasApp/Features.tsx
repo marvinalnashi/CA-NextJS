@@ -36,7 +36,7 @@ const Features: React.FC = () => {
               {featuresData &&
                 featuresData.map((value, i) => (
                   <div
-                    className="bg-neutral-100 rounded-[10px] px-[20px] xl:px-[30px] 2xl:px-[40px] py-[40px] md:py-[50px] text-center"
+                    className="bg-neutral-100 rounded-[10px] px-[20px] xl:px-[30px] 2xl:px-[40px] py-[40px] md:py-[50px] text-center hover-bg-transition hover:text-white"
                     data-aos="fade-up"
                     data-aos-delay={value.aosDelay}
                     data-aos-duration="600"

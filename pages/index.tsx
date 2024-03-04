@@ -26,6 +26,7 @@ import Newsletter from '@components/SaasApp/Newsletter'
 import Footer from '@components/SaasApp/Footer'
 import HomeBlog, { HomeBlogProps } from '@components/SaasApp/OurLatestBlog'
 import { processEnv } from '@lib/processEnv'
+import FeaturesSecondary from "@components/SaasApp/FeaturesSecondary";
 
 interface CmsData {
   posts: GhostPostsOrPages
@@ -50,16 +51,17 @@ export default function Index({ cmsData, settings, posts, bodyClass }: IndexProp
           <Layout {...{ bodyClass: cmsData.bodyClass, sticky, settings: cmsData.settings, isHome: true }} header={<HomeHeaderIndex {...{ settings: cmsData.settings }} />}>
             <Navbar />
             <HeroBanner />
-            <Partner />
-            <Features />
             <AboutApp />
-            <PromoVideo />
-            <KeyFeatures />
-            <AppScreens />
+            {/*<PromoVideo />*/}
+            {/*<Partner />*/}
+            <Features />
             <Integrations />
-            <AppDownload />
+            <AppScreens />
+            <KeyFeatures />
+            <FeaturesSecondary />
             <PricingTable />
-            <Testimonials />
+            <AppDownload />
+            {/*<Testimonials />*/}
             <OurLatestBlog settings={settings} posts={posts} bodyClass={bodyClass} />
             <Newsletter />
             <Footer />

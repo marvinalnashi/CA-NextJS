@@ -8,7 +8,7 @@ import appDownloadImg from '/public/images/saas-app/app-download.png'
 const AppDownload: React.FC = () => {
   return (
     <>
-      <div id="download">
+      <div id="download" className="py-[50px] md:py-[80px] lg:py-[100px] xl:py-[120px]">
         <div className="container">
           <div className="bg-primary rounded-[20px] py-[50px] pl-[30px] pr-[30px]">
             <div className="grid gap-[30px] items-center grid-cols-1 md:grid-cols-1 lg:grid-cols-2">

@@ -2916,3 +2916,23 @@ html.casper .site-footer-nav a:first-of-type:before {
   margin-top: 20px !important;
   position: relative !important;
 }
+
+.home-btn {
+  background-color: #1565C0 !important;
+  transition: background-color 1s !important;
+}
+
+.home-btn:hover {
+  text-underline: none;
+  background-color: #000000 !important;
+  transition: background-color 1s !important;
+}
+
+.hover-bg-transition {
+  transition: background-color 1s;
+}
+
+.hover-bg-transition:hover {
+  background-color: #93C5FD;
+  transition: background-color 1s;
+}

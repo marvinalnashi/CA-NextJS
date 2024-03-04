@@ -69,7 +69,7 @@ const KeyFeatures: React.FC = () => {
               {featuresData &&
                 featuresData.map((value, i) => (
                   <div
-                    className="bg-neutral-100 rounded-[15px] p-[30px] md:p-[40px] group hover:bg-primary"
+                    className="bg-neutral-100 rounded-[15px] p-[30px] md:p-[40px] group hover-bg-transition transition-colors duration-1000"
                     data-aos="fade-up"
                     data-aos-delay={value.aosDelay}
                     data-aos-duration="600"
@@ -94,7 +94,7 @@ const KeyFeatures: React.FC = () => {
           <div className="text-center mt-[30px] md:mt-[50px]" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600" data-aos-once="false">
             <Link
               href="/features"
-              className="py-[15px] px-[30px] inline-block rounded-[6px] bg-primary text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out hover:bg-black-color"
+              className="py-[15px] px-[30px] inline-block rounded-[6px] home-btn text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out"
             >
               See All Features
             </Link>

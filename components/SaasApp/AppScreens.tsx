@@ -31,7 +31,7 @@ const screenData = [
 const AppScreens: React.FC = () => {
   return (
     <>
-      <div id="screens" className="bg-slate-900 py-[50px] md:py-[80px] lg:py-[100px] xl:py-[120px]">
+      <div id="screens" className="bg-blue-300 py-[50px] md:py-[80px] lg:py-[100px] xl:py-[120px]">
         <div className="container">
           <div
             className="max-w-[650px] mx-auto text-center mb-[30px] md:mb-[40px] lg:mb-[60px]"

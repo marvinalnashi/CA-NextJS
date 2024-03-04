@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        primary: '#0A65FC',
-        black: '#061257',
+        primary: '#1565C0',
+        black: '#00093D',
       },
       colors: {
-        primary: '#0A65FC',
-        black: '#061257',
+        primary: '#1565C0',
+        black: '#00093D',
         red: '#F2002E',
       },
       animation: {

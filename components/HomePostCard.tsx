@@ -74,7 +74,7 @@ export const HomePostCard = ({ settings, post, num, isHome, aosDelay }: HomePost
         </Link>
 
         <footer className="post-card-meta">
-          <AuthorList {...{ settings, authors: post.authors }} />
+          {/*<AuthorList {...{ settings, authors: post.authors }} />*/}
           <div className="post-card-byline-content">
             {post.authors && post.authors.length > 2 && <span>{text(`MULTIPLE_AUTHORS`)}</span>}
             {post.authors && post.authors.length < 3 && (
