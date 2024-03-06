@@ -291,7 +291,7 @@ html.casper .site-nav-main {
   right: 0;
   left: 0;
   z-index: 1000;
-  background: rgb(16, 17, 20);
+  background: rgba(16, 17, 20, 0.42);
 }
 
 html.casper .site-nav {
@@ -324,7 +324,7 @@ html.casper .site-nav-main .site-nav-left-wrapper:after {
 html.casper .site-header-background:not(.responsive-header-img) .site-nav-left-wrapper:after,
 html.casper .site-nav-main .site-nav-left-wrapper:after {
   right: 0;
-  background: linear-gradient(to right, rgba(16, 17, 20, 0) 0%, rgba(16, 17, 20, 1) 100%);
+  /*background: linear-gradient(to right, rgba(16, 17, 20, 0) 0%, rgba(16, 17, 20, 1) 100%);*/
 }
 
 html.casper .site-nav-left {
