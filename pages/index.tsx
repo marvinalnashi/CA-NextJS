@@ -3,8 +3,6 @@ import React from 'react'
 import { useRouter } from 'next/router'
 
 import { Layout } from '@components/Layout'
-import { HomeHeaderIndex } from '@components/HomeHeaderIndex'
-import { StickyNavContainer } from '@effects/StickyNavContainer'
 import { SEO } from '@meta/seo'
 import { getAllPosts, getAllSettings, getPostsByTag, GhostPostsOrPages, GhostSettings } from '@lib/ghost'
 import { seoImage, ISeoImage } from '@meta/seoImage'
