@@ -27,6 +27,7 @@ import Footer from '@components/SaasApp/Footer'
 import HomeBlog, { HomeBlogProps } from '@components/SaasApp/OurLatestBlog'
 import { processEnv } from '@lib/processEnv'
 import FeaturesSecondary from "@components/SaasApp/FeaturesSecondary";
+import {HeaderPage} from "@components/HeaderPage";
 
 interface CmsData {
   posts: GhostPostsOrPages
@@ -44,11 +45,7 @@ export default function Index({ cmsData, settings, posts, bodyClass }: IndexProp
   return (
     <>
       <SEO {...{ settings: cmsData.settings, seoImage: cmsData.seoImage }} />
-      <StickyNavContainer
-        throttle={300}
-        activeClass="fixed-nav-active"
-        render={(sticky) => (
-          <Layout {...{ bodyClass: cmsData.bodyClass, sticky, settings: cmsData.settings, isHome: true }} header={<HomeHeaderIndex {...{ settings: cmsData.settings }} />}>
+      <Layout {...{ settings, bodyClass: `${bodyClass}` }} header={<HeaderPage {...{ settings }} />}>
             {/*<Navbar />*/}
             <HeroBanner />
             <AboutApp />
@@ -66,8 +63,6 @@ export default function Index({ cmsData, settings, posts, bodyClass }: IndexProp
             <Newsletter />
             <Footer />
           </Layout>
-        )}
-      />
     </>
   )
 }
