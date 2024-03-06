@@ -30,7 +30,7 @@ const featuresData = [
 const AboutApp: React.FC = () => {
   return (
     <>
-      <div id="about" className="overflow-hidden py-[50px] md:py-[70px] lg:py-[100px] xl:py-[120px]">
+      <div id="about" className="overflow-hidden py-[25px] md:py-[35px] lg:py-[50px] xl:py-[60px]">
         <div className="container xl:p-0 xl:max-w-[1920px]">
           <div className="grid gap-[40px] items-center grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2">
             <div className="space-y-[30px] md:space-y-[50px] lg:max-w-[630px] lg:mr-auto xl:mr-0 lg:ml-auto rtl:lg:mr-auto">
