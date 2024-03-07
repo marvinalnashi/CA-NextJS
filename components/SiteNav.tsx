@@ -9,6 +9,7 @@ import { DarkMode } from '@components/DarkMode'
 import { SubscribeButton } from '@components/SubscribeButton'
 import { getLang, get } from '@utils/use-lang'
 import { GhostSettings, NavItem, NextImage } from '@lib/ghost'
+import {useRouter} from "next/router";
 
 export interface SiteNavProps {
   settings: GhostSettings
@@ -32,9 +33,11 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
   const title = text(`SITE_TITLE`, site.title)
   const secondaryNav = site.secondary_navigation && 0 < site.secondary_navigation.length
   const siteLogo = site.logoImage
-
+  const router = useRouter();
   const navigation = site.navigation
 
+  const isHomePage = router.pathname === '/';
+  
   // overwrite navigation if specified in options
   const labels = navigation?.map((item) => item.label)
   if (labels && labels.length > 0 && config.overwriteNavigation && config.overwriteNavigation.length > 0) {
@@ -97,7 +100,7 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
             <SocialLinks {...{ siteUrl, site }} />
           </div>
         )}
-        <DarkMode {...{ settings }} />
+        {!isHomePage && <DarkMode {...{ settings }} />}
         {memberSubscriptions && <SubscribeButton {...{ lang: settings.lang }} />}
       </div>
     </nav>
