@@ -14,7 +14,7 @@ import { seoImage, ISeoImage } from '@meta/seoImage'
 import { BodyClass } from '@helpers/BodyClass'
 import tags from "@components/Tags";
 import {Tag} from "@pages/index";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import {resolveUrl} from "@utils/routing";
 import slug from "@pages/tag/[...slug]";
@@ -49,6 +49,8 @@ const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
   const router = useRouter();
   if (router.isFallback) return <div>Loading...</div>;
 
+  const [displayedTags, setDisplayedTags] = useState<Tag[]>([]);
+
   const { settings, posts, seoImage, bodyClass } = cmsData;
 
   const shuffleArray = (array: Tag[]) => {
@@ -59,7 +61,9 @@ const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
     return array;
   };
 
-  const displayedTags = shuffleArray([...tags]).slice(0, 12);
+  useEffect(() => {
+    setDisplayedTags(shuffleArray([...tags]).slice(0, 12));
+  }, [tags]);
 
   return (
     <>
