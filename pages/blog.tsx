@@ -45,41 +45,21 @@ interface BlogProps {
   cmsData: CmsData;
 }
 
-// export default function Index({ cmsData }: IndexProps) {
-//   const router = useRouter()
-//   if (router.isFallback) return <div>Loading...</div>
-//
-//   const { settings, posts, seoImage, bodyClass } = cmsData
-//
-//   return (
-//     <>
-//       <SEO {...{ settings, seoImage }} />
-//       <StickyNavContainer
-//         throttle={300}
-//         activeClass="fixed-nav-active"
-//         render={(sticky) => (
-//           <Layout {...{bodyClass, sticky, settings, isHome: true}} header={<HeaderIndex {...{settings}} />}>
-//             <div>
-//               <h2>Tags</h2>
-//               <ul>
-//                 {tags.map((tag: Tag) => (
-//                   <li key={tag.id}>{tag.name}</li>
-//                 ))}
-//               </ul>
-//             </div>
-//             <PostView {...{settings, posts, isHome: true}} />
-//           </Layout>
-//         )}
-//       />
-//     </>
-//   )
-// }
-
 const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
   const router = useRouter();
   if (router.isFallback) return <div>Loading...</div>;
 
   const { settings, posts, seoImage, bodyClass } = cmsData;
+
+  const shuffleArray = (array: Tag[]) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  const displayedTags = shuffleArray([...tags]).slice(0, 12);
 
   return (
     <>
@@ -92,7 +72,7 @@ const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
             <div>
               <h2>Tags</h2>
               <ul>
-                {tags.map((tag) => (
+                {displayedTags.map((tag) => (
                   <li key={tag.id}>
                     <Link legacyBehavior href={`/tag/${tag.slug}`}>
                       <a>{tag.name}</a>
