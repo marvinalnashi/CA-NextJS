@@ -48,9 +48,10 @@ interface BlogProps {
 const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
   const [displayedTags, setDisplayedTags] = useState<Tag[]>([]);
   const router = useRouter();
-  if (router.isFallback) return <div>Loading...</div>;
 
-  const { settings, posts, seoImage, bodyClass } = cmsData;
+  useEffect(() => {
+    setDisplayedTags(shuffleArray([...tags]).slice(0, 8));
+  }, [tags]);
 
   const shuffleArray = (array: Tag[]) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -60,9 +61,10 @@ const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
     return array;
   };
 
-  useEffect(() => {
-    setDisplayedTags(shuffleArray([...tags]).slice(0, 8));
-  }, [tags]);
+  if (router.isFallback) return <div>Loading...</div>;
+
+  const { settings, posts, seoImage, bodyClass } = cmsData;
+
 
   return (
     <>
