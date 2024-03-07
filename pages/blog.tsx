@@ -46,10 +46,9 @@ interface BlogProps {
 }
 
 const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
+  const [displayedTags, setDisplayedTags] = useState<Tag[]>([]);
   const router = useRouter();
   if (router.isFallback) return <div>Loading...</div>;
-
-  const [displayedTags, setDisplayedTags] = useState<Tag[]>([]);
 
   const { settings, posts, seoImage, bodyClass } = cmsData;
 
@@ -62,7 +61,7 @@ const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
   };
 
   useEffect(() => {
-    setDisplayedTags(shuffleArray([...tags]).slice(0, 12));
+    setDisplayedTags(shuffleArray([...tags]).slice(0, 8));
   }, [tags]);
 
   return (
@@ -73,17 +72,21 @@ const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
         activeClass="fixed-nav-active"
         render={(sticky) => (
           <Layout {...{bodyClass, sticky, settings, isHome: true}} header={<HeaderIndex {...{settings}} />}>
-            <div>
-              <h2>Tags</h2>
-              <ul>
+            <div className="tags-bar-container">
+              <div className="tags-bar">
                 {displayedTags.map((tag) => (
-                  <li key={tag.id}>
+                  <div key={tag.id}>
                     <Link legacyBehavior href={`/tag/${tag.slug}`}>
-                      <a>{tag.name}</a>
+                      <a className="tags-bar-tag"
+                         onMouseEnter={(e) => (e.currentTarget.style.color = '#1e88e5')}
+                         onMouseLeave={(e) => (e.currentTarget.style.color = 'black')}
+                      >
+                        {tag.name}
+                      </a>
                     </Link>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
             <PostView {...{settings, posts, isHome: true}} />
           </Layout>
