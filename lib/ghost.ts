@@ -147,7 +147,7 @@ export async function getAllSettings(): Promise<GhostSettings> {
 export async function getAllTagsWithNames(): Promise<Tag[]> {
   try {
     const tags = await api.tags.browse(tagAndAuthorFetchOptions) as Tag[];
-    return tags.filter(tag => tag.name !== '#jen');
+    return tags.filter(tag => tag.name && !tag.name.includes('#'));
   } catch (err) {
     console.error(err);
     return [];
