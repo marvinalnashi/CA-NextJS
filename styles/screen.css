@@ -629,7 +629,7 @@ html.casper .post-card {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  margin: 0 0 40px;
+  margin: 10px 0 0 10px;
   padding: 0 20px 40px;
   min-height: 220px;
   border-bottom: 1px solid rgb(233, 238, 241);
@@ -3010,6 +3010,12 @@ html.casper .site-footer-nav a:first-of-type:before {
 .waves-inner-pt {
   padding-top: 150px;
 }
+
+.blog-btn-margin {
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
 @keyframes move-forever {
   0% {
     transform: translate3d(-90px,0,0);
