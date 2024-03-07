@@ -1,15 +1,23 @@
-import { parse as urlParse } from 'url'
-import GhostContentAPI, { Params, PostOrPage, SettingsResponse, Pagination, PostsOrPages, Tag, Author } from '@tryghost/content-api'
-import { normalizePost } from '@lib/ghost-normalize'
-import { Node } from 'unist'
-import { collections as config } from '@routesConfig'
-import { Collections } from '@lib/collections'
+import {parse as urlParse} from 'url'
+import GhostContentAPI, {
+  Author,
+  Pagination,
+  Params,
+  PostOrPage,
+  PostsOrPages,
+  SettingsResponse,
+  Tag
+} from '@tryghost/content-api'
+import {normalizePost} from '@lib/ghost-normalize'
+import {Node} from 'unist'
+import {collections as config} from '@routesConfig'
+import {Collections} from '@lib/collections'
 
-import { ghostAPIUrl, ghostAPIKey, processEnv, ProcessEnvProps } from '@lib/processEnv'
-import { imageDimensions, normalizedImageUrl, Dimensions } from '@lib/images'
-import { IToC } from '@lib/toc'
+import {ghostAPIKey, ghostAPIUrl, processEnv, ProcessEnvProps} from '@lib/processEnv'
+import {Dimensions, imageDimensions, normalizedImageUrl} from '@lib/images'
+import {IToC} from '@lib/toc'
 
-import { contactPage } from '@appConfig'
+import {contactPage} from '@appConfig'
 
 export interface NextImage {
   url: string
@@ -134,6 +142,16 @@ export async function getAllSettings(): Promise<GhostSettings> {
   }
   //setCache('settings', result)
   return result
+}
+
+export async function getAllTagsWithNames(): Promise<Tag[]> {
+  try {
+    const tags = await api.tags.browse(tagAndAuthorFetchOptions) as Tag[];
+    return tags.filter(tag => tag.name !== '#jen');
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
 }
 
 export async function getAllTags(): Promise<GhostTags> {

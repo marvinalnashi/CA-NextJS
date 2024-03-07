@@ -39,6 +39,11 @@ interface IndexProps extends HomeBlogProps {
   cmsData: CmsData
 }
 
+export interface Tag {
+  id: string;
+  name: string;
+}
+
 export default function Index({ cmsData, settings, posts, bodyClass }: IndexProps) {
   return (
     <>
@@ -73,7 +78,7 @@ export const getStaticProps: GetStaticProps<IndexProps> = async () => {
   try {
     settings = await getAllSettings()
     posts = await getAllPosts()
-    specificPosts = await getPostsByTag('parent-tag-2') // Fetching posts by specific tag
+    specificPosts = await getPostsByTag('parent-tag-2')
   } catch (error) {
     console.error(error)
     throw new Error('Index creation failed.')

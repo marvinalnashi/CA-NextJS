@@ -8,10 +8,13 @@ import { StickyNavContainer } from '@effects/StickyNavContainer'
 import { SEO } from '@meta/seo'
 
 import { processEnv } from '@lib/processEnv'
-import { getAllPosts, getAllSettings, GhostPostOrPage, GhostPostsOrPages, GhostSettings } from '@lib/ghost'
+import { getAllPosts, getAllTagsWithNames, getAllSettings, GhostPostOrPage, GhostPostsOrPages, GhostSettings } from '@lib/ghost'
 import { seoImage, ISeoImage } from '@meta/seoImage'
 
 import { BodyClass } from '@helpers/BodyClass'
+import tags from "@components/Tags";
+import {Tag} from "@pages/index";
+import React from "react";
 
 /**
  * Blog page
@@ -34,11 +37,46 @@ interface IndexProps {
   cmsData: CmsData
 }
 
-export default function Index({ cmsData }: IndexProps) {
-  const router = useRouter()
-  if (router.isFallback) return <div>Loading...</div>
+interface BlogProps {
+  tags: Tag[];
+  cmsData: CmsData;
+}
 
-  const { settings, posts, seoImage, bodyClass } = cmsData
+// export default function Index({ cmsData }: IndexProps) {
+//   const router = useRouter()
+//   if (router.isFallback) return <div>Loading...</div>
+//
+//   const { settings, posts, seoImage, bodyClass } = cmsData
+//
+//   return (
+//     <>
+//       <SEO {...{ settings, seoImage }} />
+//       <StickyNavContainer
+//         throttle={300}
+//         activeClass="fixed-nav-active"
+//         render={(sticky) => (
+//           <Layout {...{bodyClass, sticky, settings, isHome: true}} header={<HeaderIndex {...{settings}} />}>
+//             <div>
+//               <h2>Tags</h2>
+//               <ul>
+//                 {tags.map((tag: Tag) => (
+//                   <li key={tag.id}>{tag.name}</li>
+//                 ))}
+//               </ul>
+//             </div>
+//             <PostView {...{settings, posts, isHome: true}} />
+//           </Layout>
+//         )}
+//       />
+//     </>
+//   )
+// }
+
+const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
+  const router = useRouter();
+  if (router.isFallback) return <div>Loading...</div>;
+
+  const { settings, posts, seoImage, bodyClass } = cmsData;
 
   return (
     <>
@@ -48,17 +86,26 @@ export default function Index({ cmsData }: IndexProps) {
         activeClass="fixed-nav-active"
         render={(sticky) => (
           <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HeaderIndex {...{ settings }} />}>
+            <div>
+              <h2>Tags</h2>
+              <ul>
+                {tags.map((tag: Tag) => (
+                  <li key={tag.id}>{tag.name}</li>
+                ))}
+              </ul>
+            </div>
             <PostView {...{ settings, posts, isHome: true }} />
           </Layout>
         )}
       />
     </>
-  )
-}
+  );
+};
 
 export const getStaticProps: GetStaticProps = async () => {
   let settings
   let posts: GhostPostsOrPages | []
+  const tags = await getAllTagsWithNames();
 
   console.time('Index - getStaticProps')
 
@@ -81,7 +128,10 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       cmsData,
+      tags,
     },
     ...(processEnv.isr.enable && { revalidate: processEnv.isr.revalidate }), // re-generate at most once every revalidate second
   }
 }
+
+export default Blog;
