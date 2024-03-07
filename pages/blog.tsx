@@ -15,6 +15,9 @@ import { BodyClass } from '@helpers/BodyClass'
 import tags from "@components/Tags";
 import {Tag} from "@pages/index";
 import React from "react";
+import Link from "next/link";
+import {resolveUrl} from "@utils/routing";
+import slug from "@pages/tag/[...slug]";
 
 /**
  * Blog page
@@ -85,16 +88,20 @@ const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
         throttle={300}
         activeClass="fixed-nav-active"
         render={(sticky) => (
-          <Layout {...{ bodyClass, sticky, settings, isHome: true }} header={<HeaderIndex {...{ settings }} />}>
+          <Layout {...{bodyClass, sticky, settings, isHome: true}} header={<HeaderIndex {...{settings}} />}>
             <div>
               <h2>Tags</h2>
               <ul>
-                {tags.map((tag: Tag) => (
-                  <li key={tag.id}>{tag.name}</li>
+                {tags.map((tag) => (
+                  <li key={tag.id}>
+                    <Link legacyBehavior href={`/tag/${tag.slug}`}>
+                      <a>{tag.name}</a>
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>
-            <PostView {...{ settings, posts, isHome: true }} />
+            <PostView {...{settings, posts, isHome: true}} />
           </Layout>
         )}
       />

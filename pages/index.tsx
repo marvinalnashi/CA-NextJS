@@ -42,6 +42,7 @@ interface IndexProps extends HomeBlogProps {
 export interface Tag {
   id: string;
   name: string;
+  slug: string;
 }
 
 export default function Index({ cmsData, settings, posts, bodyClass }: IndexProps) {
