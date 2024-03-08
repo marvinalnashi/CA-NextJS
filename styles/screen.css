@@ -629,7 +629,7 @@ html.casper .post-card {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  margin: 10px 0 0 10px;
+  margin: 0 10px 0 10px;
   padding: 0 20px 40px;
   min-height: 220px;
   border-bottom: 1px solid rgb(233, 238, 241);
