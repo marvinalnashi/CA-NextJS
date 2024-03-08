@@ -18,6 +18,7 @@ import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import {resolveUrl} from "@utils/routing";
 import slug from "@pages/tag/[...slug]";
+import {BlogHeaderIndex} from "@components/BlogHeaderIndex";
 
 /**
  * Blog page
@@ -68,12 +69,7 @@ const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
 
   return (
     <>
-      <SEO {...{ settings, seoImage }} />
-      <StickyNavContainer
-        throttle={300}
-        activeClass="fixed-nav-active"
-        render={(sticky) => (
-          <Layout {...{bodyClass, sticky, settings, isHome: true}} header={<HeaderIndex {...{settings}} />}>
+          <Layout {...{bodyClass, settings, isHome: true}} header={<BlogHeaderIndex {...{settings}} />}>
             <div className="tags-bar-container">
               <div className="tags-bar">
                 {displayedTags.map((tag) => (
@@ -89,8 +85,6 @@ const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
             </div>
             <PostView {...{settings, posts, isHome: true}} />
           </Layout>
-        )}
-      />
     </>
   );
 };
