@@ -3051,8 +3051,16 @@ html.casper .site-footer-nav a:first-of-type:before {
   cursor: pointer;
 }
 
+html.casper body.dark .tags-bar {
+  border-color: #FFFFFF;
+}
+
+html.casper body.dark .tags-bar a {
+  color: #FFFFFF;
+}
+
 .tags-bar-tag:hover {
-  color: #1e88e5;
+  color: #1E88E5;
   text-decoration: none;
 }
 
