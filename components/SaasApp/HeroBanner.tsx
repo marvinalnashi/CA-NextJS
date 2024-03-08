@@ -44,7 +44,7 @@ const HeroBanner: React.FC = () => {
                   <div data-aos="fade-right" data-aos-delay="300" data-aos-duration="600" data-aos-once="true">
                     <Link
                       href="#"
-                      className="py-[15px] px-[30px] inline-block rounded-[6px] bg-primary text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out hover:bg-black-color"
+                      className="py-[15px] px-[30px] inline-block rounded-[6px] home-btn text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out text-no-underline"
                     >
                       Start Free Trial
                     </Link>

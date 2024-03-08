@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next'
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useRouter } from 'next/router'
 
 import { Layout } from '@components/Layout'
@@ -26,6 +26,7 @@ import HomeBlog, { HomeBlogProps } from '@components/SaasApp/OurLatestBlog'
 import { processEnv } from '@lib/processEnv'
 import FeaturesSecondary from "@components/SaasApp/FeaturesSecondary";
 import {HeaderPage} from "@components/HeaderPage";
+import { useTheme } from "@components/contexts/themeProvider";
 
 interface CmsData {
   posts: GhostPostsOrPages
@@ -46,8 +47,12 @@ export interface Tag {
 }
 
 export default function Index({ cmsData, settings, posts, bodyClass }: IndexProps) {
+  const { dark } = useTheme();
+
+  const homePageClass = dark === 'dark' ? 'force-light-mode' : '';
   return (
     <>
+      <div className={homePageClass}>
       <SEO {...{ settings: cmsData.settings, seoImage: cmsData.seoImage }} />
       <Layout {...{ settings, bodyClass: `${bodyClass}` }} header={<HeaderPage {...{ settings }} />}>
             {/*<Navbar />*/}
@@ -67,6 +72,7 @@ export default function Index({ cmsData, settings, posts, bodyClass }: IndexProp
             <Newsletter />
             <Footer />
           </Layout>
+      </div>
     </>
   )
 }

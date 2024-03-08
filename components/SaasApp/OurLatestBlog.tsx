@@ -22,7 +22,7 @@ const HomeBlog: React.FC<HomeBlogProps> = ({ posts, settings, bodyClass }) => {
              data-aos-duration="600" data-aos-once="false">
           <Link
             href="/blog"
-            className="blog-btn-margin py-[15px] px-[30px] inline-block rounded-[6px] bg-primary text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out hover:bg-black-color hover:text-white"
+            className="blog-btn-margin py-[15px] px-[30px] inline-block rounded-[6px] home-btn text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out text-no-underline"
           >
             See All News
           </Link>

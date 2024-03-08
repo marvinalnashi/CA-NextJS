@@ -20,10 +20,10 @@ html.casper body.dark .post-feed {
   background: var(--darkmode);
 }
 
-html.casper body.dark .post-card,
-html.casper body.dark .post-card:hover {
-  border-bottom-color: rgb(27, 29, 34);
-}
+/*html.casper body.dark .post-card,*/
+/*html.casper body.dark .post-card:hover {*/
+/*  border-bottom-color: rgb(27, 29, 34);*/
+/*}*/
 
 html.casper body.dark .author-profile-image {
   background: var(--darkmode);
@@ -54,11 +54,11 @@ html.casper body.dark .static-avatar {
   border-color: rgb(31, 34, 40);
 }
 
-html.casper body.dark .site-main,
-html.casper body.dark .post-template .site-main,
-html.casper body.dark .page-template .site-main {
-  background: var(--darkmode);
-}
+/*html.casper body.dark .site-main,*/
+/*html.casper body.dark .post-template .site-main,*/
+/*html.casper body.dark .page-template .site-main {*/
+/*  background: var(--darkmode);*/
+/*}*/
 
 html.casper body.dark .post-full-content {
   background: var(--darkmode);

@@ -94,7 +94,7 @@ const KeyFeatures: React.FC = () => {
           <div className="text-center mt-[30px] md:mt-[50px]" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600" data-aos-once="false">
             <Link
               href="/features"
-              className="py-[15px] px-[30px] inline-block rounded-[6px] home-btn text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out"
+              className="py-[15px] px-[30px] inline-block rounded-[6px] home-btn text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out text-no-underline"
             >
               See All Features
             </Link>

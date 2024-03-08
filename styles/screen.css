@@ -632,7 +632,7 @@ html.casper .post-card {
   margin: 0 10px 0 10px;
   padding: 0 20px 40px;
   min-height: 220px;
-  border-bottom: 1px solid rgb(233, 238, 241);
+  /*border-bottom: 1px solid rgb(233, 238, 241);*/
   background-size: cover;
 }
 
@@ -939,7 +939,7 @@ html.casper .post-template .site-main,
 html.casper .page-template .site-main {
   margin-top: 64px;
   padding-bottom: 4vw;
-  background: #fff;
+  /*background: #fff;*/
 }
 
 html.casper .post-full-header {
@@ -3063,6 +3063,19 @@ html.casper body.dark .tags-bar a {
 
 .tags-bar-tag:hover {
   color: #1E88E5;
+  text-decoration: none;
+}
+
+.force-light-mode {
+  background: #FFFFFF;
+  color: black;
+}
+
+.text-no-underline {
+  text-decoration: none !important;
+}
+
+html.casper body.dark .text-no-underline {
   text-decoration: none;
 }
 

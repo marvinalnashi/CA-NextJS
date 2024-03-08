@@ -68,7 +68,7 @@ const AboutApp: React.FC = () => {
               >
                 <Link
                   href="#"
-                  className="py-[15px] px-[30px] inline-block rounded-[6px] bg-primary text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out hover:bg-black-color"
+                  className="py-[15px] px-[30px] inline-block rounded-[6px] home-btn text-white font-semibold text-[16px] md:text-[18px] transition duration-500 ease-in-out text-no-underline"
                 >
                   Get Started 7 Days Free Trial
                 </Link>
