@@ -1,23 +1,24 @@
-import { GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
+import {GetStaticProps} from 'next'
+import {useRouter} from 'next/router'
 
-import { Layout } from '@components/Layout'
-import { PostView } from '@components/PostView'
-import { HeaderIndex } from '@components/HeaderIndex'
-import { StickyNavContainer } from '@effects/StickyNavContainer'
-import { SEO } from '@meta/seo'
+import {Layout} from '@components/Layout'
+import {PostView} from '@components/PostView'
 
-import { processEnv } from '@lib/processEnv'
-import { getAllPosts, getAllTagsWithNames, getAllSettings, GhostPostOrPage, GhostPostsOrPages, GhostSettings } from '@lib/ghost'
-import { seoImage, ISeoImage } from '@meta/seoImage'
+import {processEnv} from '@lib/processEnv'
+import {
+  getAllPosts,
+  getAllSettings,
+  getAllTagsWithNames,
+  GhostPostOrPage,
+  GhostPostsOrPages,
+  GhostSettings
+} from '@lib/ghost'
+import {ISeoImage, seoImage} from '@meta/seoImage'
 
-import { BodyClass } from '@helpers/BodyClass'
-import tags from "@components/Tags";
+import {BodyClass} from '@helpers/BodyClass'
 import {Tag} from "@pages/index";
 import React, {useEffect, useState} from "react";
 import Link from "next/link";
-import {resolveUrl} from "@utils/routing";
-import slug from "@pages/tag/[...slug]";
 import {BlogHeaderIndex} from "@components/BlogHeaderIndex";
 
 /**
@@ -27,7 +28,8 @@ import {BlogHeaderIndex} from "@components/BlogHeaderIndex";
  *
  */
 
-interface CmsData {
+interface BlogProps {
+  tags: Tag[];
   posts: GhostPostsOrPages
   settings: GhostSettings
   seoImage: ISeoImage
@@ -37,16 +39,8 @@ interface CmsData {
   bodyClass: string
 }
 
-interface IndexProps {
-  cmsData: CmsData
-}
-
-interface BlogProps {
-  tags: Tag[];
-  cmsData: CmsData;
-}
-
-const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
+export default function Blog(props: BlogProps) {
+  let {tags, posts, settings, seoImage, previewPosts, prevPost, nextPost, bodyClass} = props;
   const [displayedTags, setDisplayedTags] = useState<Tag[]>([]);
   const router = useRouter();
 
@@ -64,30 +58,30 @@ const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
 
   if (router.isFallback) return <div>Loading...</div>;
 
-  const { settings, posts, seoImage, bodyClass } = cmsData;
+  // const {settings, posts, seoImage, bodyClass} = cmsData;
 
 
   return (
     <>
-          <Layout {...{bodyClass, settings, isHome: true}} header={<BlogHeaderIndex {...{settings}} />}>
-            <div className="tags-bar-container">
-              <div className="tags-bar">
-                {displayedTags.map((tag) => (
-                  <div key={tag.id}>
-                    <Link legacyBehavior href={`/tag/${tag.slug}`}>
-                      <a className="tags-bar-tag">
-                        {tag.name}
-                      </a>
-                    </Link>
-                  </div>
-                ))}
+      <Layout {...{bodyClass, settings, isHome: true}} header={<BlogHeaderIndex {...{settings}} />}>
+        <div className="tags-bar-container">
+          <div className="tags-bar">
+            {displayedTags.map((tag) => (
+              <div key={tag.id}>
+                <Link legacyBehavior href={`/tag/${tag.slug}`}>
+                  <a className="tags-bar-tag">
+                    {tag.name}
+                  </a>
+                </Link>
               </div>
-            </div>
-            <PostView {...{settings, posts, isHome: true}} />
-          </Layout>
+            ))}
+          </div>
+        </div>
+        <PostView {...{settings, posts, isHome: true}} />
+      </Layout>
     </>
   );
-};
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   let settings
@@ -116,9 +110,10 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       cmsData,
       tags,
+      settings,
+      posts,
+      bodyClass: BodyClass({}),
     },
     ...(processEnv.isr.enable && { revalidate: processEnv.isr.revalidate }), // re-generate at most once every revalidate second
   }
 }
-
-export default Blog;
