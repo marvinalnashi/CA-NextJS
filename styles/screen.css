@@ -3022,15 +3022,24 @@ html.casper .site-footer-nav a:first-of-type:before {
   align-items: center;
   flex-direction: column;
   margin-top: 25px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tags-bar-container::-webkit-scrollbar {
+  display: none;
 }
 
 .tags-bar {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: start;
+  flex-wrap: nowrap;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
   padding: 10px 0;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .tags-bar-tag {
@@ -3040,10 +3049,10 @@ html.casper .site-footer-nav a:first-of-type:before {
   color: black;
   transition: color 0.5s;
   cursor: pointer;
-  text-underline: none;
 }
 
 .tags-bar-tag:hover {
+  color: #1e88e5;
   text-decoration: none;
 }
 
@@ -3055,7 +3064,7 @@ html.casper .site-footer-nav a:first-of-type:before {
     transform: translate3d(85px,0,0);
   }
 }
-/*Shrinking for mobile*/
+
 @media (max-width: 768px) {
   .waves {
     height:40px;

@@ -79,10 +79,7 @@ const Blog: React.FC<BlogProps> = ({ tags, cmsData }) => {
                 {displayedTags.map((tag) => (
                   <div key={tag.id}>
                     <Link legacyBehavior href={`/tag/${tag.slug}`}>
-                      <a className="tags-bar-tag"
-                         onMouseEnter={(e) => (e.currentTarget.style.color = '#1e88e5')}
-                         onMouseLeave={(e) => (e.currentTarget.style.color = 'black')}
-                      >
+                      <a className="tags-bar-tag">
                         {tag.name}
                       </a>
                     </Link>
