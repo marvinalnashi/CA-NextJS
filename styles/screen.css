@@ -1172,6 +1172,8 @@ html.casper .post-full-content img + br + small {
 /* Override third party iframe styles */
 html.casper .post-full-content iframe {
   margin: 0 auto !important;
+  width: 560px;
+  height: 315px;
 }
 
 html.casper .post-full-content blockquote {
