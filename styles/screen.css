@@ -3066,9 +3066,9 @@ html.casper body.dark .tags-bar a {
   text-decoration: none;
 }
 
-.force-light-mode {
-  background: #FFFFFF;
-  color: black;
+.homepage {
+  background-color: #fff;
+  color: #000;
 }
 
 .text-no-underline {

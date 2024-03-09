@@ -47,12 +47,10 @@ export interface Tag {
 }
 
 export default function Index({ cmsData, settings, posts, bodyClass }: IndexProps) {
-  const { dark } = useTheme();
 
-  const homePageClass = dark === 'dark' ? 'force-light-mode' : '';
   return (
     <>
-      <div className={homePageClass}>
+      <div className="homepage">
       <SEO {...{ settings: cmsData.settings, seoImage: cmsData.seoImage }} />
       <Layout {...{ settings, bodyClass: `${bodyClass}` }} header={<HeaderPage {...{ settings }} />}>
             {/*<Navbar />*/}
