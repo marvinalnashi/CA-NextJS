@@ -3027,6 +3027,7 @@ html.casper .site-footer-nav a:first-of-type:before {
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  white-space: nowrap;
 }
 
 .tags-bar-container::-webkit-scrollbar {
@@ -3042,9 +3043,11 @@ html.casper .site-footer-nav a:first-of-type:before {
   padding: 10px 0;
   overflow-x: auto;
   white-space: nowrap;
+  max-width: 100%;
 }
 
 .tags-bar-tag {
+  display: inline-block;
   padding: 5px 10px;
   margin: 5px;
   text-decoration: none;
@@ -3085,6 +3088,12 @@ html.casper body.dark .text-no-underline {
   }
   100% {
     transform: translate3d(85px,0,0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tags-bar-container, .tags-bar {
+    justify-content: flex-start;
   }
 }
 
