@@ -37,7 +37,7 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
   const navigation = site.navigation
 
   const isHomePage = router.pathname === '/';
-  
+
   // overwrite navigation if specified in options
   const labels = navigation?.map((item) => item.label)
   if (labels && labels.length > 0 && config.overwriteNavigation && config.overwriteNavigation.length > 0) {
@@ -101,7 +101,7 @@ export const SiteNav = ({ settings, className, postTitle }: SiteNavProps) => {
           </div>
         )}
         {!isHomePage && <DarkMode {...{ settings }} />}
-        {memberSubscriptions && <SubscribeButton {...{ lang: settings.lang }} />}
+        {/*{memberSubscriptions && <SubscribeButton {...{ lang: settings.lang }} />}*/}
       </div>
     </nav>
   )

@@ -601,7 +601,11 @@ html.casper .home-template .site-nav-main .fixed-nav-active {
     padding-left: 5vw;
   }
 
-  html.casper .site-nav-right {
+  /*html.casper .site-nav-right {*/
+  /*  display: none;*/
+  /*}*/
+
+  html.casper .social-links {
     display: none;
   }
 }
