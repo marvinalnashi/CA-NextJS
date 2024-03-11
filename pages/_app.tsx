@@ -42,7 +42,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
       <TosterProvider />
       {children}
       <AosAnimation />
-      <BackToTop />
+      {/*<BackToTop />*/}
     </div>
   )
 }
@@ -51,6 +51,9 @@ function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   useEffect(() => {
+    document.addEventListener('contextmenu', event => {
+      event.preventDefault();
+    });
     const handleRouteChange = (url: string) => {
       gtag.pageview(url)
     }
