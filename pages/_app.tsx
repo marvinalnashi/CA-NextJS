@@ -51,9 +51,9 @@ function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   useEffect(() => {
-    document.addEventListener('contextmenu', event => {
-      event.preventDefault();
-    });
+    // document.addEventListener('contextmenu', event => {
+    //   event.preventDefault();
+    // });
     const handleRouteChange = (url: string) => {
       gtag.pageview(url)
     }
