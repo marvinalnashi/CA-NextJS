@@ -37,20 +37,6 @@
 }
 
 /* Cards styling */
-.cardsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Adjust this to align items to the left */
-  list-style: none;
-  padding: 0;
-}
-
-.cardItem {
-  margin: 10px; /* Margin around each card */
-  flex: 1 1 180px; /* Adjust flex-basis for the card's initial size */
-  max-width: 300px; /* Maximum size of a card */
-}
-
 .pfBarContainer {
   display: flex;
   justify-content: center;
@@ -164,6 +150,20 @@ html.casper body.dark .pfBarTag {
   gap: 20px; /* This sets both vertical and horizontal gaps */
   margin: 0 auto; /* Center the entire container */
   max-width: 1200px; /* Adjust based on your preferred max width */
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Adjust this to align items to the left */
+  list-style: none;
+  padding: 0;
+}
+
+.cardItem {
+  margin: 10px; /* Margin around each card */
+  flex: 1 1 180px; /* Adjust flex-basis for the card's initial size */
+  max-width: 300px; /* Maximum size of a card */
 }
 
 .cardItem, .ghostItem {
