@@ -40,14 +40,16 @@
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Adjust this to align items to the left */
+  justify-content: flex-start; /* This ensures cards start from the left */
   list-style: none;
   padding: 0;
+  max-width: 100%; /* Prevent overflow */
 }
 
 .cardItem {
   margin: 10px;
-  flex: 1 1 180px; /* Adjust the basis for responsiveness */
+  flex: 1 1 calc(20% - 20px); /* Adjust for 5 items per row - margin */
+  max-width: calc(20% - 20px); /* Adjust for 5 items per row - margin */
 }
 
 .filterButton {
@@ -90,8 +92,11 @@
 }
 
 .pfUl {
-  padding: 0; /* Remove default padding */
-  list-style-type: none; /* Remove default list styling */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Adjust this if you want filters to align differently */
+  list-style: none;
+  padding: 0;
 }
 
 .pfLi {
