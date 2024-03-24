@@ -46,9 +46,9 @@
 }
 
 .cardItem {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: calc(20% - 20px); /* Initial size with margin consideration, adjust as necessary */
+  margin: 10px; /* Margin around each card */
+  flex: 1 1 180px; /* Adjust flex-basis for the card's initial size */
+  max-width: 300px; /* Maximum size of a card */
 }
 
 .pfBarContainer {
@@ -158,10 +158,12 @@ html.casper body.dark .pfBarTag {
 .pfUl.cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center; /* Center align the items to ensure even spacing */
   list-style: none;
-  padding: 50px 0 0;
-  margin: -10px;
+  padding: 0;
+  gap: 20px; /* This sets both vertical and horizontal gaps */
+  margin: 0 auto; /* Center the entire container */
+  max-width: 1200px; /* Adjust based on your preferred max width */
 }
 
 .cardItem, .ghostItem {
@@ -170,7 +172,8 @@ html.casper body.dark .pfBarTag {
 }
 
 .ghostItem {
-  visibility: hidden; /* Makes ghost items invisible */
+  visibility: hidden;
+  flex: 1 1 180px; /* Must match .cardItem to ensure they take up the same space */
 }
 
 .pfLi {
