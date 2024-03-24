@@ -24,17 +24,28 @@ const Filters: React.FC<{ onFilterChange: (category: string) => void; activeFilt
 );
 
 // Cards Component for displaying portfolio cards
-const Cards: React.FC<{ imgs: Item[]; onClick: (item: Item) => void }> = ({ imgs, onClick }) => (
-  <ul className="cardsContainer"> {/* Changed className to maintain responsiveness */}
-    {imgs.map((img) => (
-      <li className="cardItem" key={img.id} onClick={() => onClick(img)}> {/* Changed className for cards */}
-        <figure className="pfFigure">
-          <img className="pfImg" src={img.imageSrc} alt={img.name} />
-        </figure>
-      </li>
-    ))}
-  </ul>
-);
+const Cards: React.FC<{ imgs: Item[]; onClick: (item: Item) => void }> = ({ imgs, onClick }) => {
+  // Calculate the number of ghost items needed to fill the last row
+  const itemsPerRow = 5; // Adjust based on your design
+  const ghostItemCount = itemsPerRow - (imgs.length % itemsPerRow);
+  const ghostItems = Array(ghostItemCount).fill(null).map((_, index) => (
+    <li key={`ghost-${index}`} className="ghostItem"></li>
+  ));
+
+  return (
+    <ul className="pfUl cards">
+      {imgs.map((img) => (
+        <li className="cardItem" key={img.id} onClick={() => onClick(img)}>
+          <figure className="pfFigure">
+            <img className="pfImg" src={img.imageSrc} alt={img.name} />
+          </figure>
+        </li>
+      ))}
+      {/* Only add ghost items if the last row is not full */}
+      {ghostItemCount < itemsPerRow && ghostItems}
+    </ul>
+  );
+};
 
 // Popup Component
 const Popup: React.FC<{ item: Item; onClose: () => void }> = ({ item, onClose }) => (

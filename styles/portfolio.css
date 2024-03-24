@@ -46,8 +46,9 @@
 }
 
 .cardItem {
-  margin: 10px;
-  flex: 1 1 180px; /* Adjust the basis for responsiveness */
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: calc(20% - 20px); /* Initial size with margin consideration, adjust as necessary */
 }
 
 .filterButton {
@@ -89,6 +90,16 @@
   background-color: #a8b4fc; /* Active state background color */
 }
 
+.filters .pfLi {
+  display: inline-block; /* Or flex for aligning filters next to each other */
+}
+
+.filters .pfLi {
+  margin-right: 5px; /* Adjust based on your design */
+  flex-grow: 0;
+  flex-basis: auto; /* Override for filter buttons */
+}
+
 .pfUl {
   display: flex;
   flex-wrap: wrap;
@@ -98,10 +109,26 @@
   margin: -10px; /* Compensate for the margin on .cardItem */
 }
 
+.pfUl.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: -10px;
+}
+
+.cardItem, .ghostItem {
+  margin: 10px;
+  flex: 1 1 calc(20% - 20px); /* Keeps the basis for 5 items per row */
+}
+
+.ghostItem {
+  visibility: hidden; /* Makes ghost items invisible */
+}
+
 .pfLi {
-  background-color: #1565c0;
-  margin: 10px 10px;
-  cursor: pointer;
+  margin: 10px; /* Spacing between items */
 }
 
 .pfLi.active {
