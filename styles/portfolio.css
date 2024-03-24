@@ -90,8 +90,12 @@
 }
 
 .pfUl {
-  padding: 0; /* Remove default padding */
-  list-style-type: none; /* Remove default list styling */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start; /* Align items to the start */
+  list-style: none;
+  padding: 0;
+  margin: -10px; /* Compensate for the margin on .cardItem */
 }
 
 .pfLi {
