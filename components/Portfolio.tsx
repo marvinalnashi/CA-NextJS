@@ -24,22 +24,37 @@ const filters: Filter[] = [
   { name: "Food", status: false }
 ];
 
-const Filters: React.FC<{ onClickAll: () => void; all: boolean; onClick: (index: number) => void; filters: Filter[] }> = ({ onClickAll, all, onClick, filters }) => (
+const Filters: React.FC<{
+  onClickAll: () => void;
+  all: boolean;
+  onClick: (index: number) => void;
+  filters: Filter[]
+}> = ({ onClickAll, all, onClick, filters }) => (
   <div className="pfMt">
-  <div className="pfForm">
-    <ul className="pfUl">
-      <li className="pfLi" onClick={onClickAll} style={{ backgroundColor: all ? '#a8b4fc' : '#faa7b7' }}>
-        <label className="pfLabel">All</label>
-      </li>
-      {filters.map((filter, i) => (
-        <li className="pfLi" key={i} onClick={() => onClick(i)} style={{ backgroundColor: filter.status ? '#a8b4fc' : '#faa7b7' }}>
-          <label className="pfLabel">{filter.name}</label>
+    <div className="pfForm">
+      <ul className="pfUl">
+        <li className="pfLi" onClick={onClickAll}>
+          <label className="pfLabel" style={{
+            backgroundColor: all ? '#a8b4fc' : '#faa7b7',
+            display: 'block',
+            width: '100%',
+            height: '100%'
+          }}>All</label>
         </li>
-      ))}
-    </ul>
+        {filters.map((filter, i) => (
+          <li className="pfLi" key={i} onClick={() => onClick(i)}>
+            <label className="pfLabel" style={{
+              backgroundColor: filter.status ? '#a8b4fc' : '#faa7b7',
+              display: 'block',
+              width: '100%',
+              height: '100%'
+            }}>{filter.name}</label>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
-  </div>
-);
+)
 
 const Cards: React.FC<{ imgs: typeof imgs }> = ({ imgs }) => (
   <ul className="pfUl">
@@ -47,10 +62,6 @@ const Cards: React.FC<{ imgs: typeof imgs }> = ({ imgs }) => (
       <li className="pfLi" key={i}>
         <figure className="pfFigure">
           <img className="pfImg" src={img.src} alt={img.author} />
-          <figcaption className="pfFigcaption">
-            <div>{img.author}</div>
-            <span className="pfSpan">{img.tag}</span>
-          </figcaption>
         </figure>
       </li>
     ))}
