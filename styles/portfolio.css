@@ -29,16 +29,79 @@
   box-shadow: 5px 2px 15px #a8b4fc80;
 }
 
-.pfUl {
+.filterLi {
+  display: inline-block; /* Align filter buttons next to each other */
+  margin-right: 10px; /* Spacing between filter buttons */
+  cursor: pointer;
+  /* Apply additional styling for filter buttons here */
+}
+
+/* Cards styling */
+.cardsContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; /* Adjust this to align items to the left */
   list-style: none;
   padding: 0;
 }
 
+.cardItem {
+  margin: 10px;
+  flex: 1 1 180px; /* Adjust the basis for responsiveness */
+}
+
+.filterButton {
+  margin: 10px;
+  cursor: pointer;
+  background: #faa7b7;
+  color: #fff;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: .3s;
+}
+
+.filterButton.active, .filterButton:hover {
+  background: #a8b4fc;
+  box-shadow: 5px 2px 15px #a8b4fc80;
+}
+
+.cardsUl {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap */
+  justify-content: flex-start; /* Align cards left to right */
+}
+
+.cardLi {
+  width: calc(20% - 10px); /* 5 cards per row, accounting for some margin */
+  margin-right: 10px; /* Spacing between cards, except last in row */
+  margin-bottom: 20px; /* Spacing between rows */
+  cursor: pointer;
+  /* Apply additional styling for cards here */
+}
+
+.cardLi:nth-child(5n) {
+  margin-right: 0; /* Remove margin for every 5th item */
+}
+
+/* Adjusted active filter button background color */
+.filterLi.active {
+  background-color: #a8b4fc; /* Active state background color */
+}
+
+.pfUl {
+  padding: 0; /* Remove default padding */
+  list-style-type: none; /* Remove default list styling */
+}
+
 .pfLi {
+  background-color: #1565c0;
   margin: 10px 10px;
+  cursor: pointer;
+}
+
+.pfLi.active {
+  background-color: #a8b4fc;
 }
 
 .pfFigure {
