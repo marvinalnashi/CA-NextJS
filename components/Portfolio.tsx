@@ -3,23 +3,22 @@ import Image from 'next/image';
 import { categories, Item, items } from '@lib/portfolioData'
 
 const Filters: React.FC<{ onFilterChange: (category: string) => void; activeFilters: string[] }> = ({ onFilterChange, activeFilters }) => (
-  <div className="pfForm">
-    <ul className="pfUl">
-      {/* Ensure "All" button functionality */}
-      <li
-        className={`filterButton ${activeFilters.includes('All') ? 'active' : ''}`}
+  <div className="tags-bar-container">
+    <div className="tags-bar">
+      <div
+        className={`tags-bar-tag ${activeFilters.includes('All') ? 'active' : ''}`}
         onClick={() => onFilterChange('All')}>
         All
-      </li>
+      </div>
       {categories.map((category) => (
-        <li
-          className={`filterButton ${activeFilters.includes(category) ? 'active' : ''}`}
+        <div
+          className={`tags-bar-tag ${activeFilters.includes(category) ? 'active' : ''}`}
           key={category}
           onClick={() => onFilterChange(category)}>
           {category}
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   </div>
 );
 
