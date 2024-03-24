@@ -3,16 +3,16 @@ import Image from 'next/image';
 import { categories, Item, items } from '@lib/portfolioData'
 
 const Filters: React.FC<{ onFilterChange: (category: string) => void; activeFilters: string[] }> = ({ onFilterChange, activeFilters }) => (
-  <div className="tags-bar-container">
-    <div className="tags-bar">
+  <div className="pfBarContainer">
+    <div className="pfBar">
       <div
-        className={`tags-bar-tag ${activeFilters.includes('All') ? 'active' : ''}`}
+        className={`pfBarTag ${activeFilters.includes('All') ? 'active' : ''}`}
         onClick={() => onFilterChange('All')}>
         All
       </div>
       {categories.map((category) => (
         <div
-          className={`tags-bar-tag ${activeFilters.includes(category) ? 'active' : ''}`}
+          className={`pfBarTag ${activeFilters.includes(category) ? 'active' : ''}`}
           key={category}
           onClick={() => onFilterChange(category)}>
           {category}

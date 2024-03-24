@@ -51,7 +51,7 @@
   flex-basis: calc(20% - 20px); /* Initial size with margin consideration, adjust as necessary */
 }
 
-.tags-bar-container {
+.pfBarContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,11 +63,11 @@
   white-space: nowrap;
 }
 
-.tags-bar-container::-webkit-scrollbar {
+.pfBarCcontainer::-webkit-scrollbar {
   display: none;
 }
 
-.tags-bar {
+.pfBar {
   display: flex;
   justify-content: start;
   flex-wrap: nowrap;
@@ -79,18 +79,22 @@
   max-width: 100%;
 }
 
-.tags-bar-tag {
+.pfBarTag {
   display: inline-block;
   padding: 5px 10px;
   margin: 5px;
   text-decoration: none;
-  color: black;
+  color: #000000;
   transition: color 0.5s;
   cursor: pointer;
 }
 
-.tags-bar-tag.active {
-  color: #a8b4fc; /* Or any other indication of being active */
+html.casper body.dark .pfBarTag {
+  color: #FFFFFF;
+}
+
+.pfBarTag.active {
+  color: #1565C0; /* Or any other indication of being active */
 }
 
 .filterButton {
@@ -193,7 +197,6 @@
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 20px;
-  box-shadow: 0 10px 15px #a8b4fc30;
 }
 
 #root a {

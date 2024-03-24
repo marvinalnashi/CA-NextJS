@@ -8,9 +8,9 @@ html.casper body.dark {
   background: var(--darkmode);
 }
 
-html.casper body.dark img {
-  opacity: 0.9;
-}
+/*html.casper body.dark img {*/
+/*  opacity: 0.9;*/
+/*}*/
 
 html.casper body.dark .site-header-background:before {
   background: rgba(0, 0, 0, 0.6);
