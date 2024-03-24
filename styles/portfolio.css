@@ -65,6 +65,11 @@
   max-width: 100%;
 }
 
+html.casper body.dark .pfBar {
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+}
+
 .pfBarTag {
   display: inline-block;
   padding: 5px 10px;
@@ -146,7 +151,7 @@ html.casper body.dark .pfBarTag {
   flex-wrap: wrap;
   justify-content: center; /* Center align the items to ensure even spacing */
   list-style: none;
-  padding: 0;
+  padding: 50px 0 0;
   gap: 20px; /* This sets both vertical and horizontal gaps */
   margin: 0 auto; /* Center the entire container */
   max-width: 1200px; /* Adjust based on your preferred max width */
