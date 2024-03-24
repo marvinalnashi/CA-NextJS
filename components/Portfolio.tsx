@@ -1,109 +1,89 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
+import { categories, Item, items } from '@lib/portfolioData'
 
-const imgs = [
-  { author: "The Lazy Artist Gallery", tag: "People", src: "https://github.com/OlgaKoplik/CodePen/blob/master/filterGallery/1.jpg?raw=true" },
-  { author: "Daria Shevtsova", tag: "Food", src: "https://github.com/OlgaKoplik/CodePen/blob/master/filterGallery/2.jpg?raw=true" },
-  { author: "Kasuma", tag: "Animals", src: "https://github.com/OlgaKoplik/CodePen/blob/master/filterGallery/3.jpg?raw=true" },
-  { author: "Dominika Roseclay", tag: "Plants", src: "https://github.com/OlgaKoplik/CodePen/blob/master/filterGallery/4.jpg?raw=true" },
-  { author: "Scott Webb", tag: "Plants", src: "https://github.com/OlgaKoplik/CodePen/blob/master/filterGallery/5.jpg?raw=true" },
-  { author: "Jeffrey Czum", tag: "People", src: "https://github.com/OlgaKoplik/CodePen/blob/master/filterGallery/6.jpg?raw=true" },
-  { author: "Dominika Roseclay", tag: "Food", src: "https://github.com/OlgaKoplik/CodePen/blob/master/filterGallery/7.jpg?raw=true" },
-  { author: "Valeria Boltneva", tag: "Animals", src: "https://github.com/OlgaKoplik/CodePen/blob/master/filterGallery/8.jpg?raw=true" }
-];
-
-type Filter = {
-  name: string;
-  status: boolean;
-};
-
-const filters: Filter[] = [
-  { name: "People", status: false },
-  { name: "Animals", status: false },
-  { name: "Plants", status: false },
-  { name: "Food", status: false }
-];
-
-const Filters: React.FC<{
-  onClickAll: () => void;
-  all: boolean;
-  onClick: (index: number) => void;
-  filters: Filter[]
-}> = ({ onClickAll, all, onClick, filters }) => (
-  <div className="pfMt">
-    <div className="pfForm">
-      <ul className="pfUl">
-        <li className="pfLi" onClick={onClickAll}>
-          <label className="pfLabel" style={{
-            backgroundColor: all ? '#a8b4fc' : '#faa7b7',
-            display: 'block',
-            width: '100%',
-            height: '100%'
-          }}>All</label>
+// Filters Component
+const Filters: React.FC<{ onFilterChange: (category: string) => void; activeCategories: string[] }> = ({ onFilterChange, activeCategories }) => (
+  <div className="pfForm">
+    <ul className="pfUl">
+      <li className="pfLi" onClick={() => onFilterChange('All')} style={{ backgroundColor: activeCategories.includes('All') ? '#a8b4fc' : '#faa7b7' }}>
+        <label className="pfLabel">All</label>
+      </li>
+      {categories.map((category) => (
+        <li className="pfLi" key={category} onClick={() => onFilterChange(category)} style={{ backgroundColor: activeCategories.includes(category) ? '#a8b4fc' : '#faa7b7' }}>
+          <label className="pfLabel">{category}</label>
         </li>
-        {filters.map((filter, i) => (
-          <li className="pfLi" key={i} onClick={() => onClick(i)}>
-            <label className="pfLabel" style={{
-              backgroundColor: filter.status ? '#a8b4fc' : '#faa7b7',
-              display: 'block',
-              width: '100%',
-              height: '100%'
-            }}>{filter.name}</label>
-          </li>
-        ))}
-      </ul>
-    </div>
+      ))}
+    </ul>
   </div>
-)
+);
 
-const Cards: React.FC<{ imgs: typeof imgs }> = ({ imgs }) => (
+// Cards Component
+const Cards: React.FC<{ imgs: Item[]; onClick: (item: Item) => void }> = ({ imgs, onClick }) => (
   <ul className="pfUl">
-    {imgs.map((img, i) => (
-      <li className="pfLi" key={i}>
+    {imgs.map((img) => (
+      <li className="pfLi" key={img.id} onClick={() => onClick(img)}>
         <figure className="pfFigure">
-          <img className="pfImg" src={img.src} alt={img.author} />
+          <img className="pfImg" src={img.imageSrc} alt={img.name} />
         </figure>
       </li>
     ))}
   </ul>
 );
 
+// Popup Component
+const Popup: React.FC<{ item: Item; onClose: () => void }> = ({ item, onClose }) => (
+  <div className="popupContainer">
+    <div className="popupContent">
+      <div className="leftHalf">
+        <h2>{item.name}</h2>
+      </div>
+      <div className="rightHalf">
+        <p>{item.description}</p>
+        <button onClick={onClose}>Close</button>
+        {/* Implement the Learn More button action */}
+        <button>Learn More</button>
+      </div>
+    </div>
+  </div>
+);
+
+// Portfolio Component
 const Portfolio: React.FC = () => {
-  const [all, setAll] = React.useState(true);
-  const [selectedFilters, setSelectedFilters] = React.useState<Filter[]>(filters);
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+  const [activeCategories, setActiveCategories] = useState<string[]>(['All']);
 
-  useEffect(() => {
-    // Initialization or cleanup code if necessary
-  }, []);
-
-  const handleClick = (index: number) => {
-    const newFilters = selectedFilters.map((filter, i) => {
-      return i === index ? { ...filter, status: !filter.status } : filter;
-    });
-    setSelectedFilters(newFilters);
-
-    updateAllStatus(newFilters);
+  const handleCardClick = (item: Item) => {
+    setSelectedItem(item);
   };
 
-  const handleAllClick = () => {
-    setSelectedFilters(filters.map(filter => ({ ...filter, status: false })));
-    setAll(true);
+  const handleClosePopup = () => {
+    setSelectedItem(null);
   };
 
-  const updateAllStatus = (newFilters: Filter[]) => {
-    const allFalse = newFilters.every(filter => !filter.status);
-    setAll(allFalse || newFilters.every(filter => filter.status));
+  const handleFilterChange = (category: string) => {
+    if (category === 'All') {
+      setActiveCategories(['All']);
+    } else {
+      setActiveCategories(prev => {
+        const newActiveCategories = prev.includes(category)
+          ? prev.filter(cat => cat !== category && cat !== 'All')
+          : [...prev.filter(cat => cat !== 'All'), category];
+        return newActiveCategories.length ? newActiveCategories : ['All'];
+      });
+    }
   };
 
-  let filteredImgs = imgs;
-  if (!all) {
-    filteredImgs = imgs.filter(img => selectedFilters.some(filter => filter.status && filter.name === img.tag));
-  }
+  // Filter items based on the active categories
+  const filteredItems = activeCategories.includes('All')
+    ? Object.values(items).flat()
+    : Object.values(items).flat().filter(item => activeCategories.includes(categories.find(cat => items[cat].some(i => i.id === item.id)) || ''));
 
   return (
     <div>
-      <Filters onClickAll={handleAllClick} all={all} onClick={handleClick} filters={selectedFilters} />
-      <Cards imgs={filteredImgs} />
+      <Filters onFilterChange={handleFilterChange} activeCategories={activeCategories} />
+      <Cards imgs={filteredItems} onClick={handleCardClick} />
+      {selectedItem && <Popup item={selectedItem} onClose={handleClosePopup} />}
     </div>
   );
 };
