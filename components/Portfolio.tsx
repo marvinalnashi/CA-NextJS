@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { categories, Item, items } from '@lib/portfolioData';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Filters: React.FC<{ onFilterChange: (category: string) => void; activeFilters: string[] }> = ({ onFilterChange, activeFilters }) => (
   <div className="pfBarContainer">
@@ -25,18 +26,29 @@ const Filters: React.FC<{ onFilterChange: (category: string) => void; activeFilt
 const Cards: React.FC<{ imgs: Item[]; onClick: (item: Item) => void }> = ({ imgs, onClick }) => {
   return (
     <ul className="pfUl pfGallery">
-      {imgs.map((img) => (
-        <li className="pfGalleryItem" key={img.id} onClick={() => onClick(img)}>
-          <div className="pfInside">
-            <Image className="pfInsideImg" src={img.imageSrc} alt={img.name} layout="fill" objectFit="cover" />
-            <div className="pfOverlay"></div>
-            <div className="pfDetails">
-              <h2 className="pfDetailsH2">{img.name}</h2>
-              <p className="pfDetailsP">{img.description}</p>
+      <AnimatePresence>
+        {imgs.map((img) => (
+          <motion.li
+            key={img.id}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5 }}
+            layout
+            className="pfGalleryItem"
+            onClick={() => onClick(img)}
+          >
+            <div className="pfInside">
+              <Image className="pfInsideImg" src={img.imageSrc} alt={img.name} layout="fill" objectFit="cover" />
+              <div className="pfOverlay"></div>
+              <div className="pfDetails">
+                <h2 className="pfDetailsH2">{img.name}</h2>
+                <p className="pfDetailsP">{img.description}</p>
+              </div>
             </div>
-          </div>
-        </li>
-      ))}
+          </motion.li>
+        ))}
+      </AnimatePresence>
     </ul>
   );
 };
