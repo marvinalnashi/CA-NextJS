@@ -16,7 +16,7 @@ export const items: Item[] = [
     name: 'Forest Path',
     imageSrc: '/images/saas-app/screen4.png',
     secondaryImageSrc: '/images/saas-app/screen3.png',
-    description: 'A serene path through an ancient forest.',
+    description: 'A serene path through an ancient forest. A serene path through an ancient forest. A serene path through an ancient forest. A serene path through an ancient forest. A serene path through an ancient forest. A serene path through an ancient forest. A serene path through an ancient forest. A serene path through an ancient forest.',
     category: 'Nature',
     learnMoreUrl: 'https://example.com/project-1',
   },
