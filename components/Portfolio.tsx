@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { categories, Item, items } from '@lib/portfolioData'
+import { categories, Item, items } from '@lib/portfolioData';
 
 const Filters: React.FC<{ onFilterChange: (category: string) => void; activeFilters: string[] }> = ({ onFilterChange, activeFilters }) => (
   <div className="pfBarContainer">
     <div className="pfBar">
       <div
-        className={`pfBarTag ${activeFilters.includes('All') ? 'active' : ''}`}
+        className={`pfBarTag ${activeFilters.includes('All') ? 'pfFiltersLiSpanActive' : ''}`}
         onClick={() => onFilterChange('All')}>
         All
       </div>
       {categories.map((category) => (
         <div
-          className={`pfBarTag ${activeFilters.includes(category) ? 'active' : ''}`}
+          className={`pfBarTag ${activeFilters.includes(category) ? 'pfFiltersLiSpanActive' : ''}`}
           key={category}
           onClick={() => onFilterChange(category)}>
           {category}
@@ -22,51 +22,42 @@ const Filters: React.FC<{ onFilterChange: (category: string) => void; activeFilt
   </div>
 );
 
-// Cards Component for displaying portfolio cards
 const Cards: React.FC<{ imgs: Item[]; onClick: (item: Item) => void }> = ({ imgs, onClick }) => {
-  // Calculate the number of ghost items needed to fill the last row
-  const itemsPerRow = 5; // Adjust based on your design
-  const ghostItemCount = itemsPerRow - (imgs.length % itemsPerRow);
-  const ghostItems = Array(ghostItemCount).fill(null).map((_, index) => (
-    <li key={`ghost-${index}`} className="ghostItem"></li>
-  ));
-
   return (
-    <ul className="pfUl cards">
+    <ul className="pfUl pfGallery">
       {imgs.map((img) => (
-        <li className="cardItem" key={img.id} onClick={() => onClick(img)}>
-          <figure className="pfFigure">
-            <img className="pfImg" src={img.imageSrc} alt={img.name} />
-          </figure>
+        <li className="pfGalleryItem" key={img.id} onClick={() => onClick(img)}>
+          <div className="pfInside">
+            <Image className="pfInsideImg" src={img.imageSrc} alt={img.name} layout="fill" objectFit="cover" />
+            <div className="pfOverlay"></div>
+            <div className="pfDetails">
+              <h2 className="pfDetailsH2">{img.name}</h2>
+              <p className="pfDetailsP">{img.description}</p>
+            </div>
+          </div>
         </li>
       ))}
-      {/* Only add ghost items if the last row is not full */}
-      {ghostItemCount < itemsPerRow && ghostItems}
     </ul>
   );
 };
 
-// Popup Component
 const Popup: React.FC<{ item: Item; onClose: () => void }> = ({ item, onClose }) => (
   <div className="popupContainer">
     <div className="popupContent">
       <div className="leftHalf">
         <h2>{item.name}</h2>
+        <p>{item.description}</p>
       </div>
       <div className="rightHalf">
-        <p>{item.description}</p>
         <button onClick={onClose}>Close</button>
-        {/* Implement the Learn More button action */}
         <button>Learn More</button>
       </div>
     </div>
   </div>
 );
 
-// Portfolio Component
 const Portfolio: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
-  // Initially, all categories are active including "All"
   const [activeFilters, setActiveFilters] = useState<string[]>(['All']);
 
   const handleCardClick = (item: Item) => setSelectedItem(item);
@@ -83,15 +74,9 @@ const Portfolio: React.FC = () => {
     }
   };
 
-  // Dynamically filter items based on active filters
   let filteredItems = activeFilters.includes('All') ?
-    Object.values(items).flat() :
-    Object.entries(items).reduce((acc: Item[], [key, value]) => {
-      if (activeFilters.includes(key)) {
-        return [...acc, ...value];
-      }
-      return acc;
-    }, []);
+    items :
+    items.filter((item: Item) => activeFilters.includes(item.category));
 
   return (
     <div className="pfMt">

@@ -2,274 +2,105 @@
   margin-top: 75px;
 }
 
-.pfForm {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0 40px 0;
-}
-
-.pfInput {
-  display: none;
-}
-
-.pfLabel {
-  background: #faa7b7;
-  color: #fff;
-  font-weight: 700;
-  padding: 5px 10px;
-  border-radius: 10px;
-  transition: .3s;
-  cursor: pointer;
-}
-
-.pfInput:checked ~ .pfLabel {
-  background: #a8b4fc;
-  padding: 5px 10px;
-  border-radius: 10px;
-  box-shadow: 5px 2px 15px #a8b4fc80;
-}
-
-.filterLi {
-  display: inline-block; /* Align filter buttons next to each other */
-  margin-right: 10px; /* Spacing between filter buttons */
-  cursor: pointer;
-  /* Apply additional styling for filter buttons here */
-}
-
-/* Cards styling */
 .pfBarContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 25px;
-  overflow-x: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  white-space: nowrap;
-}
-
-.pfBarCcontainer::-webkit-scrollbar {
-  display: none;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .pfBar {
-  display: flex;
-  justify-content: start;
-  flex-wrap: nowrap;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
-  padding: 10px 0;
-  overflow-x: auto;
-  white-space: nowrap;
-  max-width: 100%;
-}
-
-html.casper body.dark .pfBar {
-  border-bottom: 1px solid white;
-  border-top: 1px solid white;
-}
-
-.pfBarTag {
   display: inline-block;
-  padding: 5px 10px;
-  margin: 5px;
-  text-decoration: none;
-  color: #000000;
-  transition: color 0.5s;
-  cursor: pointer;
-}
-
-html.casper body.dark .pfBarTag {
-  color: #FFFFFF;
-}
-
-.pfBarTag.active {
-  color: #1565C0; /* Or any other indication of being active */
-}
-
-.filterButton {
-  margin: 10px;
-  cursor: pointer;
-  background: #faa7b7;
-  color: #fff;
-  font-weight: 700;
-  padding: 5px 10px;
-  border-radius: 10px;
-  transition: .3s;
-}
-
-.filterButton.active, .filterButton:hover {
-  background: #a8b4fc;
-  box-shadow: 5px 2px 15px #a8b4fc80;
-}
-
-.cardsUl {
-  display: flex;
-  flex-wrap: wrap; /* Allow cards to wrap */
-  justify-content: flex-start; /* Align cards left to right */
-}
-
-.cardLi {
-  width: calc(20% - 10px); /* 5 cards per row, accounting for some margin */
-  margin-right: 10px; /* Spacing between cards, except last in row */
-  margin-bottom: 20px; /* Spacing between rows */
-  cursor: pointer;
-  /* Apply additional styling for cards here */
-}
-
-.cardLi:nth-child(5n) {
-  margin-right: 0; /* Remove margin for every 5th item */
-}
-
-/* Adjusted active filter button background color */
-.filterLi.active {
-  background-color: #a8b4fc; /* Active state background color */
-}
-
-.filters .pfLi {
-  display: inline-block; /* Or flex for aligning filters next to each other */
-}
-
-.filters .pfLi {
-  margin-right: 5px; /* Adjust based on your design */
-  flex-grow: 0;
-  flex-basis: auto; /* Override for filter buttons */
-}
-
-.pfUl {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start; /* Align items to the start */
-  list-style: none;
-  padding: 0;
-  margin: -10px; /* Compensate for the margin on .cardItem */
-}
-
-.pfUl.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Center align the items to ensure even spacing */
-  list-style: none;
-  padding: 50px 0 0;
-  gap: 20px; /* This sets both vertical and horizontal gaps */
-  margin: 0 auto; /* Center the entire container */
-  max-width: 1200px; /* Adjust based on your preferred max width */
-}
-
-.cardsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Adjust this to align items to the left */
-  list-style: none;
+  margin: 0 auto;
   padding: 0;
 }
 
-.cardItem {
-  margin: 10px; /* Margin around each card */
-  flex: 1 1 180px; /* Adjust flex-basis for the card's initial size */
-  max-width: 300px; /* Maximum size of a card */
-}
-
-.cardItem, .ghostItem {
-  margin: 10px;
-  flex: 1 1 calc(20% - 20px); /* Keeps the basis for 5 items per row */
-}
-
-.ghostItem {
-  visibility: hidden;
-  flex: 1 1 180px; /* Must match .cardItem to ensure they take up the same space */
-}
-
-.pfLi {
-  margin: 10px; /* Spacing between items */
-}
-
-.pfLi.active {
-  background-color: #a8b4fc;
-}
-
-.pfFigure {
-  z-index: 1;
-  min-width: 300px;
-  overflow: hidden;
+.pfBarTag, .pfFiltersLiSpanActive {
+  display: inline-block;
   margin: 0 5px;
-  -webkit-animation: show .8s ease;
-  animation: show .8s ease;
+  padding: 5px 20px;
+  background-color: #ddd;
+  color: #666;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all ease-in-out 0.25s;
 }
 
-.pfImg {
-  width: 300px;
-  height: 250px;
-  left: 0;
-  -o-object-fit: cover;
-  object-fit: cover;
-  border-radius: 20px;
+.pfFiltersLiSpanActive {
+  background-color: #1fbae7;
+  color: #fff;
 }
 
-#root a {
-  color: #faa7b7;
+.pfUl.pfGallery {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
-.photoSource {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  color: #969696;
-  margin-bottom: 40px;
+.pfGalleryItem {
+  width: calc(33.333% - 20px);
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  display: block;
 }
 
-.popupContainer {
-  position: fixed;
+.pfInside {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+}
+
+.pfInsideImg {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+}
+
+.pfDetails, .pfOverlay {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.popupContent {
-  background: white;
-  padding: 20px;
-  display: flex;
-  gap: 20px;
+.pfGalleryItem:hover .pfDetails, .pfGalleryItem:hover .pfOverlay {
+  opacity: 1;
 }
 
-.leftHalf, .rightHalf {
-  flex: 1;
+.pfDetails {
+  position: absolute;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
 
-@-webkit-keyframes transform{
-  0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
-  14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
-  28% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; }
-  42% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; }
-  56% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; }
-  70% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; }
-  84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; }
+.pfOverlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
-@keyframes transform{
-  0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
-  14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
-  28% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; }
-  42% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; }
-  56% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; }
-  70% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; }
-  84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; }
+@media (max-width: 768px) {
+  .pfGalleryItem {
+    width: calc(50% - 20px);
+  }
 }
 
-
-@-webkit-keyframes movement{
-  0%,100% { transform: none; }
-  50% { transform: translateY(20%) rotateY(10deg); }
+@media (max-width: 480px) {
+  .pfGalleryItem {
+    width: 100%;
+    margin: 10px 0;
+  }
 }
 
-
-@keyframes movement{
-  0%,100% { transform: none; }
-  50% { transform: translateY(20%) rotateY(10deg); }
-}
