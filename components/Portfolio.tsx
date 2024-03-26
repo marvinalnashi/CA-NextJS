@@ -7,13 +7,13 @@ const Filters: React.FC<{ onFilterChange: (category: string) => void; activeFilt
   <div className="pfBarContainer">
     <div className="pfBar">
       <div
-        className={`pfBarTag ${activeFilters.includes('All') ? 'pfFiltersLiSpanActive' : ''}`}
+        className={`pfBarTag ${activeFilters.includes('All') ? 'active' : ''}`}
         onClick={() => onFilterChange('All')}>
         All
       </div>
       {categories.map((category) => (
         <div
-          className={`pfBarTag ${activeFilters.includes(category) ? 'pfFiltersLiSpanActive' : ''}`}
+          className={`pfBarTag ${activeFilters.includes(category) ? 'active' : ''}`}
           key={category}
           onClick={() => onFilterChange(category)}>
           {category}
@@ -65,7 +65,7 @@ const Popup: React.FC<{ item: Item; onClose: () => void }> = ({ item, onClose })
       <div className="popupContent" onClick={(e) => e.stopPropagation()}>
         <div className="closeButton" onClick={onClose}>X</div>
         <div className="leftHalf">
-          <Image src={item.secondaryImageSrc} alt={item.name} width={500} height={500} layout="responsive" />
+          <Image className="pfImg" src={item.secondaryImageSrc} alt={item.name} width={500} height={500} layout="responsive" />
           <h2>{item.name}</h2>
         </div>
         <div className="rightHalf">

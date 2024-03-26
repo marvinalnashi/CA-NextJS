@@ -3,25 +3,53 @@
 }
 
 .pfBarContainer {
-  text-align: center;
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 25px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  white-space: nowrap;
+}
+
+.pfBarContainer::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers */
 }
 
 .pfBar {
-  display: inline-block;
-  margin: 0 auto;
-  padding: 0;
+  display: flex;
+  justify-content: start;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  padding: 10px 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
-.pfBarTag, .pfFiltersLiSpanActive {
+.pfBarTag {
   display: inline-block;
-  margin: 0 5px;
-  padding: 5px 20px;
-  background-color: #ddd;
-  color: #666;
+  padding: 5px 10px;
+  margin: 5px;
+  text-decoration: none;
+  color: black;
+  transition: color 0.5s;
   cursor: pointer;
-  text-transform: uppercase;
-  transition: all ease-in-out 0.25s;
+}
+
+html.casper body.dark .pfBar {
+  border-color: #FFFFFF;
+}
+
+html.casper body.dark .pfBarTag {
+  color: #FFFFFF;
+}
+
+.pfBarTag.active, .pfBarTag:hover {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
 .pfFiltersLiSpanActive {
@@ -118,6 +146,10 @@
   box-sizing: border-box;
 }
 
+html.casper body.dark .popupContent {
+  background-color: #24262b;
+}
+
 .leftHalf {
   flex: 3;
   display: flex;
@@ -133,6 +165,18 @@
   gap: 20px;
 }
 
+.leftHalf, .rightHalf {
+  color: #000000;
+}
+
+html.casper body.dark .leftHalf {
+  color: #FFFFFF;
+}
+
+html.casper body.dark .rightHalf {
+  color: #FFFFFF;
+}
+
 .closeButton {
   position: absolute;
   top: 10px;
@@ -142,7 +186,15 @@
   z-index: 12;
 }
 
+.pfImg {
+  margin-bottom: 7px;
+}
+
 @media (max-width: 768px) {
+  .pfBarTag {
+    padding: 5px 8px; /* Slightly reduce padding on smaller screens */
+  }
+
   .pfGalleryItem {
     width: calc(50% - 20px);
   }
@@ -151,6 +203,7 @@
     flex-direction: column; /* Stack left and right halves vertically */
     align-items: stretch; /* Stretch children to match width */
     padding: 40px; /* Adjust padding for visual consistency */
+    gap: 0;
   }
 
   .closeButton {
