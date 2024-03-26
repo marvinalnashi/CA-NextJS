@@ -53,20 +53,29 @@ const Cards: React.FC<{ imgs: Item[]; onClick: (item: Item) => void }> = ({ imgs
   );
 };
 
-const Popup: React.FC<{ item: Item; onClose: () => void }> = ({ item, onClose }) => (
-  <div className="popupContainer">
-    <div className="popupContent">
-      <div className="leftHalf">
-        <h2>{item.name}</h2>
-        <p>{item.description}</p>
+const Popup: React.FC<{ item: Item; onClose: () => void }> = ({ item, onClose }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="popupContainer"
+      onClick={onClose}
+    >
+      <div className="popupContent" onClick={(e) => e.stopPropagation()}>
+        <div className="leftHalf">
+          <Image src={item.secondaryImageSrc} alt={item.name} width={500} height={500} />
+          <h2>{item.name}</h2>
+        </div>
+        <div className="rightHalf">
+          <p>{item.description}</p>
+          <button onClick={onClose}>Close</button>
+          <a href={item.learnMoreUrl} target="_blank" rel="noopener noreferrer"><button>Learn More</button></a>
+        </div>
       </div>
-      <div className="rightHalf">
-        <button onClick={onClose}>Close</button>
-        <button>Learn More</button>
-      </div>
-    </div>
-  </div>
-);
+    </motion.div>
+  );
+};
 
 const Portfolio: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
@@ -94,7 +103,9 @@ const Portfolio: React.FC = () => {
     <div className="pfMt">
       <Filters onFilterChange={handleFilterChange} activeFilters={activeFilters} />
       <Cards imgs={filteredItems} onClick={handleCardClick} />
-      {selectedItem && <Popup item={selectedItem} onClose={handleClosePopup} />}
+      <AnimatePresence>
+        {selectedItem && <Popup item={selectedItem} onClose={() => setSelectedItem(null)} />}
+      </AnimatePresence>
     </div>
   );
 };
