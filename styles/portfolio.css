@@ -2,6 +2,15 @@
   margin-top: 75px;
 }
 
+.pfModalTitle {
+  font-size: 20px;
+}
+
+.pfModalRedirectionBtn {
+  background-color: #1E88E5;
+  padding: 5px;
+}
+
 .pfBarContainer {
   display: flex;
   justify-content: center;
@@ -48,8 +57,20 @@ html.casper body.dark .pfBarTag {
   color: #FFFFFF;
 }
 
-.pfBarTag.active, .pfBarTag:hover {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+html.casper body.dark .pfBarTag:hover {
+  color: #1E88E5;
+}
+
+html.casper body.dark .pfBarTag:active {
+  color: #1565C0;
+}
+
+.pfBarTag:hover {
+  color: #1E88E5;
+}
+
+.pfBarTag.active {
+  color: #1565C0 !important;
 }
 
 .pfFiltersLiSpanActive {
@@ -162,7 +183,7 @@ html.casper body.dark .popupContent {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  gap: 20px;
+  gap: 7px;
 }
 
 .leftHalf, .rightHalf {

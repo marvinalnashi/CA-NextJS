@@ -66,11 +66,11 @@ const Popup: React.FC<{ item: Item; onClose: () => void }> = ({ item, onClose })
         <div className="closeButton" onClick={onClose}>X</div>
         <div className="leftHalf">
           <Image className="pfImg" src={item.secondaryImageSrc} alt={item.name} width={500} height={500} layout="responsive" />
-          <h2>{item.name}</h2>
+          <h2 className="pfModalTitle">{item.name}</h2>
         </div>
         <div className="rightHalf">
           <p>{item.description}</p>
-          <a href={item.learnMoreUrl} target="_blank" rel="noopener noreferrer"><button>Learn More</button></a>
+          <a className="pfModalRedirectionBtn" href={item.learnMoreUrl} target="_blank" rel="noopener noreferrer"><button>Learn More</button></a>
         </div>
       </div>
     </motion.div>
