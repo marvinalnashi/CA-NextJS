@@ -6,9 +6,21 @@
   font-size: 20px;
 }
 
-.pfModalRedirectionBtn {
-  background-color: #1E88E5;
-  padding: 5px;
+.learnMoreButton {
+  background: #1E88E5;
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  border: none;
+  display: inline-block;
+}
+
+.learnMoreButton:hover {
+  background: #1565C0;
+  transition: background-color 0.5s;
 }
 
 .pfBarContainer {

@@ -70,7 +70,9 @@ const Popup: React.FC<{ item: Item; onClose: () => void }> = ({ item, onClose })
         </div>
         <div className="rightHalf">
           <p>{item.description}</p>
-          <a className="pfModalRedirectionBtn" href={item.learnMoreUrl} target="_blank" rel="noopener noreferrer"><button>Learn More</button></a>
+            <a href={item.learnMoreUrl} target="_blank" rel="noopener noreferrer">
+              <button className="learnMoreButton">Learn More</button>
+            </a>
         </div>
       </div>
     </motion.div>
