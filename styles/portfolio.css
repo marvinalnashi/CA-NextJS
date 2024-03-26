@@ -105,6 +105,7 @@
 }
 
 .popupContent {
+  position: relative;
   background: white;
   padding: 20px;
   display: flex;
@@ -116,6 +117,15 @@
 
 .leftHalf, .rightHalf {
   flex: 1;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 11;
 }
 
 @media (max-width: 768px) {

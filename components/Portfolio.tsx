@@ -63,13 +63,13 @@ const Popup: React.FC<{ item: Item; onClose: () => void }> = ({ item, onClose })
       onClick={onClose}
     >
       <div className="popupContent" onClick={(e) => e.stopPropagation()}>
+        <div className="closeButton" onClick={onClose}>X</div>
         <div className="leftHalf">
-          <Image src={item.secondaryImageSrc} alt={item.name} width={500} height={500} />
+          <Image src={item.secondaryImageSrc} alt={item.name} width={500} height={500} layout="responsive" />
           <h2>{item.name}</h2>
         </div>
         <div className="rightHalf">
           <p>{item.description}</p>
-          <button onClick={onClose}>Close</button>
           <a href={item.learnMoreUrl} target="_blank" rel="noopener noreferrer"><button>Learn More</button></a>
         </div>
       </div>
