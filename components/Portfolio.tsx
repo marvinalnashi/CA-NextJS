@@ -38,7 +38,7 @@ const Cards: React.FC<{ imgs: Item[]; onClick: (item: Item) => void }> = ({ imgs
             className="pfGalleryItem"
             onClick={() => onClick(img)}
           >
-            <div className="pfInside">
+            <div className="pfInside rounded-[10px]">
               <img src={img.imageSrc} alt={img.name} className="pfInsideImg" />
               <div className="pfOverlay"></div>
               <div className="pfDetails">
@@ -62,16 +62,16 @@ const Popup: React.FC<{ item: Item; onClose: () => void }> = ({ item, onClose })
       className="popupContainer"
       onClick={onClose}
     >
-      <div className="popupContent" onClick={(e) => e.stopPropagation()}>
+      <div className="popupContent rounded-[10px]" onClick={(e) => e.stopPropagation()}>
         <div className="closeButton" onClick={onClose}>X</div>
         <div className="leftHalf">
-          <Image className="pfImg" src={item.secondaryImageSrc} alt={item.name} width={500} height={500} layout="responsive" />
+          <Image className="pfImg rounded-[10px]" src={item.secondaryImageSrc} alt={item.name} width={500} height={500} layout="responsive" />
           <h2 className="pfModalTitle">{item.name}</h2>
         </div>
         <div className="rightHalf">
           <p>{item.description}</p>
             <a href={item.learnMoreUrl} target="_blank" rel="noopener noreferrer">
-              <button className="learnMoreButton">Learn More</button>
+              <button className="learnMoreButton rounded-[10px]">Learn More</button>
             </a>
         </div>
       </div>
