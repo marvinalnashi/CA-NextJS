@@ -39,7 +39,7 @@ const Cards: React.FC<{ imgs: Item[]; onClick: (item: Item) => void }> = ({ imgs
             onClick={() => onClick(img)}
           >
             <div className="pfInside">
-              <Image className="pfInsideImg" src={img.imageSrc} alt={img.name} layout="fill" objectFit="cover" />
+              <img src={img.imageSrc} alt={img.name} className="pfInsideImg" />
               <div className="pfOverlay"></div>
               <div className="pfDetails">
                 <h2 className="pfDetailsH2">{img.name}</h2>
