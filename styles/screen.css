@@ -300,7 +300,6 @@ html.casper .site-nav {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  overflow: hidden;
   height: 64px;
   font-size: 1.3rem;
 }
