@@ -586,6 +586,13 @@ html.casper .home-template .site-nav-main .fixed-nav-active {
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.05s;
 }
 
+@media (max-width: 1100px) {
+  html.casper .site-nav-left {
+    margin-right: 0;
+    padding-left: 5vw;
+  }
+}
+
 @media (max-width: 700px) {
   html.casper .site-home-header .site-nav {
     margin-left: -5vw;
@@ -594,11 +601,6 @@ html.casper .home-template .site-nav-main .fixed-nav-active {
   html.casper .site-nav-main {
     padding-right: 0;
     padding-left: 0;
-  }
-
-  html.casper .site-nav-left {
-    margin-right: 0;
-    padding-left: 5vw;
   }
 
   /*html.casper .site-nav-right {*/
@@ -931,7 +933,7 @@ make sure this only happens on large viewports / desktop-ish devices.
   }
 
   html.casper .post-card-excerpt {
-    font-size: 1.6rem;
+    font-size: 14px !important;
   }
 }
 
@@ -985,9 +987,9 @@ html.casper .post-full-meta-date {
 }
 
 @media (max-width: 500px) {
-  html.casper .post-full-header {
-    padding: 20px 0 35px;
-  }
+  /*html.casper .post-full-header {*/
+  /*  padding: 20px 0 35px;*/
+  /*}*/
 }
 
 html.casper .post-full-title {
@@ -1032,7 +1034,7 @@ html.casper .post-full-content {
   padding: 0 170px 6vw;
   min-height: 230px;
   font-family: Georgia, serif;
-  font-size: 2.0rem;
+  font-size: 18px;
   line-height: 1.6em;
   background: #fff;
 }
@@ -1045,7 +1047,11 @@ html.casper .post-full-content {
 @media (max-width: 800px) {
   html.casper .post-full-content {
     padding: 0 5vw;
-    font-size: 1.8rem;
+    font-size: 16px;
+  }
+
+  html.casper .post-card-excerpt {
+    font-size: 16px;
   }
 }
 @media (max-width: 500px) {
@@ -1444,7 +1450,8 @@ html.casper .footnote-backref {
   }
 
   html.casper .post-full-content {
-    padding: 0;
+    /*padding: 0;*/
+    font-size: 14px;
   }
 
   html.casper .post-full-content:before,
@@ -2850,6 +2857,8 @@ html.casper .site-footer-content {
   align-items: center;
   color: rgba(255,255,255,0.7);
   font-size: 1.3rem;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 html.casper .site-footer-content a {
