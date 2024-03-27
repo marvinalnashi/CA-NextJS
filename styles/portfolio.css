@@ -40,7 +40,7 @@
 
 .pfBar {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   flex-wrap: nowrap;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
@@ -193,7 +193,7 @@ html.casper body.dark .popupContent {
   flex: 2;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 7px;
 }
 
@@ -224,7 +224,15 @@ html.casper body.dark .rightHalf {
 
 @media (max-width: 768px) {
   .pfBarTag {
-    padding: 5px 8px; /* Slightly reduce padding on smaller screens */
+    padding: 5px 8px;
+  }
+
+  .pfBarTag:hover {
+    color: #000000;
+  }
+
+  html.casper body.dark .pfBarTag:hover {
+    color: #FFFFFF;
   }
 
   .pfGalleryItem {

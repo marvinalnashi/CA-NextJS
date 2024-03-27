@@ -61,7 +61,7 @@ const HeroBanner: React.FC = () => {
 
                 <div className="text-center xl:text-end xl:col-span-2" data-aos="fade-left" data-aos-delay="500"
                      data-aos-duration="600" data-aos-once="true">
-                  <Image src={heroApp} alt="Hero Banner" className="inline-block"/>
+                  <Image src={heroApp} alt="Hero Banner" className="hero-banner-position"/>
                 </div>
               </div>
             </div>
