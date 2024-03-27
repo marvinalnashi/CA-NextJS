@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { ReactFragment } from 'react'
+import { ReactFragment, useState } from 'react'
 import { NavItem } from '@lib/ghost'
+import { categoriesData } from '@lib/categoriesData'
 
 /**
  * Navigation component
@@ -19,17 +20,50 @@ interface NavigationProps {
 }
 
 export const Navigation = ({ data, navClass }: NavigationProps) => {
-  const items: ReactFragment[] = []
+  const [isHovering, setIsHovering] = useState(false);
+
+  const items: ReactFragment[] = [];
 
   data?.map((navItem, i) => {
-    if (navItem.url.match(/^\s?http(s?)/gi)) {
+    // Dynamically add dropdown for Blog nav item
+    if (navItem.label === 'Blog') {
+      items.push(
+        <li key={i} className={`nav-${navItem.label.toLowerCase()}`} role="menuitem"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(true)}>
+          <div className={navClass}>
+            <Link href={navItem.url}>{navItem.label}</Link>
+            {isHovering && (
+              <div className="categories-dropdown">
+                <div className="categories-pane">
+                  {categoriesData.map((category, index) => (
+                    <div key={index} className="category">
+                      {category.name}
+                    </div>
+                  ))}
+                </div>
+                <div className="subcategories-pane">
+                  {categoriesData.map((category) =>
+                    category.subcategories.map((sub, subIndex) => (
+                      <div key={subIndex} className="subcategory">
+                        {sub.name}
+                      </div>
+                    )),
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </li>,
+      );
+    } else if (navItem.url.match(/^\s?http(s?)/gi)) {
       items.push(
         <li key={i} className={`nav-${navItem.label.toLowerCase()}`} role="menuitem">
           <a className={navClass} href={navItem.url} target="_blank" rel="noopener noreferrer">
             {navItem.label}
           </a>
         </li>,
-      )
+      );
     } else {
       items.push(
         <li key={i} className={`nav-${navItem.label.toLowerCase()}`} role="menuitem">
@@ -37,13 +71,13 @@ export const Navigation = ({ data, navClass }: NavigationProps) => {
             <Link href={navItem.url}>{navItem.label}</Link>
           </div>
         </li>,
-      )
+      );
     }
-  })
+  });
 
   return (
     <ul className="nav" role="menu">
       {items}
     </ul>
-  )
-}
+  );
+};
