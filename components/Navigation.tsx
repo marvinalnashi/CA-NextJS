@@ -25,7 +25,6 @@ export const Navigation = ({ data, navClass }: NavigationProps) => {
   return (
     <ul className="nav" role="menu">
       {data?.map((navItem, i) => {
-        // Conditionally render dropdown for the Blog button
         if (navItem.label === 'Blog') {
           return (
             <li key={i} className={`nav-${navItem.label.toLowerCase()}`} role="menuitem" onMouseLeave={() => setActiveCategory(null)}>
@@ -45,7 +44,9 @@ export const Navigation = ({ data, navClass }: NavigationProps) => {
                   </div>
                   <div className="nav-subcategory-colour subcategories-pane">
                     {categoriesData.find((cat) => cat.name === activeCategory)?.subcategories.map((sub) => (
-                      <Link legacyBehavior key={sub.name} href={sub.url}>{sub.name}</Link>
+                      <Link legacyBehavior key={sub.name} href={sub.url} passHref>
+                        <div>{sub.name}</div>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -54,7 +55,6 @@ export const Navigation = ({ data, navClass }: NavigationProps) => {
           );
         }
 
-        // Render other navigation items normally
         return (
           <li key={i} className={`nav-${navItem.label.toLowerCase()}`} role="menuitem">
             <Link legacyBehavior href={navItem.url}><a className={navClass}>{navItem.label}</a></Link>

@@ -299,7 +299,6 @@ html.casper .site-nav {
   z-index: 100;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   height: 64px;
   font-size: 1.3rem;
 }
@@ -329,7 +328,7 @@ html.casper .site-nav-main .site-nav-left-wrapper:after {
 html.casper .site-nav-left {
   flex: 1 0 auto;
   display: flex;
-  align-items: center;
+  /*align-items: center;*/
   /*overflow-x: auto;*/
   /*overflow-y: hidden;*/
   overflow: visible;
@@ -3129,8 +3128,8 @@ html.casper body.dark .text-no-underline {
   }
 }
 
-/* Dropdown Menu Styles */
 .nav-blog .dropdown {
+  display: none;
   position: absolute;
   left: 0;
   background-color: #FFFFFF;
@@ -3154,7 +3153,7 @@ html.casper body.dark .nav-blog .dropdown {
 }
 
 .categories-pane, .subcategories-pane {
-  padding: 12px;
+  padding: 0 12px;
   cursor: pointer;
   height: auto;
   max-height: 300px;
@@ -3162,29 +3161,28 @@ html.casper body.dark .nav-blog .dropdown {
   width: 50%;
 }
 
-/* Apply consistent styling to both categories and subcategories */
-.categories-pane div, .subcategories-pane a {
+.categories-pane div, .subcategories-pane div {
   display: block;
-  margin: 8px 0; /* Adjust spacing */
-  padding: 8px 0; /* Add padding for better visual spacing */
-  border-bottom: 1px solid #eaeaea; /* Thin line between items */
-  color: #000000 !important; /* Ensure text color is consistent */
+  margin: 8px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #eaeaea;
+  color: #000000 !important;
 }
 
-.categories-pane div:hover,
-.subcategories-pane a:hover {
-  /*background-color: #f1f1f1;*/
-}
+/*.categories-pane div:hover,*/
+/*.subcategories-pane div:hover {*/
+/*  background-color: #f1f1f1;*/
+/*}*/
 
 /* Dark mode adjustments */
 html.casper body.dark .nav-subcategory-colour div,
-html.casper body.dark .nav-subcategory-colour a {
+html.casper body.dark .nav-subcategory-colour div {
   color: #FFFFFF !important; /* Ensure dark mode text color is white */
 }
 
 /* Remove border for the last item to maintain visual consistency */
 .categories-pane div:last-child,
-.subcategories-pane a:last-child {
+.subcategories-pane div:last-child {
   border-bottom: none;
 }
 
