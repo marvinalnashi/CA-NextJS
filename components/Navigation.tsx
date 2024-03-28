@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { ReactFragment } from 'react'
+import { ReactFragment, useState } from 'react'
 import { NavItem } from '@lib/ghost'
+import { categoriesData } from '@lib/categoriesData'
 
 /**
  * Navigation component
@@ -19,31 +20,47 @@ interface NavigationProps {
 }
 
 export const Navigation = ({ data, navClass }: NavigationProps) => {
-  const items: ReactFragment[] = []
-
-  data?.map((navItem, i) => {
-    if (navItem.url.match(/^\s?http(s?)/gi)) {
-      items.push(
-        <li key={i} className={`nav-${navItem.label.toLowerCase()}`} role="menuitem">
-          <a className={navClass} href={navItem.url} target="_blank" rel="noopener noreferrer">
-            {navItem.label}
-          </a>
-        </li>,
-      )
-    } else {
-      items.push(
-        <li key={i} className={`nav-${navItem.label.toLowerCase()}`} role="menuitem">
-          <div className={navClass}>
-            <Link href={navItem.url}>{navItem.label}</Link>
-          </div>
-        </li>,
-      )
-    }
-  })
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   return (
     <ul className="nav" role="menu">
-      {items}
+      {data?.map((navItem, i) => {
+        // Conditionally render dropdown for the Blog button
+        if (navItem.label === 'Blog') {
+          return (
+            <li key={i} className={`nav-${navItem.label.toLowerCase()}`} role="menuitem" onMouseLeave={() => setActiveCategory(null)}>
+              <div className={navClass}>
+                <Link href={navItem.url}>{navItem.label}</Link>
+                {/* Dropdown menu */}
+                <div className="dropdown">
+                  <div className="nav-subcategory-colour categories-pane">
+                    {categoriesData.map((category) => (
+                      <div
+                        key={category.name}
+                        onMouseEnter={() => setActiveCategory(category.name)}
+                      >
+                        {category.name}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="nav-subcategory-colour subcategories-pane">
+                    {categoriesData.find((cat) => cat.name === activeCategory)?.subcategories.map((sub) => (
+                      <Link legacyBehavior key={sub.name} href={sub.url}>{sub.name}</Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </li>
+          );
+        }
+
+        // Render other navigation items normally
+        return (
+          <li key={i} className={`nav-${navItem.label.toLowerCase()}`} role="menuitem">
+            <Link legacyBehavior href={navItem.url}><a className={navClass}>{navItem.label}</a></Link>
+          </li>
+        );
+      })}
     </ul>
-  )
-}
+  );
+};
