@@ -3131,14 +3131,13 @@ html.casper body.dark .text-no-underline {
 
 /* Dropdown Menu Styles */
 .nav-blog .dropdown {
-  /*display: none;*/
   position: absolute;
   left: 0;
   background-color: #FFFFFF;
   border-radius: 10px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  width: 300px;
+  width: 400px;
   max-height: 600px;
 }
 
@@ -3150,6 +3149,10 @@ html.casper body.dark .nav-blog .dropdown {
   display: flex !important;
 }
 
+.categories-pane {
+  border-right: 1px solid #eaeaea;
+}
+
 .categories-pane, .subcategories-pane {
   padding: 12px;
   cursor: pointer;
@@ -3159,9 +3162,13 @@ html.casper body.dark .nav-blog .dropdown {
   width: 50%;
 }
 
+/* Apply consistent styling to both categories and subcategories */
 .categories-pane div, .subcategories-pane a {
   display: block;
-  margin: 2px 0;
+  margin: 8px 0; /* Adjust spacing */
+  padding: 8px 0; /* Add padding for better visual spacing */
+  border-bottom: 1px solid #eaeaea; /* Thin line between items */
+  color: #000000 !important; /* Ensure text color is consistent */
 }
 
 .categories-pane div:hover,
@@ -3169,20 +3176,30 @@ html.casper body.dark .nav-blog .dropdown {
   /*background-color: #f1f1f1;*/
 }
 
-.nav-dropdown-overflow {
-  overflow: visible;
-}
-
-.nav-subcategory-colour div,
-.nav-subcategory-colour a {
-  color: #000000 !important;
-}
-html.casper body.dark .nav-subcategory-colour div {
-  color: #FFFFFF !important;
-}
-
+/* Dark mode adjustments */
+html.casper body.dark .nav-subcategory-colour div,
 html.casper body.dark .nav-subcategory-colour a {
-  color: #FFFFFF !important;
+  color: #FFFFFF !important; /* Ensure dark mode text color is white */
+}
+
+/* Remove border for the last item to maintain visual consistency */
+.categories-pane div:last-child,
+.subcategories-pane a:last-child {
+  border-bottom: none;
+}
+
+/* Optional: Adjust the right pane border for dark mode */
+html.casper body.dark .subcategories-pane {
+  border-right-color: #3a3b3d; /* Dark mode border color */
+}
+
+.categories-pane::-webkit-scrollbar, .subcategories-pane::-webkit-scrollbar {
+  display: none;
+}
+
+.categories-pane, .subcategories-pane {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /*@media (min-width: 768px) {*/
