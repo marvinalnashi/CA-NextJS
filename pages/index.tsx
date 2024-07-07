@@ -93,7 +93,7 @@ export const getStaticProps: GetStaticProps<IndexProps> = async () => {
     settings,
     posts,
     seoImage: await seoImage({ siteUrl: settings.processEnv.siteUrl }),
-    bodyClass: BodyClass({ isHome: true }),
+    bodyClass: BodyClass({ isHome: false }),
   }
 
   console.timeEnd('Index - getStaticProps')

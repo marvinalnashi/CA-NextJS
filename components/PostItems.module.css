@@ -1,0 +1,39 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.masonryLayout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.masonryLayout .post-card {
+  flex: 1 1 calc(33% - 1rem);
+  margin-bottom: 1rem;
+}
+
+.masonryLayout .post-card-large {
+  flex: 1 1 calc(66% - 1rem);
+}
+
+.listLayout {
+  display: flex;
+  flex-direction: column;
+}
+
+.listLayout .post-card {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.listLayout .post-card-image-link {
+  flex: 0 0 200px;
+  margin-right: 1rem;
+}
+
+.listLayout .post-card-content {
+  flex: 1;
+}

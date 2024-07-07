@@ -1,12 +1,13 @@
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { Layout } from '@components/Layout';
-import { PostView } from '@components/PostView';
+import { PostItems } from '@components/PostItems';
 import { processEnv } from '@lib/processEnv';
 import {
   getAllPosts,
   getAllSettings,
-  getAllTagsWithNames, GhostPostOrPage,
+  getAllTagsWithNames,
+  GhostPostOrPage,
   GhostPostsOrPages,
   GhostSettings
 } from '@lib/ghost';
@@ -15,17 +16,17 @@ import { BodyClass } from '@helpers/BodyClass';
 import TagsBar from '@components/TagsBar';
 import { Tag } from "@pages/index";
 import { BlogHeaderIndex } from "@components/BlogHeaderIndex";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface BlogProps {
   tags: Tag[];
-  posts: GhostPostsOrPages
-  settings: GhostSettings
-  seoImage: ISeoImage
-  previewPosts?: GhostPostsOrPages
-  prevPost?: GhostPostOrPage
-  nextPost?: GhostPostOrPage
-  bodyClass: string
+  posts: GhostPostsOrPages;
+  settings: GhostSettings;
+  seoImage: ISeoImage;
+  previewPosts?: GhostPostsOrPages;
+  prevPost?: GhostPostOrPage;
+  nextPost?: GhostPostOrPage;
+  bodyClass: string;
 }
 
 export default function Blog(props: BlogProps) {
@@ -38,24 +39,24 @@ export default function Blog(props: BlogProps) {
     <>
       <Layout {...{ bodyClass, settings, isHome: true }} header={<BlogHeaderIndex {...{ settings }} />}>
         <TagsBar tags={tags} />
-        <PostView {...{ settings, posts, isHome: true }} />
+        <PostItems {...{ settings, posts, isHome: true }} />
       </Layout>
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  let settings
-  let posts: GhostPostsOrPages | []
+  let settings;
+  let posts: GhostPostsOrPages | [];
   const tags = await getAllTagsWithNames();
 
-  console.time('Index - getStaticProps')
+  console.time('Index - getStaticProps');
 
   try {
-    settings = await getAllSettings()
-    posts = await getAllPosts()
+    settings = await getAllSettings();
+    posts = await getAllPosts();
   } catch (error) {
-    throw new Error('Index creation failed.')
+    throw new Error('Index creation failed.');
   }
 
   const cmsData = {
@@ -63,9 +64,9 @@ export const getStaticProps: GetStaticProps = async () => {
     posts,
     seoImage: await seoImage({ siteUrl: settings.processEnv.siteUrl }),
     bodyClass: BodyClass({ isHome: true }),
-  }
+  };
 
-  console.timeEnd('Index - getStaticProps')
+  console.timeEnd('Index - getStaticProps');
 
   return {
     props: {
@@ -76,5 +77,5 @@ export const getStaticProps: GetStaticProps = async () => {
       bodyClass: BodyClass({}),
     },
     ...(processEnv.isr.enable && { revalidate: processEnv.isr.revalidate }),
-  }
-}
+  };
+};
