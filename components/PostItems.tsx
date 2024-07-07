@@ -26,6 +26,11 @@ export const PostItems = ({ settings, posts, isHome }: PostItemsProps) => {
       .slice(0, tagLimits[tag]),
   }));
 
+  const filteredPostsForAllSection = posts.filter(
+    (post: GhostPostOrPage) =>
+      !post.tags?.some((postTag) => postTag.name && tagsToGroupBy.includes(postTag.name))
+  );
+
   const renderMasonrySection = (posts: GhostPostOrPage[], layout: string) => (
     <div className={styles[layout]}>
       {posts.map((post, i) => (
@@ -46,7 +51,7 @@ export const PostItems = ({ settings, posts, isHome }: PostItemsProps) => {
         </div>
       ))}
       <div>
-        {renderMasonrySection(posts as GhostPostOrPage[], 'masonryLayout')}
+        {renderMasonrySection(filteredPostsForAllSection as GhostPostOrPage[], 'masonryLayout')}
       </div>
     </div>
   );
