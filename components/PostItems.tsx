@@ -8,14 +8,22 @@ interface PostItemsProps {
   isHome?: boolean;
 }
 
+const tagLimits: { [key: string]: number } = {
+  "Parent Tag 2": 5,
+  "Parent Tag 14": 3,
+  "Parent Tag 5": 4,
+};
+
 export const PostItems = ({ settings, posts, isHome }: PostItemsProps) => {
   const tagsToGroupBy = ["Parent Tag 2", "Parent Tag 14", "Parent Tag 5"];
 
   const categorizedPosts = tagsToGroupBy.map((tag) => ({
     tag,
-    posts: posts.filter((post: GhostPostOrPage) =>
-      post.tags?.some((postTag) => postTag.name === tag)
-    ),
+    posts: posts
+      .filter((post: GhostPostOrPage) =>
+        post.tags?.some((postTag) => postTag.name === tag)
+      )
+      .slice(0, tagLimits[tag]),
   }));
 
   const renderMasonrySection = (posts: GhostPostOrPage[], layout: string) => (
@@ -30,7 +38,6 @@ export const PostItems = ({ settings, posts, isHome }: PostItemsProps) => {
     <div className={styles.container}>
       {isHome && categorizedPosts.map((category, index) => (
         <div key={index}>
-          <h2>{category.tag}</h2>
           {category.posts.length > 0 ? (
             renderMasonrySection(category.posts, 'masonryLayout')
           ) : (
@@ -39,7 +46,6 @@ export const PostItems = ({ settings, posts, isHome }: PostItemsProps) => {
         </div>
       ))}
       <div>
-        {isHome ? <h2>All Posts</h2> : null}
         {renderMasonrySection(posts as GhostPostOrPage[], 'masonryLayout')}
       </div>
     </div>
