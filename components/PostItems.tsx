@@ -26,10 +26,12 @@ export const PostItems = ({ settings, posts, isHome }: PostItemsProps) => {
       .slice(0, tagLimits[tag]),
   }));
 
-  const filteredPostsForAllSection = posts.filter(
-    (post: GhostPostOrPage) =>
-      !post.tags?.some((postTag) => postTag.name && tagsToGroupBy.includes(postTag.name))
-  );
+  const filteredPostsForAllSection = isHome
+    ? posts.filter(
+      (post: GhostPostOrPage) =>
+        !post.tags?.some((postTag) => postTag.name && tagsToGroupBy.includes(postTag.name))
+    )
+    : posts;
 
   const renderMasonrySection = (posts: GhostPostOrPage[], layout: string) => (
     <div className={styles[layout]}>
